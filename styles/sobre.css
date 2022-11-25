@@ -1,0 +1,37 @@
+.border{
+    border-top: var(--laranja) 3px solid;
+    width: 3rem;
+    margin: 0 auto;
+}
+.sobre{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   text-align: center;
+   padding: 2rem;
+   background-color: var(--branco);
+}
+.titulo-sobre{
+    font-family: var(--Lato);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--marrom-claro);
+    margin: 1rem auto;
+}
+.titulo-conteudo{
+    font-family: var(--Roboto);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--laranja);
+    text-align: start;
+    margin: 0 auto;
+    line-height: 4rem;
+    margin-bottom: .5rem;
+}
+.sobre-conteudo{
+    font-family: var(--Lato);
+    color: var(--marrom-claro);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+}

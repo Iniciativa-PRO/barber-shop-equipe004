@@ -1,0 +1,59 @@
+.card-cortes{
+    background-color: var(--cor-de-fundo);
+}
+.card{
+    border: solid 1px var(--marrom-escuro);
+    background-color: var(--marrom-escuro);
+    width: 330px;
+    margin-top: -12rem;
+    margin-left: .9rem;
+    position: absolute;
+    padding: 1rem;
+}
+.card-box{
+    border: solid 1px var(--laranja);
+    padding: 1.5rem;
+    width: 280px;
+    height: 540px;
+    padding-bottom: 3rem;
+}
+.paragrafo-lista{
+    color: var(--branco);
+    text-align: start;
+    font-family: var(--Roboto);  
+    font-weight: 700;
+    font-size: .8rem;
+}
+.cortes-paragrafo{
+    margin-top: 2rem;
+}
+.titulo-lista-cortes{
+    font-family: var(--Roboto);
+    font-weight: 700;
+    color: var(--laranja);
+    line-height: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.lista-cortes{
+    display: flex;
+    justify-content: space-between;
+}
+.texto-lista{
+    color: var(--branco);
+    text-align: start;
+    font-family: var(--Roboto);  
+    font-weight: 700;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+}
+.item-preco{
+    color: var(--laranja);
+    font-weight: 700;
+    font-family: var(--Roboto);
+}
+.borda{
+    border: 1px solid var(--laranja);
+    width: 70%;
+    margin: 1rem auto;
+}

@@ -1,0 +1,64 @@
+.destaques{
+    padding-top: 31rem;
+    background-color: var(--branco);
+    text-align: center;
+}
+.titulo-descritivo{
+    color: var(--preto);
+    font-weight: 700;
+    font-family: var(--Roboto);
+    font-size: 1.4rem;
+    margin-top: 1rem;
+}
+.texto-descritivo-destaques{
+    font-family: var(--Roboto);
+    font-weight: 700;
+    color: var(--laranja);
+    font-size: 1.4rem;
+    margin: 1rem auto;
+}
+.cliente-foto{
+background-repeat: no-repeat;
+background-position: center;
+width: 300px;
+height: 300px;
+background-size: 300px;
+border: 4px solid var(--preto);
+margin: 0 auto;
+}
+.cliente-1{
+background-image: url(../imagens_svg/person-1\ 1.svg);
+}
+.cliente-2{
+background-image: url(../imagens_svg/person-1\ 1\ \(1\).svg);
+}
+.cliente-3{
+background-image: url(../imagens_svg/person-1\ 1\ \(2\).svg);
+}
+.cliente-foto:hover .borda-foto{
+    display: block;
+}
+.borda-foto{
+position: relative;
+border: 3px solid var(--laranja);
+margin-left: -1.5rem;
+margin-top: .8rem;
+width: 310px;
+height: 300px;
+}
+.titulo-destaques{
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--laranja);
+    margin-top: 2rem;
+    text-transform: uppercase;
+}
+.conteudo-destaques{
+    color: var(--marrom-claro);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2.3rem;
+}

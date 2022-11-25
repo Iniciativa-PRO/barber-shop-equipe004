@@ -1,0 +1,28 @@
+@import url("styles/header.css");
+@import url("styles/iniciativa.css");
+@import url("styles/sobre.css");
+@import url("styles/servicos.css");
+@import url("styles/card.css");
+@import url("styles/destaques.css");
+@import url("styles/profissionais.css");
+@import url("styles/agendamento.css");
+@import url("styles/localizacao.css");
+:root{
+    --cor-de-fundo: #E5E5E5;
+    --branco: #FFFFFF;
+    --marrom-escuro: #333131;
+    --marrom-claro: #523D2A;
+    --verde: #364041;
+    --laranja: #ECB074;
+    --preto: #000000;
+    --cor-borda: #968787;
+    --Roboto: "Roboto";
+    --Lato: "Lato" ;
+
+}
+body{
+    background-color: var(--branco);
+    font-family: var(--Roboto);
+    font-weight: 400;
+    font-size: 16px;
+}

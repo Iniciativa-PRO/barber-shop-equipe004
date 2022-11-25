@@ -1,0 +1,10 @@
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--marrom-escuro);
+    padding: 1.3rem;
+}
+.logo-cabecalho{
+    margin: 0 auto;
+}
+

@@ -1,31 +1,370 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link href="reset.css" rel="stylesheet">
+    <title>BarberShop</title>
 </head>
+
 <body>
-    <nav>
-        <img src="" alt="">
+    <header>
+        <nav class="cabecalho">
+            <img src="imagens_svg/Iniciativa-pro-logo 3.svg" alt="Logo BarberShop" class="logo-cabecalho">
+            <img src="icones/menu-hamburguer.svg" alt="Ícone menu-hamburguer" class="cabecalho-menu-hamburguer">
+        </nav>
+    </header>
+    <section class="iniciativa">
+        <h1 class="titulo-iniciativa">Iniciativa pro barbershop</h1>
+        <p class="conteudo-iniciativa">Seja bem vindo a Barbearia Iniciativa PRO,
+            Somos a melhor barbearia da cidade, sinta-se a vontade em nossas comodações cortes, barbas estilizadas,
+            tingimento de cabelo,
+            Manicure e Podologia, Hidradatação e esfoliação e etc.</p>
+        <button class="botao-agendamento" id="botao-agendamento" name="botao-agendamento">Agende o seu corte</button>
+    </section>
 
-        <ul>
-            <li>Sobre</li>
-            <li>Serviços</li>
-            <li>Agenda</li>
-            <li>Contato</li>
+    <section class="sobre">
+        <div class="border"></div>
+        <h2 class="titulo-sobre">Sobre a barbearia</h2>
+        <pre class="titulo-conteudo">Bem vindo a Barbearia</pre>
+        <p class="sobre-conteudo">Seja bem vindo a Barbearia Iniciativa PRO, Somos a melhor barbearia da cidade,
+            sinta-se a vontade em nossas comodações cortes, barbas estilizadas,
+            tingimento de cabelo,Manicure e Podologia, Hidradatação e esfoliação e etc.</p>
+        <img src="imagens_svg/barberShop_Sobre.svg" alt="Imagem barbershop">
+    </section>
+
+    <section class="servicos">
+        <div class="border"></div>
+        <h1 class="titulo-servicos">Nossos serviços</h1>
+        <pre class="chamada-servicos">Conheça as especialidades da Casa</pre>
+        <ul class="lista-servicos">
+            <img src="imagens_svg/maquinaDeCortar.svg" alt="Ícone máquina de cortar">
+            <li class="titulo-lista">Máquina</li>
+            <li class="conteudo-lista">
+                <pre>Corte de cabelo com apenas 
+uma gradação(um pente) de 
+maquina sem uso de tesoura, 
+mais lavação com Shampoo e 
+Condicionador Iniciativa PRO. 
+Finalização com produtos da 
+linha Iniciativa PRO Barbearia.</pre>
+            </li>
         </ul>
-    </nav>
+        <ul class="lista-servicos">
+            <img src="imagens_svg/rostoIcone.svg" alt="Ícone rosto com barba">
+            <li class="titulo-lista">Cabelo</li>
+            <div class="border"></div>
+            <li class="conteudo-lista">
+                <pre>Corte de Cabelo, lavação 
+com Shampoo e 
+Condicionador Iniciativa 
+PRO. Finalização com a 
+linha de produtos Iniciativa 
+PRO Barbearia.</pre>
+            </li>
+        </ul>
+        <ul class="lista-servicos">
+            <img src="imagens_svg/navalha.svg" alt="Ícone navalha">
+            <li class="titulo-lista">Barba</li>
+            <div class="border"></div>
+            <li class="conteudo-lista">
+                <pre>Tradicional técnica de 
+barbear somada a uma 
+relaxante toalha quente, óleo 
+pré-shave, espuma de 
+barbear aquecida. Processo 
+finalizado com massagem 
+relaxante para ativar a 
+circulação utilizando a linha 
+de produtos para barba da 
+Iniciativa PRO, After Shave 
+Lotion e Beard Styling Balm.</pre>
+            </li>
+        </ul>
+        <ul class="lista-servicos">
+            <img src="imagens_svg/tesoura.svg" alt="Ícone tesoura">
+            <li class="titulo-lista">Corte</li>
+            <div class="border"></div>
+            <li class="conteudo-lista">
+                <pre>Corte, lavação com Shampoo 
+e Condicionador e finalização 
+com a linha de produtos para 
+cabelo Iniciativa PRO, 
+somados a tradicional técnica 
+de barbear, a uma relaxante 
+toalha quente, óleo pré-
+shave, espuma de barbear 
+aquecida, finalizada com a 
+linha de produtos para barba 
+da Iniciativa PRO.</pre>
+            </li>
+        </ul>
+    </section>
 
-    <main>
+    <section class="card-cortes">
+        <div class="card">
+            <div class="card-box">
+                <p class="paragrafo-lista">Lista de cortes</p>
+                <h1 class="titulo-lista-cortes">Ajuste de barba</h1>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Barba Tradicional</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Cavanhaque</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Barba Arredondada</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Barba Degradê</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Van Dyke</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Balbo</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Barba Lenhador</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
 
-    </main>
+                <div class="borda"></div>
+                <p class="paragrafo-lista cortes-paragrafo">Lista de cortes</p>
+                <h1 class="titulo-lista-cortes">Cortes Clássicos</h1>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Corte Básico</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 15</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Corte com Tesoura</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Corte Texturizado</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Corte Militar</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">French Crop</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Side parting</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+                <ul class="lista-cortes">
+                    <li class="texto-lista">Shaped Afro</li>
+                    <hr size="2" width="30%" style="text-align: center; color: var(--cor-borda)" noshade>
+                    <li class="item-preco">R$ 30</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="destaques">
+        <div class="border"></div>
+        <h1 class="titulo-descritivo">Veja as fotos e selecione abaixo</h1>
+        <p class="texto-descritivo-destaques">Cabelo / Barba</p>
+        <div class="cliente-foto cliente-1">
+            <div class="borda-foto"></div>
+        </div>
+        <h1 class="titulo-destaques">Acabamentos</h1>
+        <pre class="conteudo-destaques">Velho e bom “pezinho” ou
+“pé de cabelo” a navalha 
+como era chamado 
+antigamente, contorno do 
+corte apenas feito com 
+navalhete e lamina 
+descartável importada.</pre>
+
+        <div class="cliente-foto cliente-2">
+            <div class="borda-foto"></div>
+        </div>
+        <h1 class="titulo-destaques">ESCOVA PROGRESSIVA CABELO CURTO</h1>
+        <pre class="conteudo-destaques">Técnica utilizada para alisar 
+os cabelos, também ajuda a 
+tratar e diminuir o volume 
+dos fios. Ela é chamada 
+“progressiva” pelo efeito 
+gradual que causa nos 
+cabelos a cada aplicação: 
+eles vão ficando 
+progressivamente mais finos 
+e menos cheios. Produtos 
+importados sem formol.</pre>
+
+        <div class="cliente-foto cliente-3">
+            <div class="borda-foto"></div>
+        </div>
+        <h1 class="titulo-destaques">BARBA NAVALHA + PIGMENTAÇÃO DE BARBA</h1>
+        <pre class="conteudo-destaques">Tradicional técnica de 
+barbear somada a 
+pigmentação de barba.
+Começando com uma 
+relaxante toalha quente, 
+óleo pré-shave e espuma 
+de barbear aquecida. 
+Processo finalizado com 
+massagem relaxante para 
+ativar a circulação 
+utilizando a linha de 
+produtos para barba da 
+Iniciativa PRO. </pre>
+    </section>
+
+    <section class="profissionais">
+        <div class="border"></div>
+        <p class="titulo-barbeiros">Conheça nossos profissionais</p>
+        <h1 class="descricao-barbeiros">Os Barbeiros da Casa</h1>
+        <ul class="lista-barbeiros">
+            <li class="item-barbeiro">
+                <div class="barbeiro-foto barbeiro-1">
+                    <div class="borda-foto"></div>
+                </div>
+                <p class="nome-barbeiro">Lucas</p>
+            </li>
+            <li class="item-barbeiro">
+                <div class="barbeiro-foto barbeiro-2">
+                    <div class="borda-foto"></div>
+                </div>
+                <p class="nome-barbeiro">Adriano</p>
+            </li>
+            <li class="item-barbeiro">
+                <div class="barbeiro-foto barbeiro-3">
+                    <div class="borda-foto"></div>
+                </div>
+                <p class="nome-barbeiro">Ygor</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="agendamento">
+        <div class="border border-2"></div>
+        <div class="agendamento-textos">
+        <p class="agendamento-paragrafo">Venha nos visitar</p>
+        <h1 class="titulo-agendamento">Marque um horário</h1>
+        </div>
+        <div class="quadro-agendamento">
+            <div class="agendamento-area">
+                <ul class="agendamento-lista">
+                    <li><img src="Icones/Group.png" alt="Ícone do avatar perfil"></li>
+                    <li>
+                        <p class="texto-quadro nome">Nome</p>
+                    </li>
+                </ul>
+                <input type="text" id="input-name" name="input-name" class="input-txt">
+            </div>
+            <div class="agendamento-area">
+                <ul class="agendamento-lista">
+                    <li><img src="Icones/eva_email-outline.png" alt="Ícone email"></li>
+                    <li>
+                        <p class="texto-quadro">Email</p>
+                    </li>
+                </ul>
+                <input type="email" id="input-name" name="input-email" class="input-txt">
+            </div>
+            <div class="agendamento-area">
+                <ul class="agendamento-lista">
+                    <li><img src="Icones/Frame 2.png" alt="Ícone Telefone"></li>
+                    <li>
+                        <p class="texto-quadro">Telefone</p>
+                    </li>
+                </ul>
+                <input type="number" id="input-tel" name="input-tel" class="input-txt">
+            </div>
+            <div class="agendamento-area">
+                <ul class="agendamento-lista">
+                    <li><img src="Icones/mdi_chair-rolling.png" alt="Ícone cadeira de barbeiro"></li>
+                    <li>
+                        <p class="texto-quadro">Serviço</p>
+                    </li>
+                </ul>
+                <input type="text" id="input-servico" name="input-servico" class="input-txt">
+            </div>
+            <div class="agendamento-area">
+                <ul class="agendamento-lista">
+                    <li><img src="Icones/akar-icons_calendar.png" alt="Ícone do calendário"></li>
+                    <li>
+                        <p class="texto-quadro">Data</p>
+                    </li>
+                </ul>
+                <input type="date" id="input-data" name="input-data" class="input-txt">
+            </div>
+            <div class="agendamento-area">
+                <ul class="agendamento-lista">
+                    <li><img src="Icones/akar-icons_clock.png" alt="Ícone relógio"></li>
+                    <li>
+                        <p class="texto-quadro">Hora</p>
+                    </li>
+                </ul>
+                <input type="time" id="input-hora" name="input-hora" class="input-txt">
+            </div>
+            
+        </div>
+        <button class="botao-agendamento botao-2" id="botao-agendamento" name="botao-agendamento">Agende o seu corte</button>
+    </section>
+
+    <section class="localizacao">
+        <div class="box-localizacao">
+            <ul class="lista-localizacao">
+                <li><img src="Icones/carbon_location-filled.png" alt="Ícone de localização"></li>
+                <li><p class="texto-localizacao">Avenida Ayrton Senna 332</p></li>
+            </ul>
+            <ul class="lista-localizacao">
+                <li><img src="Icones/Vector (2).png" alt="Ícone WhatsApp"></li>
+                <li><p class="texto-localizacao">96 98337-2561</p></li>
+            </ul>
+            <ul class="lista-localizacao">
+                <li><img src="Icones/eva_email-outline.png" alt="Ícone e-mail"></li>
+                <li><p class="texto-localizacao">contato@barbearia.com.br</p></li>
+            </ul>
+            <ul class="lista-localizacao">
+                <link><img src="Icones/akar-icons_clock.png" alt="Ícone relógio"></link>
+                <li><p class="texto-localizacao">10:00 às 21:00</p></li>
+            </ul>
+
+            <div class="links">
+                <ul class="lista-links">
+                    <a src="#" id="facebook" name="facebook"><img src="Icones/facebook.png" alt="Ícone Facebook" class="fb"></a>
+                    <a src="#" id="instagram" name="instagram"><img src="Icones/Vector (1).png" alt="Ícone Instagram"></a>
+                    <a src="#" id="youtube" name="youtube"><img src="Icones/Vector.png" alt="Ícone Youtube"></a>
+                </ul>
+            </div>
+        </div>
     
-    <footer>
-        
-    </footer>
-
-
+    </section>
 </body>
+
 </html>

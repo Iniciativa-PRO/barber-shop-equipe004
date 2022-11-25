@@ -1,0 +1,29 @@
+.localizacao{
+    background-color: var(--marrom-escuro);
+    padding: 1.5rem;
+}
+.box-localizacao{
+    border: 2px solid var(--laranja);
+    padding: 3rem;
+}
+.lista-localizacao{
+    display: flex;
+    align-items: center;
+    padding: .3rem;
+}
+.texto-localizacao{
+    color: var(--branco);
+    font-family: var(--Roboto);
+    font-size: 1rem;
+    margin-left: .7rem;
+}
+.lista-links{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    margin-top: 1.8rem;
+}
+.fb{
+    margin-top: -.7rem;
+}

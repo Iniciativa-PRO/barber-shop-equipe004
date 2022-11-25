@@ -1,0 +1,34 @@
+.iniciativa{
+    background-color:var(--verde);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+.titulo-iniciativa{
+    color: var(--laranja);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-family: var(--Roboto);
+}
+.conteudo-iniciativa{
+    font-family: var(--Lato);
+    color: var(--branco);
+    font-weight: 400;
+    margin: 2rem auto 2rem auto;
+    text-align: center;
+    line-height: 1.5rem;
+}
+.botao-agendamento{
+    background-color: var(--laranja);
+    color: var(--marrom-claro);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    padding: .7rem 1rem;
+    width: 9rem;
+    border-radius: .6rem;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin: 0 auto;
+}

@@ -1,0 +1,34 @@
+.servicos{
+ padding-bottom: 13rem;
+ padding-top: 3rem;
+ background-color: var(--verde);
+ text-align: center;
+}
+.titulo-servicos{
+    font-family: var(--Roboto);
+    font-size: 1.3rem;
+    color: var(--branco);
+    font-weight: 700;
+    margin: 1.5rem auto;
+}
+.chamada-servicos{
+    color: var(--laranja);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    margin: 2rem auto;
+    font-size: 1.3rem;
+}
+.titulo-lista{
+    color: var(--branco);
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: var(--Roboto);
+    margin: 1.3rem auto;
+}
+.conteudo-lista{
+    color: var(--branco);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 2.1rem auto;
+}

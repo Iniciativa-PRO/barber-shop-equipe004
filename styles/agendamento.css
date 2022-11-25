@@ -1,0 +1,57 @@
+.agendamento{
+    padding: 2rem;
+    margin: 0 auto;
+}
+.border-2{
+    border-color: var(--preto);
+    width: 8%;
+}
+.agendamento-textos{
+    text-align: center;
+    padding: 1rem;
+}
+.agendamento-paragrafo{
+    color: var(--preto);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.titulo-agendamento{
+    color: var(--preto);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+.quadro-agendamento{
+    padding: 1rem;
+}
+.agendamento-area{
+    margin-bottom: 1rem;
+}
+.agendamento-lista{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.texto-quadro{
+    color: var(--preto);
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    margin-left: .5rem;
+    margin-top: -.02rem;
+}
+.nome{
+    margin-top: .7rem;
+}
+.input-txt{
+    padding: .7rem;
+    width: 80%;
+}
+.botao-2{
+    margin-left: 4rem;
+    width: 55%;
+    border-color: transparent;
+}
