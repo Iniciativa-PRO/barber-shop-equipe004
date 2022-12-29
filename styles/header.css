@@ -1,10 +1,78 @@
 .cabecalho{
-    display: flex;
-    justify-content: space-between;
     background-color: var(--marrom-escuro);
-    padding: 1.3rem;
+    padding: 1rem;
 }
 .logo-cabecalho{
     margin: 0 auto;
 }
-
+.menu-lista{
+    display: none;
+}
+.icone-barbearia{
+    display: none;
+}
+.icones-nav{
+    display: flex;
+    justify-content: space-between;
+}
+.cabecalho-nav{
+    display: none;
+}
+@media screen and (min-width: 1024px){
+    .cabecalho{
+        display:none;
+    }
+    .cabecalho-nav{
+        background-image: url(../imagens_svg/banner.png);
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        width: 100vh;
+        height: 670px;
+        display: block;
+    }
+    .cabecalho-icones{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .menu-nav{
+        display: flex;
+        margin-top: -7rem;
+        margin-left: 15rem;
+        justify-content: space-evenly;
+    }
+    .menu-lista{
+        display: flex;
+        align-items: center;
+    }
+    .nav-texto{
+        color: var(--branco);
+        font-family: var(--Roboto);
+        margin-left: 1rem;
+        font-size: 1.1rem;
+    }
+    .logo-cabecalho{
+        margin: 2rem 3rem;
+    }
+}
+@media screen and (min-width: 1728px){
+    .nav-texto{
+        font-size: 2rem;
+    }
+    .menu-lista{
+        display: block;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 8rem;
+    }
+    .menu-nav{
+        margin-left: 15rem;
+        display: flex;
+        
+    }
+    .cabecalho-nav{
+        height: 800px;
+        width: 100vw;
+    }
+}

@@ -32,3 +32,41 @@
     font-size: 10px;
     margin: 0 auto;
 }
+@media screen and (min-width: 1024px){
+    .iniciativa{
+        background-color: transparent;
+        position: absolute;
+        margin-top: -30rem;
+        text-align: start;
+    }
+    .conteudo-iniciativa{
+        text-align: start;
+    }
+    .botao-agendamento{
+        width: 12rem;
+        border-color: transparent;
+        margin-right: 6rem;
+        margin-top: -1rem;
+        font-size: .9rem;
+        border-radius: .7rem;
+    }
+}
+@media screen and (min-width: 1728px){
+    .iniciativa{
+        margin-top: -38rem;
+        margin-left: 5rem;
+    }
+    .titulo-iniciativa{
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .conteudo-iniciativa{
+        margin-right: 10rem;
+        font-size: 1.3rem;
+    }
+    .botao-agendamento{
+        height: 4rem;
+        width: 18rem;
+        margin-right: 16rem;
+    }
+}

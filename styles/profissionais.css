@@ -1,23 +1,26 @@
-.profissionais{
+.profissionais {
     background-color: var(--verde);
     text-align: center;
     padding: 2.2rem;
 }
-.titulo-barbeiros{
+
+.titulo-barbeiros {
     color: var(--branco);
     font-family: var(--Roboto);
     font-weight: 700;
     font-size: 1.25rem;
     padding: 1.3rem;
 }
-.descricao-barbeiros{
+
+.descricao-barbeiros {
     font-family: var(--Roboto);
     font-size: 2rem;
     font-weight: 700;
     color: var(--laranja);
     padding-bottom: 1rem;
 }
-.nome-barbeiro{
+
+.nome-barbeiro {
     margin-top: 2rem;
     color: var(--laranja);
     font-weight: 700;
@@ -25,21 +28,98 @@
     margin-bottom: 2rem;
     font-size: 1.3rem;
 }
-.barbeiro-foto{
-background-repeat: no-repeat;
-background-position: center;
-width: 300px;
-height: 300px;
-background-size: 300px;
-border: 4px solid var(--preto);
-margin: 0 auto;
+
+.barbeiro-foto {
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+    background-size: 300px;
+    border: 4px solid var(--preto);
+    margin: 0 auto;
 }
-.barbeiro-1{
+
+.barbeiro-1 {
     background-image: url(../imagens_svg/Rectangle\ 3.svg);
 }
-.barbeiro-2{
+
+.barbeiro-2 {
     background-image: url(../imagens_svg/Rectangle\ 3\ \(1\).svg);
 }
-.barbeiro-3{
+
+.barbeiro-3 {
     background-image: url(../imagens_svg/Rectangle\ 3\ \(2\).svg);
+}
+
+.agendar {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+.profissionais{
+    padding: 0;
+    width: 100vh;
+}
+.agendar {
+    display: block;
+    background-image: url(../imagens_svg/banner-corte.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vh;
+    height: 23%;
+    position: absolute;
+    margin-top: -19em;
+    margin-left: .1rem;
+    }
+.itens-agendar{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    }
+.titulo-agendar{
+    color: var(--marrom-claro);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 28px;
+    font-family: var(--Roboto);
+    margin-top: 8rem;
+    margin-left: 19rem;
+    }
+.botao-agendar{
+    height: 3rem;
+    width: 20rem;
+    margin-top: 8rem;
+    margin-right: 17rem;
+    text-decoration: none;
+    }
+.barbeiros{
+    padding: 4rem;
+    }
+.lista-barbeiros{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 5rem;
+    }
+}
+@media screen and (min-width: 1728px){
+.profissionais{
+    width: 100vw;
+    }
+.agendar{
+    display: block;
+    width: 100vw;
+    height: 40%;
+    position: absolute;
+    margin-top: -23em;
+    }
+    .titulo-agendar{
+        margin-top: 10rem;
+        margin-left: 36rem;
+        }
+    .botao-agendar{
+        margin-top: 10rem;
+        margin-right: 36rem;
+        }
 }

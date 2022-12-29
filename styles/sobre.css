@@ -8,7 +8,7 @@
    flex-direction: column;
    justify-content: space-between;
    text-align: center;
-   padding: 2rem;
+   padding: 1.5rem;
    background-color: var(--branco);
 }
 .titulo-sobre{
@@ -23,7 +23,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--laranja);
-    text-align: start;
+    text-align: center;
     margin: 0 auto;
     line-height: 4rem;
     margin-bottom: .5rem;
@@ -34,4 +34,106 @@
     font-weight: 400;
     margin-bottom: 2rem;
     font-size: 1rem;
+}
+.opiniao{
+    display: none;
+}
+.imagem-sobre{
+    text-align: center;
+}
+@media screen and (min-width: 1024px){
+    .sobre{
+        margin-top: 3rem;
+        width: 100vh;
+        padding: 0;
+    }
+    .border{
+        margin: auto;
+    }
+    .sobre-imagem{
+        display: none;
+    }
+    .box-sobre{
+        display:flex;
+        justify-content: space-evenly;
+    }
+    .imagem-sobre{
+        background-image: url(../imagens_svg/Elegant\ Barbershop.png);
+        background-repeat: no-repeat;
+        background-size: 250px;
+        width: 250px;
+        height: 250px;
+        text-align: end;
+    }
+    .textos-sobre{
+        text-align: start;
+    }
+    .border-sobre{
+        margin-right: 25rem;
+    }
+    .sobre-imagem{
+        display: none;
+    }
+    .borda-sobre{
+        width: 250px;
+        height: 250px;
+        position: relative;
+        border: 3px solid var(--laranja);
+        margin-left: -1.5rem;
+        margin-top: .8rem;
+    }
+     .opiniao{
+        background-image: url(../imagens_svg/Banner2.png);
+        background-repeat: no-repeat;
+        width: 100vh;
+        background-size: cover;
+        height: 30rem;
+        display: block;
+        margin-top: 3rem;
+     } 
+     .aspas{
+        width: 3rem;
+        margin-top: 6rem;
+        
+     }
+     .titulo-opiniao{
+        font-family: var(--Roboto);
+        font-weight: 700;
+        font-size: 2rem;
+        color: var(--branco);
+        margin: 2rem 0;
+        line-height: 1.5rem;
+     }
+     .nome-usuario{
+        color: var(--laranja);
+        font-family: var(--Roboto);
+        font-size: 1.5rem;
+     }
+}
+@media screen and (min-width: 1728px){
+    .box-sobre{
+       width: 100vw;
+    }
+    .titulo-conteudo{
+        font-size: 2.5rem;
+    }
+    .sobre-conteudo{
+        font-size: 1.2rem;
+    }
+    .imagem-sobre{
+        width: 350px;
+        height: 350px;
+        background-size: cover;
+    }
+    .borda-sobre{
+        width: 350px;
+        height: 350px;
+    }
+    .opiniao{
+        width: 100vw;
+    }
+    .aspas{
+        width: 5rem;
+        margin-top: 6rem;
+    }
 }

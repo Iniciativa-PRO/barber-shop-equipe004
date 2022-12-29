@@ -1,6 +1,7 @@
 .localizacao{
     background-color: var(--marrom-escuro);
     padding: 1.5rem;
+    margin-bottom: 10rem;
 }
 .box-localizacao{
     border: 2px solid var(--laranja);
@@ -26,4 +27,9 @@
 }
 .fb{
     margin-top: -.7rem;
+}
+.mapa-conteudo{
+    position: absolute;
+    margin-left: 2rem;
+    padding-top: 4rem;
 }

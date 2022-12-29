@@ -22,7 +22,7 @@ background-repeat: no-repeat;
 background-position: center;
 width: 300px;
 height: 300px;
-background-size: 300px;
+background-size: cover;
 border: 4px solid var(--preto);
 margin: 0 auto;
 }
@@ -46,10 +46,18 @@ margin-top: .8rem;
 width: 310px;
 height: 300px;
 }
-.titulo-destaques{
+.titulo-destaques, .titulo-destaques2, .titulo-destaques3{
     font-family: var(--Roboto);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    color: var(--laranja);
+    margin-top: 2rem;
+    text-transform: uppercase;
+}
+.titulo-destaques-3{
+    font-family: var(--Roboto);
+    font-weight: 700;
+    font-size: 1.8rem;
     color: var(--laranja);
     margin-top: 2rem;
     text-transform: uppercase;
@@ -61,4 +69,86 @@ height: 300px;
     font-size: 1.5rem;
     margin-top: 2rem;
     margin-bottom: 2.3rem;
+}
+.caroussel{
+    display: none;
+}
+@media screen and (min-width: 1024px){
+    .fotos-destaques{
+        display: none;
+    }
+    .destaques{
+        width: 100vh;
+        margin: 15rem auto;
+        padding: 3rem;
+    }
+    .caroussel{
+        margin: 3em 0 3em 3em;
+        width: 90%;
+    }
+    .swiper-wrapper{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        width: 200%;
+    }
+    .item-caroussel{
+        display: flex;
+        flex-direction: column;
+    }
+    .titulo-destaques3, .titulo-destaques2{
+        display: none;
+    }
+    .titulo-destaques-realinhado{
+        font-family: var(--Roboto);
+        font-weight: 700;
+        font-size: 1.8rem;
+        color: var(--laranja);
+        margin-top: 2rem;
+        text-transform: uppercase;
+    }
+     .swiper-pagination{
+        margin:2em 0 3em 0;
+    }
+    .swiper{
+        width: 100%;
+        height: 100%;
+       
+    }
+    .swiper-button-prev{
+        background-image: url(../Icones/prevv.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        margin-top: -15rem;
+    }
+    .swiper-button-next{
+        background-image: url(../Icones/nextt.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        margin-top: -15rem;
+    }
+    .swiper-button-prev::after{
+        display: none;
+    }
+    .swiper-button-next::after {
+        display: none;
+      }
+}
+@media screen and (min-width: 1728px) {
+    .fotos-destaques{
+        display: none;
+    }
+   .destaques{
+    width: 100vw;
+   }
+   .caroussel{
+    margin: 3em 3em 3em 8em;
+    width: 60%;
+   }
+   .swiper-wrapper{
+    justify-content: space-evenly;
+   }
+   .swiper{
+    margin: 0 20vh 3em 20vh;
+   }
 }

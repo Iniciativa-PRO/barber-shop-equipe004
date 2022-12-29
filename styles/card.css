@@ -6,7 +6,7 @@
     background-color: var(--marrom-escuro);
     width: 330px;
     margin-top: -12rem;
-    margin-left: .9rem;
+    margin-left: 1.5rem;
     position: absolute;
     padding: 1rem;
 }
@@ -56,4 +56,82 @@
     border: 1px solid var(--laranja);
     width: 70%;
     margin: 1rem auto;
+}
+@media screen and (min-width: 1024px){
+    .card{
+        width: 65vh;
+        margin-left: 18rem;
+        height: 26vh;
+    }
+    .card-box{
+        width: 60vh;
+        height: 20.5vh;
+        margin: 0 auto;
+    }
+    .box-cortes-geral{
+      display: flex;
+      flex-direction: row-reverse;
+    }
+    .borda{
+        width: 1px;
+        height: 14rem;
+        margin-top: 5rem;
+    }
+    .borda-cortes{
+        display: none;
+    }
+    .box-cortes-1{
+        width: 27vh;
+        margin-left: 1rem;
+    }
+    .box-cortes-2{
+        width: 27vh;
+        margin-top: -2rem;
+    }
+    .paragrafo-lista{
+        font-size: 1.2rem;
+    }
+    .titulo-lista-cortes{
+        font-size: 1.5rem;
+        margin: 1.3rem 0;
+    }
+    .texto-lista{
+        font-size: 1.2rem;
+        width: 22vh;
+    }
+    .item-preco{
+        font-size:1.2rem;
+        width: 8vh;
+        margin-left: 3rem;
+    }
+}
+@media screen and (min-width: 1728px){
+    .card{
+        width: 93vh;
+        margin-left: 30rem;
+        height: 37vh;
+    }
+    .card-box{
+        width: 87vh;
+        height: 29vh;
+        margin: 0 auto;
+        border: solid 2px var(--laranja);
+    }
+    .box-cortes-geral{
+        width: 90vh;
+    }
+    .borda{
+      display: block;
+      height: 14rem;
+      margin-top: 5rem;
+    }
+    .box-cortes-1{
+        width: 40vh;
+    }
+    .box-cortes-2{
+        width: 40vh;
+    }
+    .paragrafo-lista .cortes-paragrafo{
+        margin-top: 1.4rem;
+    }
 }

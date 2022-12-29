@@ -1,6 +1,6 @@
 .servicos{
- padding-bottom: 13rem;
  padding-top: 3rem;
+ padding-bottom: 13rem;
  background-color: var(--verde);
  text-align: center;
 }
@@ -31,4 +31,36 @@
     font-weight: 700;
     font-size: 1.2rem;
     margin: 2.1rem auto;
+}
+@media screen and (min-width: 1024px){
+    .servicos{
+        width: 100vh;
+        padding-top: 5rem;
+    }
+    .titulo-servicos{
+        font-size: 2rem;
+    }
+    .chamada-servicos{
+        font-size: 3rem;
+    }
+    .bloco-servicos{
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 6rem;
+        flex-direction: row-reverse;
+    }
+}
+@media screen and (min-width: 1728px){
+    .servicos{
+        width: 100vw;
+    }
+    .titulo-servicos{
+        font-size: 3rem;
+    }
+    .chamada-servicos{
+        font-size: 4rem;
+    }
+    .borda{
+        display: none;
+    }
 }
