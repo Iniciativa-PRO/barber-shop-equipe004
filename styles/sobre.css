@@ -23,9 +23,8 @@
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--laranja);
-    text-align: center;
+    text-align: start;
     margin: 0 auto;
-    line-height: 4rem;
     margin-bottom: .5rem;
 }
 .sobre-conteudo{

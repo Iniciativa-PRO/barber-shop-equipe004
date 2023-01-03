@@ -47,8 +47,9 @@
     margin-top: .7rem;
 }
 .input-txt{
-    padding: .7rem;
+    padding: .8rem;
     width: 80%;
+    margin-top: .5rem;
 }
 .botao-2{
     margin-left: 4rem;
@@ -94,5 +95,10 @@
     .titulo-agendamento{
         font-size: 2rem;
         font-weight: 700;
+    }
+}
+@media screen and (min-width: 1728px){
+    .botao-2{
+        margin-left: 25rem;
     }
 }

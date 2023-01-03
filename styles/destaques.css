@@ -29,12 +29,21 @@ margin: 0 auto;
 .cliente-1{
 background-image: url(../imagens_svg/person-1\ 1.svg);
 }
-.cliente-2{
+.cliente-1-{
+    background-image: url(../imagens_svg/person-1\ 1.svg);
+}
+.cliente-2 {
 background-image: url(../imagens_svg/person-1\ 1\ \(1\).svg);
 }
+.cliente-2-{
+    background-image: url(../imagens_svg/person-1\ 1\ \(1\).svg);
+    }
 .cliente-3{
 background-image: url(../imagens_svg/person-1\ 1\ \(2\).svg);
 }
+.cliente-3-{
+    background-image: url(../imagens_svg/person-1\ 1\ \(2\).svg);
+    }
 .cliente-foto:hover .borda-foto{
     display: block;
 }
@@ -74,7 +83,7 @@ height: 300px;
     display: none;
 }
 @media screen and (min-width: 1024px){
-    .fotos-destaques{
+    .fotos-destaques, .cliente-1, .cliente-2, .cliente-3{
         display: none;
     }
     .destaques{
@@ -85,6 +94,7 @@ height: 300px;
     .caroussel{
         margin: 3em 0 3em 3em;
         width: 90%;
+        display: block;
     }
     .swiper-wrapper{
         display: flex;

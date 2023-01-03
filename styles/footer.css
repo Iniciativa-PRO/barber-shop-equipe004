@@ -2,10 +2,10 @@ footer{
     background-color: var(--verde);
     margin-top: 6rem;
     width: 100%;
-    height: 45vh;
+    height: 65vh;
 }
 .itens-footer{
-    padding-top: 10rem;
+    padding-top: 20rem;
     text-align: center;
 }
 .paragrafo-footer{
@@ -28,5 +28,27 @@ footer{
     font-family: var(--Roboto);
     font-weight: 700;
     font-size: 14px;
-    margin-top: 3rem;
+    margin-top: 2rem;
+}
+@media screen and (min-width: 1024px){
+    footer{
+        height: 70vh;
+        width: 110vh;
+        margin-top: 40rem;
+    }
+    .itens-footer{
+        padding-top: 30rem;
+    }
+    .direitos-reservados{
+        margin-top: 10rem;
+    }
+}
+@media screen and (min-width: 1728px){
+    footer{
+        width: 100%;
+        height: 70%;
+    }
+    .links-footer{
+        width: 10%;
+    }
 }

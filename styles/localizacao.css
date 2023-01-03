@@ -1,11 +1,15 @@
 .localizacao{
     background-color: var(--marrom-escuro);
     padding: 1.5rem;
-    margin-bottom: 10rem;
+    margin-bottom: 4rem;
 }
 .box-localizacao{
     border: 2px solid var(--laranja);
     padding: 3rem;
+    width: 70%;
+    height: 20%;
+    margin: 0 auto;
+   
 }
 .lista-localizacao{
     display: flex;
@@ -28,8 +32,85 @@
 .fb{
     margin-top: -.7rem;
 }
-.mapa-conteudo{
+.mapa-mobile{
     position: absolute;
-    margin-left: 2rem;
-    padding-top: 4rem;
+    margin-right: 8rem;
+    margin-top: 5rem;
+}
+.box-mapa{
+    width: 80%;
+    height: 30%;
+    padding: 2rem;
+    margin: 0 auto;
+}
+.mapa-conteudo{
+    display: none;
+}
+
+@media screen and (min-width: 1024px){
+    .mapa-mobile{
+        display:none;
+    }
+    .box-mapa{
+        display: block;
+        display: flex;
+        background-color: var(--marrom-escuro);
+        width: 50%;
+        height: 28%;
+        padding: 2rem;
+        margin: 0 auto;
+        position: absolute;
+    }
+    .localizacao{
+        background-color: var(--branco);
+        width: 30%;
+        height: 60%;
+        margin-left: 9rem;
+        margin-top: -5rem;
+    }
+    .box-localizacao{
+        width: 65%;
+        height: 55%;
+        padding: 5rem;
+       
+    }
+    .mapa-conteudo{
+        position: absolute;
+        margin-left: 24rem;
+        margin-top: -12rem;
+        width: 80%;
+        height: 200%;
+        padding: 10rem;
+        display: block;
+    }
+
+}
+@media screen and (min-width: 1728px){
+    .box-mapa{
+        text-align: center;
+        width: 20%;
+        height: 43%;
+        margin-left: 15rem;
+        display: flex;
+        justify-content: center;
+    }
+    .mapa-conteudo{
+        height: 50%;
+        width: 100%;
+        margin-left: 55rem;   
+    }
+    .localizacao{
+        width: 60%;
+        height: 60%;
+    }
+    .box-localizacao{
+        width: 60%;
+        height: 60%;
+        padding: 5rem;
+        margin-inline-start: auto;  
+    }
+    .texto-localizacao{
+        margin-left: .7rem;
+    }
+    
 }
