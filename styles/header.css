@@ -23,7 +23,7 @@
         display:none;
     }
     .cabecalho-nav{
-        background-image: url(../imagens_svg/banner.png);
+        background-image: url(/assets/imagens_svg/banner.png);
         background-repeat: no-repeat;
         background-position:center;
         background-size: cover;
