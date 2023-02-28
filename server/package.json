@@ -19,11 +19,14 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "install": "^0.13.0",
     "mysql": "^2.18.1",
     "mysql2": "^3.1.2",
+    "npm": "^9.5.1",
     "sequelize": "^6.29.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "sequelize-cli": "^6.6.0"
   }
 }

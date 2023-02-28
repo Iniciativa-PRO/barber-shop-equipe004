@@ -1,13 +1,16 @@
-const Mysql = require('sequelize'); 
-const dotenv = require('dotenv/config'); 
+const Sequelize = require('sequelize'); 
+const dbConfig = require('../config/db')
 
-const mysql = new Mysql(
-    process.env.DB_NAME,
-    process.env.DB_USER,
-    process.env.DB_PASSWORD, {
-       dialect: 'mysql',
-       host: process.env.DB_HOST,
-    }
-);
+const User = require('../models/User')
+const Service = require('../models/Service');
+const Scheduling = require('../models/Scheduling');
+const UserProfile = require('../models/UserProfile');
 
-module.exports = mysql;
+const dbConnect = new Sequelize(dbConfig);
+User.init(dbConnect)
+Service.init(dbConnect)
+Scheduling.init(dbConnect)
+UserProfile.init(dbConnect)
+
+
+module.exports = dbConnect;

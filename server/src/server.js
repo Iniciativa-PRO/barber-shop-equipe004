@@ -3,10 +3,9 @@ const server = express();
 const PORT = 3333
 const db = require('./db/connect')
 const dotenv = require('dotenv/config'); 
-const routes = require('./routes/usuariosRoutes');
 
 server.use(express.json())
-server.use(routes)
+server.use('/', require('./routes/userRoute'))
 
 
 db.sync(() => console.log('Conectado ao Banco.'))
