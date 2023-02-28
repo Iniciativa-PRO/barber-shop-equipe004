@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 const db = require('../db/connect');
 
-db.define("", {
+db.define("Usuarios", {
   ID_USUARIO: {
     type: Sequelize.INTEGER.UNSIGNED,
     primaryKey: true,
