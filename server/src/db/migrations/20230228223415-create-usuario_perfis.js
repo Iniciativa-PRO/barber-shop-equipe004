@@ -6,8 +6,8 @@ module.exports = {
 
     return await queryInterface.createTable('usuario_perfis', { 
 
-      ID: Sequelize.INTEGER,
-      USUARIO: Sequelize.STRING
+      id: Sequelize.INTEGER,
+      usuario: Sequelize.STRING
 
     });
 

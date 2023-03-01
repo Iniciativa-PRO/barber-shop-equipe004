@@ -2,16 +2,23 @@ const { Model, DataTypes } = require('sequelize');
 
 class Scheduling extends Model{
   static init(sequelize){
+
     super.init({
-      ID: DataTypes.INTEGER,
-      DATA_AGENDAMENTO: DataTypes.STRING,
+     
+      data_agendamento: DataTypes.DATE,
+
     }, {
       sequelize
     })
   }
+  static associate(models){
+    console.log(models);
+     this.belongsTo(models.User, { foreignKey: 'id_usuario', as: 'user' });
+     this.belongsTo(models.Service, { foreignKey: 'id_servico', as: 'servico' })
+  }
 }
 
-module.exports = Scheduling
+module.exports = Scheduling;
 
 // CREATE TABLE `agendamentos` (
 //     `ID` int NOT NULL,

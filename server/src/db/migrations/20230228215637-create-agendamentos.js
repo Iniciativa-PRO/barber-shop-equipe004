@@ -6,31 +6,31 @@ module.exports = {
     
     return await queryInterface.createTable('agendamentos', { 
 
-      ID: {
+      id: {
         primaryKey: true,
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
       },
-      DATA_AGENDAMENTO: {
+      data_agendamento: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      ID_SERVICO: {
+      id_servico: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: 'servicos',
+            model: 'services',
             key: 'ID_SERVICO'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      ID_USUARIO: {
+      id_usuario: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: 'usuarios',
+            model: 'users',
             key: 'ID_USUARIO'
         },
         onUpdate: 'CASCADE',

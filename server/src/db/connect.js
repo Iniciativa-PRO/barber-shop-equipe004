@@ -12,5 +12,6 @@ Service.init(dbConnect)
 Scheduling.init(dbConnect)
 UserProfile.init(dbConnect)
 
+Scheduling.associate(dbConnect.models)
 
 module.exports = dbConnect;

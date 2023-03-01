@@ -3,8 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class UserProfile extends Model{
   static init(sequelize){
     super.init({
-      ID: DataTypes.INTEGER,
-      USUARIO: DataTypes.STRING,
+      usuario: DataTypes.STRING,
     }, {
       sequelize
     })

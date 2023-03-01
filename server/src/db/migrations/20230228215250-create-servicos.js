@@ -6,24 +6,24 @@ module.exports = {
  
     return await queryInterface.createTable('servicos', { 
 
-      ID_SERVICO: {
+      id_servico: {
         primaryKey: true,
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      NOME: {
+      nome: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      LOJA: {
+      loja: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      PRECO: {
+      preco: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      DESCRICAO: {
+      descricao: {
           type: Sequelize.STRING,
           allowNull: false,
       },

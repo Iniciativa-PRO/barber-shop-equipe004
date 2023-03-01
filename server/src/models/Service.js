@@ -3,10 +3,10 @@ const { Model, DataTypes } = require('sequelize');
 class Service extends Model{
   static init(sequelize){
     super.init({
-      NOME: DataTypes.STRING,
-      LOJA: DataTypes.STRING,
-      PRECO: DataTypes.STRING,
-      DESCRICAO: DataTypes.STRING
+      nome: DataTypes.STRING,
+      loja: DataTypes.STRING,
+      preco: DataTypes.STRING,
+      descricao: DataTypes.STRING
     }, {
       sequelize
     })
