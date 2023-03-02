@@ -1,5 +1,6 @@
 const Scheduling = require('../models/Scheduling');
 const Service = require('../models/Service');
+const User = require('../models/User');
 //const User = require('../models/User');
 //const Service = require('../models/Service');
 
@@ -36,7 +37,7 @@ class BarberSchedulingController {
   static async UsersShow(req, res) {
 
     try {
-      const users = await Service.findAll()
+      const users = await User.findAll()
       return res.status(200).json(users)
     } catch (err) {
       res.status(400).json({ err: err.message })

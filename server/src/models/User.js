@@ -4,7 +4,11 @@ class User extends Model{
   static init(sequelize){
     super.init({
       nome: DataTypes.STRING,
-      email: DataTypes.STRING,
+      email: {
+        type: DataTypes.STRING,
+        unique: true,
+        onUpdate: 'CASCADE'
+      },
       telefone: DataTypes.STRING,
       senha: DataTypes.STRING
     }, {
@@ -12,7 +16,7 @@ class User extends Model{
     })
   }
   static associate(models){
-    this.hasMany(models.User, { foreignKey: 'id_usuario', as: 'agendamentos' });
+    this.hasMany(models.User, { foreignKey: 'usuario' });
   }
 }
 

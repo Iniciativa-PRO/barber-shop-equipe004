@@ -1,14 +1,13 @@
 const Scheduling = require('../models/Scheduling');
 const User = require('../models/User');
 const Service = require('../models/Service');
-const { where } = require('sequelize');
+const bcrypt = require('bcryptjs');
 
 class SchedulingController {
 
   static async create(req, res) {
 
     const {
-      id,
       nome,
       email,
       telefone,
@@ -18,16 +17,39 @@ class SchedulingController {
       senha
     } = req.body;
 
+    if (!email)
+      return res.json({ message: 'Email é obrigatório'})
+    
+    if (!telefone)
+      return res.json({ message: 'Telefone é obrigatório'})
+
+    if (!senha)
+      return res.json({ message: 'Senha é obrigatória'})
+
+    // create a password
+    const salt = bcrypt.genSaltSync(10)
+    let password = bcrypt.hashSync(senha, salt)
+
     try {
 
-      const user = await User.create({
-        nome,
-        email,
-        telefone,
-        senha
+      const userExist = await User.findOne({
+        where: { email }
       });
 
-      const service = await Service.create({ nome: servico })
+      if (userExist)
+        return res.json({message: 'Usuário já existe.' })
+  
+      const user = await User.create({
+        nome,
+        email: email.toString().toLowerCase(),
+        telefone,
+        senha: password
+      });
+
+      const service = await Service.create({ 
+        nome: servico, 
+        loja: 'Barber Shop',  
+      })
 
       const data_agendamento = data + " " + hora;
 
@@ -40,11 +62,8 @@ class SchedulingController {
       const schedulingCreated = await Scheduling.findByPk(scheduling.id, {
         include: [{ association: 'usuario' }, { association: 'servico' }],
       })
-
-      return res.json({
-        message: 'Agendamento criado com Sucesso',
-        data: schedulingCreated
-      })
+      return res.json(schedulingCreated)
+      
     } catch (err) {
       console.log(err)
       res.status(400).json({ err: err.message })
@@ -96,9 +115,11 @@ class SchedulingController {
 
     try {
       const schedulingUpdate = await Scheduling.destroy({
-        where: { id: req.params.id }
+        where: { id: req.body.id }
       })
-      return res.status(200).json({ message: 'Agendamento deletado com sucesso.' });
+      return res.status(200).json({ 
+        message: 'Agendamento deletado com sucesso.' 
+      });
 
     } catch (err) {
       console.log(err)

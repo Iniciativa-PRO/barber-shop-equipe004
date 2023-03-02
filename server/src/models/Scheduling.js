@@ -15,6 +15,7 @@ class Scheduling extends Model{
      this.belongsTo(models.User, { foreignKey: 'id_usuario', as: 'usuario' });
      this.belongsTo(models.Service, { foreignKey: 'id_servico', as: 'servico' })
   }
+  
 }
 
 module.exports = Scheduling;

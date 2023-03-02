@@ -12,7 +12,7 @@ class Service extends Model{
     })
   }
   static associate(models){
-    this.hasMany(models.Service, { foreignKey: 'id_servico', as: 'servicos' })
+    this.hasMany(models.Service, { foreignKey: 'servico' })
   }
 }
 

@@ -14,7 +14,6 @@ module.exports = {
       nome: {
         type: Sequelize.STRING,
         allowNull: true,
-        unique: true,
       },
       email: {
         type: Sequelize.STRING,

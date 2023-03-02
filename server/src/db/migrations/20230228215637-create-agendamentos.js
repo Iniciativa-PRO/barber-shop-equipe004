@@ -34,7 +34,6 @@ module.exports = {
             key: 'id_usuario'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
     });
   },
