@@ -4,10 +4,13 @@ const PORT = 3333
 const db = require('./db/connect')
 const dotenv = require('dotenv/config'); 
 
+db.sync()
+
 server.use(express.json())
-server.use('/', require('./routes/userRoute'))
+server.use('/', require('./routes/userRoutes'))
+server.use('/dashboard', require('./routes/barberRoutes'))
 
 
-db.sync(() => console.log('Conectado ao Banco.'))
-
-server.listen(PORT, () => console.log("Server started on port 3333!"));
+server.listen(PORT, () => {
+    console.log("Server started on port 3333!");
+})

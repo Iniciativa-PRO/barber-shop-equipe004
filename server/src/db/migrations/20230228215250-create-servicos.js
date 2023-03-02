@@ -8,6 +8,7 @@ module.exports = {
 
       id_servico: {
         primaryKey: true,
+        autoIncrement: true,
         type: Sequelize.INTEGER,
         allowNull: false,
       },

@@ -3,12 +3,16 @@ const { Model, DataTypes } = require('sequelize');
 class User extends Model{
   static init(sequelize){
     super.init({
-      usuario: DataTypes.STRING,
+      nome: DataTypes.STRING,
       email: DataTypes.STRING,
+      telefone: DataTypes.STRING,
       senha: DataTypes.STRING
     }, {
       sequelize
     })
+  }
+  static associate(models){
+    this.hasMany(models.User, { foreignKey: 'id_usuario', as: 'agendamentos' });
   }
 }
 

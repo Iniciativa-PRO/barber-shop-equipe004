@@ -12,8 +12,27 @@ class UserController{
 
       static async show(req, res){
 
-        const users = await User.findAll()
-        return res.json(users)
+        try {
+          const user = await User.findByPk(req.body.id)
+          return res.json(user)
+
+        } catch (err) {
+          console.log(err)
+          res.status(400).json({ err: err.message})
+        }
+
+      }
+
+      static async delete(req, res){
+
+        try {
+          const user = await User.destroy(req.body.id)
+          return res.json(user)
+
+        } catch (err) {
+          console.log(err)
+          res.status(400).json({ err: err.message})
+        }
 
       }
 

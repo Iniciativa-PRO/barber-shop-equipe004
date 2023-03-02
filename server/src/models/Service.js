@@ -11,6 +11,9 @@ class Service extends Model{
       sequelize
     })
   }
+  static associate(models){
+    this.hasMany(models.Service, { foreignKey: 'id_servico', as: 'servicos' })
+  }
 }
 
 module.exports = Service

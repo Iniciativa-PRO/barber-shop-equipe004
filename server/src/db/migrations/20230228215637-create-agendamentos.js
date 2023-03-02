@@ -21,20 +21,20 @@ module.exports = {
         allowNull: false,
         references: {
             model: 'services',
-            key: 'ID_SERVICO'
+            key: 'id_servico'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       id_usuario: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
             model: 'users',
-            key: 'ID_USUARIO'
+            key: 'id_usuario'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
     });
   },

@@ -1,19 +1,18 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, Sequelize } = require('sequelize');
 
 class Scheduling extends Model{
   static init(sequelize){
 
     super.init({
      
-      data_agendamento: DataTypes.DATE,
+      data_agendamento: DataTypes.STRING,
 
     }, {
       sequelize
     })
   }
   static associate(models){
-    console.log(models);
-     this.belongsTo(models.User, { foreignKey: 'id_usuario', as: 'user' });
+     this.belongsTo(models.User, { foreignKey: 'id_usuario', as: 'usuario' });
      this.belongsTo(models.Service, { foreignKey: 'id_servico', as: 'servico' })
   }
 }
