@@ -33,6 +33,24 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
+      id_servico: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'schedulings',
+            key: 'id_agendamento'
+        },
+        onUpdate: 'CASCADE',
+      },
+      id_agendamento: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: 'services',
+            key: 'id_servico'
+        },
+        onUpdate: 'CASCADE',
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false
@@ -40,7 +58,7 @@ module.exports = {
       updated_at: {
         type: Sequelize.DATE,
         allowNull: false
-      }
+      },
     });
   },
 

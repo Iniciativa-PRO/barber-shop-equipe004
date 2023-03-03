@@ -4,7 +4,7 @@ class Scheduling extends Model{
   static init(sequelize){
 
     super.init({
-     
+
       data_agendamento: DataTypes.STRING,
 
     }, {
@@ -12,8 +12,8 @@ class Scheduling extends Model{
     })
   }
   static associate(models){
-     this.belongsTo(models.User, { foreignKey: 'id_usuario', as: 'usuario' });
-     this.belongsTo(models.Service, { foreignKey: 'id_servico', as: 'servico' })
+     this.belongsTo(models.User, { foreignKey: 'id_usuario', as: 'usuario', onUpdate: 'CASCADE', hooks: true });
+     this.belongsTo(models.Service, { foreignKey: 'id_servico', as: 'servico', onUpdate: 'CASCADE', onDelete: 'CASCADE', hooks: true });
   }
   
 }

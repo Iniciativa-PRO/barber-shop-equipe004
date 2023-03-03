@@ -7,7 +7,6 @@ class User extends Model{
       email: {
         type: DataTypes.STRING,
         unique: true,
-        onUpdate: 'CASCADE'
       },
       telefone: DataTypes.STRING,
       senha: DataTypes.STRING
@@ -16,7 +15,7 @@ class User extends Model{
     })
   }
   static associate(models){
-    this.hasMany(models.User, { foreignKey: 'usuario' });
+    this.hasMany(models.User, { foreignKey: 'servico' }); 
   }
 }
 

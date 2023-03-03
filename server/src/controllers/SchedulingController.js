@@ -37,7 +37,7 @@ class SchedulingController {
       });
 
       if (userExist)
-        return res.json({message: 'Usuário já existe.' })
+        return res.json({message: 'Usuário já existe, faça login em sua conta.' })
   
       const user = await User.create({
         nome,
@@ -74,7 +74,7 @@ class SchedulingController {
   static async show(req, res) {
 
     try {
-      const schedulings = await Scheduling.findByPk(req.params.id, {
+      const schedulings = await Scheduling.findByPk(req.body.id, {
         attributes: ['id', 'data_agendamento'],
         include: [{ 
            association: 'usuario', attributes: ['id', 'nome', 'email', 'telefone'] 
@@ -94,14 +94,16 @@ class SchedulingController {
 
   static async update(req, res) {
 
-    const {id, data, hora } = req.body;
+    const {id, data_agendamento, servico } = req.body;
+
+    console.log(servico.nome)
 
     try {
       // upsert também pode criar uma linha, caso esta não exista,
       // este método retorna true, quando cria ou false, quando atualiza.
       const schedulingUpdate = await Scheduling.upsert({
         id,
-        data_agendamento: data + " " + hora
+        data_agendamento
       })
       return res.status(200).json(schedulingUpdate);
 
@@ -114,9 +116,11 @@ class SchedulingController {
   static async delete(req, res) {
 
     try {
-      const schedulingUpdate = await Scheduling.destroy({
+      const schedulingDelete = await Scheduling.findOne({
         where: { id: req.body.id }
       })
+      await schedulingDelete.destroy();
+      // Não seria necessário fazer duas consultas SQL, mas parece que a função *cascade* do sequelize não está funcionando corretamente.
       return res.status(200).json({ 
         message: 'Agendamento deletado com sucesso.' 
       });

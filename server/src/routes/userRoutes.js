@@ -5,7 +5,7 @@ const UserController = require('../controllers/UserController');
 
 
 userRoutes.post('/agendamento/criar', SchedulingController.create);
-userRoutes.get('/agendamento/buscar/:id', SchedulingController.show);
+userRoutes.get('/agendamento/buscar', SchedulingController.show);
 userRoutes.put('/agendamento/atualizar', SchedulingController.update);
 userRoutes.delete('/agendamento/deletar', SchedulingController.delete);
 

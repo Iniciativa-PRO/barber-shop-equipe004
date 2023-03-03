@@ -17,7 +17,9 @@ class UserController{
               nome, 
               email: email.toString().toLowerCase(), 
               telefone, 
-              senha 
+              senha,
+              id_servico: "",
+              id_agendamento: ""
             })
             return res.json(user)
           }
