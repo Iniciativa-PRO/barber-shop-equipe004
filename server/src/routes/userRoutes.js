@@ -1,6 +1,5 @@
 const userRoutes = require('express').Router();
 const SchedulingController = require('../controllers/SchedulingController');
-const ServiceController = require('../controllers/ServiceController');
 const UserController = require('../controllers/UserController');
 
 
@@ -9,8 +8,6 @@ userRoutes.get('/agendamento/buscar', SchedulingController.show);
 userRoutes.put('/agendamento/atualizar', SchedulingController.update);
 userRoutes.delete('/agendamento/deletar', SchedulingController.delete);
 
-//userRoutes.post('/servico', ServiceController.update);
-//userRoutes.post('/servico', ServiceController.delete);
 
 userRoutes.post('/usuario/criar', UserController.create);
 userRoutes.get('/usuario/buscar', UserController.show);

@@ -1,113 +1,117 @@
-const User = require('../models/User');
 const bcrypt = require('bcryptjs');
+const prisma = require('../database/prisma');
 
 class UserController{
 
       static async create(req, res){
-
         const { nome, email, telefone, senha } = req.body;
 
+        // create a password
+        const salt = bcrypt.genSaltSync(10);
+        let password = bcrypt.hashSync(senha, salt);
+
         try {
-          const userExist = await User.findOne({
+          const userExist = await prisma.user.findUnique({
             where: { email }
           });
 
           if (!userExist) {
-            const user = await User.create({ 
-              nome, 
-              email: email.toString().toLowerCase(), 
-              telefone, 
-              senha,
-              id_servico: "",
-              id_agendamento: ""
-            })
-            return res.json(user)
+            const user = await prisma.user.create({ 
+
+              data: {
+                nome, 
+                email: email.toString().toLowerCase(), 
+                telefone, 
+                senha: password
+              },
+            });
+            return res.json(user);
           }
-          return res.json({message: 'Usuário já existe.' })
+          return res.json({message: 'Usuário já existe.' });
           
         } catch (err) {
-          console.log(err)
-          res.status(400).json({ err: err.message})
-        }
-        
-
+          res.status(400).json({ err: err.message});
+        } 
       }
 
       static async show(req, res){
 
         try {
-          const user = await User.findByPk(req.body.id)
-          return res.json(user)
+          const user = await prisma.user.findUnique({
+            where: { id: req.body.id }
+          })
+          return res.status(200).json(user)
 
         } catch (err) {
-          console.log(err)
-          res.status(400).json({ err: err.message})
+          res.status(400).json({ err: err.message});
         }
 
+        
       }
 
       static async update(req, res){
-
         const { id, nome, email, telefone, senha } = req.body;
 
         if(email)
-          return res.json({ message: 'Você não pode atualizar o email.' })
+          return res.json({ message: 'Você não pode atualizar o email.' });
 
         if (senha) {
-          const salt = bcrypt.genSaltSync(10)
-          var password = bcrypt.hashSync(senha, salt)
+          const salt = bcrypt.genSaltSync(10);
+          var password = bcrypt.hashSync(senha, salt);
         }
 
         try {
-          const user = await User.update(
-            { nome, telefone, senha: password },
-            { where: { id } }
+          const user = await prisma.user.update({ 
+            where: { id },
+            data: { 
+              nome, 
+              telefone, 
+              senha: password 
+            },
+          },
           )
-          return res.json(user)
+          return res.json(user);
 
         } catch (err) {
-          console.log(err)
-          res.status(400).json({ err: err.message})
+          res.status(400).json({ err: err.message});
         }
-
       }
 
       static async delete(req, res){
 
         try {
-          const user = await User.destroy({
+          await prisma.user.delete({
             where: { id: req.body.id }
           })
-          return res.json({ message: 'Usuário deletado com sucesso.' })
+          return res.json({ message: 'Usuário deletado com sucesso.' });
 
         } catch (err) {
-          console.log(err)
-          res.status(400).json({ err: err.message})
+          res.status(400).json({ err: err.message});
         }
-
       }
 
       static async login(req, res){
-
         const { email, senha } = req.body;
 
-        console.log(req.body);
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email }
+          });
 
-        const user = await User.findOne({
-          where: { email }
-        })
+          if (!user)
+             return res.json({ message: 'Usuário não existe.' });
 
-        if (!user)
-           return res.json({ message: 'Usuário não existe.' })
-
-        // Check password
-        const passwordChecked = bcrypt.compareSync(senha, user.senha)
+          // Check password
+          const passwordChecked = bcrypt.compareSync(senha, user.senha);
         
-        if (!passwordChecked)
-           return res.json({ message: 'Senha Incorreta.'})
+          if (!passwordChecked)
+             return res.json({ message: 'Senha Incorreta.'});
 
-        return res.json({ message: 'Login efetuado com sucesso.'})
-        
+          return res.status(200).json({ message: 'Login efetuado com sucesso.'});
+
+        } catch (err) {
+          res.status(400).json({ err: err.message});
+        }  
       }
 
 }
