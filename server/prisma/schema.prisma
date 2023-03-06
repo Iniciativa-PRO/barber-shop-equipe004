@@ -17,8 +17,9 @@ model Service {
   loja       String
   preco      String
   descricao  String
-  usuario    User?       @relation(fields: [usuarioId], references: [id])
-  usuarioId  Int?        @unique
+  //usuario    User?       @relation(fields: [usuarioId], references: [id])
+  agendamentos           Scheduling[]     
+  //usuarioId  Int?        
 
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
@@ -30,9 +31,9 @@ model Scheduling {
   id         Int         @id @default(autoincrement())
   data       String
   hora       String
-  usuario    User?       @relation(fields: [usuarioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  usuario    User?       @relation(fields: [usuarioId], references: [id])
   usuarioId  Int?        @unique
- 
+  servico    Service[]   
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
 
@@ -45,7 +46,9 @@ model User {
   email       String      @unique
   telefone    String
   senha       String
-  servico     Service?
+  //servico     Service[]     
+  //agendamento Scheduling? @relation(fields: [usuarioId], references: [id])
+  //usuarioId  Int?         @unique
   agendamento Scheduling?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt

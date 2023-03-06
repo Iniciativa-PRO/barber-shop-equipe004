@@ -5,10 +5,8 @@ CREATE TABLE "servico" (
     "loja" TEXT NOT NULL,
     "preco" TEXT NOT NULL,
     "descricao" TEXT NOT NULL,
-    "usuarioId" INTEGER,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL,
-    CONSTRAINT "servico_usuarioId_fkey" FOREIGN KEY ("usuarioId") REFERENCES "usuario" ("id") ON DELETE SET NULL ON UPDATE CASCADE
+    "updatedAt" DATETIME NOT NULL
 );
 
 -- CreateTable
@@ -19,7 +17,7 @@ CREATE TABLE "agendamento" (
     "usuarioId" INTEGER,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
-    CONSTRAINT "agendamento_usuarioId_fkey" FOREIGN KEY ("usuarioId") REFERENCES "usuario" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT "agendamento_usuarioId_fkey" FOREIGN KEY ("usuarioId") REFERENCES "usuario" ("id") ON DELETE SET NULL ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -33,11 +31,22 @@ CREATE TABLE "usuario" (
     "updatedAt" DATETIME NOT NULL
 );
 
--- CreateIndex
-CREATE UNIQUE INDEX "servico_usuarioId_key" ON "servico"("usuarioId");
+-- CreateTable
+CREATE TABLE "_SchedulingToService" (
+    "A" INTEGER NOT NULL,
+    "B" INTEGER NOT NULL,
+    CONSTRAINT "_SchedulingToService_A_fkey" FOREIGN KEY ("A") REFERENCES "agendamento" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "_SchedulingToService_B_fkey" FOREIGN KEY ("B") REFERENCES "servico" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 -- CreateIndex
 CREATE UNIQUE INDEX "agendamento_usuarioId_key" ON "agendamento"("usuarioId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "usuario_email_key" ON "usuario"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "_SchedulingToService_AB_unique" ON "_SchedulingToService"("A", "B");
+
+-- CreateIndex
+CREATE INDEX "_SchedulingToService_B_index" ON "_SchedulingToService"("B");

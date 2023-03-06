@@ -4,27 +4,27 @@ class BarberShopController {
 
   static async schedulingsShow(req, res) {
     try {
-      const user = await prisma.user.findMany({
-
+      const scheduling = await prisma.scheduling.findMany({
         select: {
-          nome: true,
-          agendamento: {
-            select: {
-              data: true,
-              hora: true
-            }
-          },
+          data: true,
+          hora: true,
           servico: {
             select: {
               nome: true,
+              loja: true,
               preco: true,
               descricao: true
             }
-          }
-        }
-
+          },
+          usuario: {
+            select: {
+              nome: true,
+              telefone: true
+            },
+          },
+        },
     });
-    return res.status(200).json(user);
+    return res.status(200).json(scheduling);
 
     } catch (err) {
       res.status(400).json({ err: err.message });
@@ -102,6 +102,18 @@ class BarberShopController {
     } catch (err) {
       console.log(err);
       res.status(400).json({ err: err.message});
+    }
+  }
+
+  static async servicesDelete(req, res) {
+    try {
+      await prisma.service.delete({
+        where: { id: req.body.id }
+      })
+      return res.status(200).json({ message: 'Serviço deletado com sucesso.'});
+
+    } catch (err) {
+      res.status(400).json({ err: err.message });
     }
   }
 

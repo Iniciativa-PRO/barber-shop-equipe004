@@ -1,5 +1,7 @@
 const bcrypt = require('bcryptjs');
 const prisma = require('../database/prisma');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv/config'); 
 
 class UserController{
 
@@ -24,6 +26,11 @@ class UserController{
                 telefone, 
                 senha: password
               },
+              select: {
+                nome: true,
+                email: true,
+                telefone: true
+              }
             });
             return res.json(user);
           }
@@ -37,8 +44,30 @@ class UserController{
       static async show(req, res){
 
         try {
+          // if (req.userId != req.body.id)
+          //     return res.status(401).json({ message: 'Você não tem acesso' })
           const user = await prisma.user.findUnique({
-            where: { id: req.body.id }
+            where: { id: req.body.id },
+            select: {
+              id: true,
+              nome: true,
+              email: true,
+              telefone: true,
+              agendamento: {
+                select: {
+                  data: true,
+                  hora: true,
+                  servico: {
+                    select: {
+                      nome: true,
+                      loja: true,
+                      preco: true,
+                      descricao: true
+                    },
+                  },
+                },
+              },
+            },
           })
           return res.status(200).json(user)
 
@@ -68,8 +97,12 @@ class UserController{
               telefone, 
               senha: password 
             },
-          },
-          )
+            select: {
+              nome: true,
+              email: true,
+              telefone: true
+            },
+          });
           return res.json(user);
 
         } catch (err) {
@@ -105,9 +138,15 @@ class UserController{
           const passwordChecked = bcrypt.compareSync(senha, user.senha);
         
           if (!passwordChecked)
-             return res.json({ message: 'Senha Incorreta.'});
+             return res.status(401).json({ message: 'Senha Incorreta.'});
 
-          return res.status(200).json({ message: 'Login efetuado com sucesso.'});
+          const token = jwt.sign({
+            userId: user.id, 
+          }, process.env.SECRET, {
+            expiresIn: 100000
+          });
+
+          return res.status(200).json({ auth: true, token});
 
         } catch (err) {
           res.status(400).json({ err: err.message});
