@@ -1,13 +1,11 @@
 const prisma = require('../database/prisma')
 const bcrypt = require('bcryptjs');
-const { user } = require('../database/prisma');
-
-// Todas as manipulações feitas no agendamento ou servico, são feitas através da tabela do usuário.
+const { object, string, size, assert, define, number } = require('superstruct');
+const isEmail = require('is-email');
 
 class SchedulingController {
 
   static async create(req, res) {
-
     const { nome, email, telefone, id_servico, data, hora, senha } = req.body;
 
     if (!email)
@@ -19,152 +17,139 @@ class SchedulingController {
     if (!senha)
       return res.json({ message: 'Senha é obrigatória'});
 
-    // create a password
+      const User = object({
+        nome: size(string(), 2, 20),
+        email: define(email, isEmail),
+        telefone: number(size(8, 15)),
+        senha: size(string(), 6, 8)
+      });
+
+      const dataUser = { nome, email, telefone, senha };
+
+      assert(dataUser, User);
+
+    // Create password
     const salt = bcrypt.genSaltSync(10);
-    let password = bcrypt.hashSync(senha, salt);
+    dataUser.senha = bcrypt.hashSync(senha, salt);
+
+    // Convert Phone Number to String
+    dataUser.telefone = dataUser.telefone.toString()
 
     try {
-
       const userExist = await prisma.user.findUnique({
         where: { email },
       });
-
       if (userExist){
         return res.status(200).json({
-          message: 'Usuário já existe, faça login em sua conta.' 
+          message: 'Usuário já existe, faça login para continuar.' 
         });
-      }
-
-      const user = await prisma.user.create({
-        data: {
-          nome,
-          email: email.toString().toLowerCase(),
-          telefone,
-          senha: password,
-          agendamento: {
-            create: {
-              data,
-              hora
-            },
-          },
+      };
+      const scheduling = await prisma.scheduling.create({
+         data: {
+          data,
+          hora,
           servico: {
             connect: {
               id: id_servico
-            }
-          }
-        },
-        include: { 
-          servico: true, 
-          agendamento: true 
-        },
+            },
+          },
+          usuario: {
+            create: dataUser
+          },
+         },
+         include: {
+          servico: true,
+          usuario: true
+         },
       });
-      return res.status(200).json(user);
-      
+      return res.status(200).json(scheduling);
+  
     } catch (err) {
       console.log(err);
       res.status(400).json({ err: err.message });
-    }
-
-  }
+    };
+  };
 
   static async show(req, res) {
-
     try {
-      const schedulings = await prisma.user.findUnique({
-        where: { id: req.body.id },
+      const schedulings = await prisma.scheduling.findUnique({
+        where: { usuarioId: req.body.id },
         select: {
-          id: true,
-          nome: true,
-          agendamento: {
-            select: {
-              data: true,
-              hora: true
-            }
-          },
+          data: true,
+          hora: true,
           servico: {
             select: {
+              id: true,
               nome: true,
+              loja: true,
               preco: true,
               descricao: true
-            }
-          }
-        }
-      })
-      if (schedulings.agendamento == null ||
-          schedulings.servico == null ) 
-      {
-          schedulings.agendamento = 'Sem agendamento.'
-          schedulings.servico = 'Sem serviço.'
-      }
+            },
+          },
+        },
+      });
+      if (!schedulings) 
+         return res.status(400).json({ message: 'Sem agendamento'});
+
       return res.status(200).json(schedulings);
 
     } catch (err) {
       console.log(err);
       res.status(400).json({err: err.message});
-    }
-  }
+    };
+  };
 
   static async update(req, res) {
-
     const { id, id_servico, data, hora } = req.body;
-
     try {
-     const user = await prisma.user.update({
-      where: { id },
-      data: {
-        agendamento: {
-          update: {
-            data,
-            hora
-          },
-        },
+     const user = await prisma.scheduling.upsert({
+      where: { usuarioId: id },
+      update: {
+        data,
+        hora,
         servico: {
           connect: {
             id: id_servico
-          }
-        }
-      },
-      include: {
-        agendamento: true,
-        servico: true
-      }
-    });
-    return res.status(200).json(user);
-
-    } catch (err) {
-      console.log(err);
-      res.status(400).json({err: err.message});
-    } 
-  }
- 
-  static async delete(req, res) {
-
-    try {
-
-     await prisma.user.update({
-      where: {
-        id: req.body.id
-      }, 
-      data: {
-        agendamento: {
-          delete: true
+          },
         },
+      },
+      create: {
+        data,
+        hora,
         servico: {
-          disconnect: true
+          connect: {
+            id: id_servico
+          },
+        },
+        usuario: {
+          connect: {
+            id
+          },
         },
       },
      });
-
-    return res.status(200).json({ 
-      message: 'Agendamento deletado com sucesso.' 
-    });
+     return res.status(200).json(user);
 
     } catch (err) {
       console.log(err);
       res.status(400).json({err: err.message});
-    } 
-  }
+    }; 
+  };
+ 
+  static async delete(req, res) {
+    try {
+      await prisma.scheduling.delete({
+        where: { id: req.body.id }
+      });
+      return res.status(200).json({ 
+        message: 'Agendamento deletado com sucesso.' 
+      });
 
-}
+    } catch (err) {
+      console.log(err);
+      res.status(400).json({err: err.message});
+    };
+  };
+};
 
 module.exports = SchedulingController;

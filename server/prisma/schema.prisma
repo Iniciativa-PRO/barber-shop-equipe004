@@ -7,7 +7,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
@@ -17,9 +17,7 @@ model Service {
   loja       String
   preco      String
   descricao  String
-  usuario    User?       @relation(fields: [usuarioId], references: [id])
-  usuarioId  Int?        @unique
-
+  agendamentos           Scheduling[]            
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
 
@@ -30,9 +28,9 @@ model Scheduling {
   id         Int         @id @default(autoincrement())
   data       String
   hora       String
-  usuario    User?       @relation(fields: [usuarioId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  usuarioId  Int?        @unique
- 
+  usuario    User        @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  usuarioId  Int         @unique
+  servico    Service[]   
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
 
@@ -45,7 +43,6 @@ model User {
   email       String      @unique
   telefone    String
   senha       String
-  servico     Service?
   agendamento Scheduling?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
