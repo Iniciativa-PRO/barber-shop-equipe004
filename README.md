@@ -83,10 +83,10 @@ O Backend com nodeJs foi finalizado, já é possivel testar a API desenvolvida e
 5.  superstruct: - útil para validação de dados de entrada de todos os tipos;
 6.  is-email: - valida especialmente o email;
 7.  jsonwebtoken: - fornece token de acesso ao usário autenticado no sistema;
-8.  nodemon: - dependencia de desenvolvimento - atualiza o servidor a cada auteração;
+8.  nodemon: - dependencia de desenvolvimento - atualiza o servidor a cada alteração;
 9.  prisma: - utilizado em conjunto com o @prisma/client; o prisma tem um visualizador de banco de dados próprio, o que é bem interessante.
 
-Depois de instalar as dependências com *npm install*, e o schema.prisma configurado, os seguintes comandos devem ser executados: *npx prisma init*, *npx prisma migrate dev --name create* e *npx prisma studio*, respectivamente. E depois, abrindo um segundo terminal no vscode *npm run dev* para rodar o servidor. provavelente você terá que excluir a pasta **migrations** dentro da pasta **prisma**, se der algum erro.
+Depois de instalar as dependências com *npm install*, e o schema.prisma configurado, os seguintes comandos devem ser executados: *npx prisma init*, *npx prisma migrate dev --name create* e *npx prisma studio*, respectivamente. E depois, abrindo um segundo terminal no vscode *npm run dev* para rodar o servidor. provavelmente você terá que excluir a pasta **migrations** dentro da pasta **prisma**, se der algum erro.
 
 *server/src/prisma/**schema.prisma***
 ```
