@@ -44,7 +44,7 @@ O relacionamento entre tabelas foi feito conforme esse [diagrama](https://trello
 
 **Veja como ficou:**
 
-![](../assets/img-readme/Captura%20de%20tela%20de%202023-03-08%2012-03-12.png)
+![](https://github.com/Iniciativa-PRO/barber-shop-equipe004/blob/main/assets/img-readme/Captura%20de%20tela%20de%202023-03-08%2012-03-12.png)
 
 ## O que já está pronto? 🕵🏾‍♀️
 
@@ -136,7 +136,7 @@ Atualizar agendamento também cria um novo agendamento, se este não existir, is
 
 ## Veja como ficou a organização pelo insomnia. 
 
-![](../assets/img-readme/barbershop.png) 
+![](https://github.com/Iniciativa-PRO/barber-shop-equipe004/blob/main/assets/img-readme/barbershop.png) 
 
 <hr>
 
