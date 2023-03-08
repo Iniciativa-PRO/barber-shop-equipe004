@@ -39,7 +39,7 @@ Este projeto foi dividido em 04 etapas fundamentais:
 * **Integração do Frontend com o Backend | JavaScript**;
 
 O projeto e as etapas foram devidamente documentadas no figma e no trello da [equipe004](https://trello.com/b/6cucpZSy/barber-shop-equipe-004).
-## Falando especialmete sobre o banco de dados, é pertinente dizer que,
+## Falando especialmente sobre o banco de dados, é pertinente dizer que,
 O relacionamento entre tabelas foi feito conforme esse [diagrama](https://trello.com/1/cards/63fa0bbd3e53a000d7332df4/attachments/63fa0bcc299f72dd4db06d4b/download/db.png), sendo a tabela **agendamento** hospedeira do id tanto do **serviço**, quanto do **usuário**.  Um acréscimo interessante que foi implementado, foi um relacionamento de muitos para muitos(mn) entre a entidade agendamento e usuário, isso possibilita que os dados de agendamento e serviços no perfil do usuário sejam resgatados numa só requisição, juntamente com os dados do usuário. 
 
 **Veja como ficou:**
