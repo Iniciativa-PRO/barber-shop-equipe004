@@ -1,6 +1,6 @@
 # Barber Shop
 
-Aqui você poderá obter informações de como a aplicação Barber Shop, → site empresarial de barbearia ← está sendo desenvolvida. Falaremos sobre o propósito e suas funcionalidades, como está sendo desenvolvida e como executar.
+Aqui você poderá obter informações de como a aplicação Barber Shop, → site empresarial de barbearia ← está sendo desenvolvida. Falaremos sobre o propósito, funcionalidades, e como executar.
 
 
 ### *O escritor espera pelo sopro de ideia que começará uma história*
