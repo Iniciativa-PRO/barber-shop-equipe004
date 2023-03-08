@@ -1,157 +1,186 @@
-const bcrypt = require('bcryptjs');
 const prisma = require('../database/prisma');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv/config'); 
+const { object, string, size, assert, define, number } = require('superstruct');
+const isEmail = require('is-email');
 
-class UserController{
+class UserController {
 
-      static async create(req, res){
-        const { nome, email, telefone, senha } = req.body;
+  static async create(req, res) {
+    const { nome, email, telefone, senha } = req.body;
+    try {
+      const User = object({
+        nome: size(string(), 2, 20),
+        email: define(email, isEmail),
+        telefone: number(size(8, 15)),
+        senha: size(string(), 6, 8)
+      });
+      const dataUser = { nome, email, telefone, senha }
+      assert(dataUser, User)
 
-        // create a password
-        const salt = bcrypt.genSaltSync(10);
-        let password = bcrypt.hashSync(senha, salt);
+      // Create password
+      const salt = bcrypt.genSaltSync(10);
+      dataUser.senha = bcrypt.hashSync(senha, salt);
 
-        try {
-          const userExist = await prisma.user.findUnique({
-            where: { email }
-          });
+      // Convert Phone Number to String
+      dataUser.telefone = data.telefone.toString();
 
-          if (!userExist) {
-            const user = await prisma.user.create({ 
+      const userExist = await prisma.user.findUnique({
+        where: { email },
+      });
 
-              data: {
-                nome, 
-                email: email.toString().toLowerCase(), 
-                telefone, 
-                senha: password
-              },
-              select: {
-                nome: true,
-                email: true,
-                telefone: true
-              }
-            });
-            return res.json(user);
-          }
-          return res.json({message: 'Usuário já existe.' });
-          
-        } catch (err) {
-          res.status(400).json({ err: err.message});
-        } 
-      }
+      if (!userExist) {
+        const user = await prisma.user.create({
+          data,
+          select: {
+            nome: true,
+            email: true,
+            telefone: true
+          },
+        });
+        return res.json(user);
+      };
+      return res.json({
+        message: 'Usuário já existe.'
+      });
 
-      static async show(req, res){
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    };
+  };
 
-        try {
-          // if (req.userId != req.body.id)
-          //     return res.status(401).json({ message: 'Você não tem acesso' })
-          const user = await prisma.user.findUnique({
-            where: { id: req.body.id },
+  static async show(req, res) {
+    try {
+      // if (req.userId != req.body.id)
+      //     return res.status(401).json({ message: 'Você não tem acesso' })
+      const user = await prisma.user.findUnique({
+        where: { id: req.body.id },
+        select: {
+          id: true,
+          nome: true,
+          email: true,
+          telefone: true,
+          agendamento: {
             select: {
-              id: true,
-              nome: true,
-              email: true,
-              telefone: true,
-              agendamento: {
+              data: true,
+              hora: true,
+              servico: {
                 select: {
-                  data: true,
-                  hora: true,
-                  servico: {
-                    select: {
-                      nome: true,
-                      loja: true,
-                      preco: true,
-                      descricao: true
-                    },
-                  },
+                  nome: true,
+                  loja: true,
+                  preco: true,
+                  descricao: true
                 },
               },
             },
-          })
-          return res.status(200).json(user)
+          },
+        },
+      });
+      return res.status(200).json(user)
 
-        } catch (err) {
-          res.status(400).json({ err: err.message});
-        }
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    };
+  };
 
-        
-      }
+  static async update(req, res) {
+    const { id, nome, email, telefone, senha } = req.body;
 
-      static async update(req, res){
-        const { id, nome, email, telefone, senha } = req.body;
+    if (email)
+      return res.json({
+        message: 'Você não pode atualizar o email.'
+      });
 
-        if(email)
-          return res.json({ message: 'Você não pode atualizar o email.' });
+    if (senha) {
+      const salt = bcrypt.genSaltSync(10);
+      var password = bcrypt.hashSync(senha, salt);
+    };
 
-        if (senha) {
-          const salt = bcrypt.genSaltSync(10);
-          var password = bcrypt.hashSync(senha, salt);
-        }
+    try {
+      const user = await prisma.user.update({
+        where: { id },
+        data: {
+          nome,
+          telefone,
+          senha: password
+        },
+        select: {
+          nome: true,
+          email: true,
+          telefone: true
+        },
+      });
+      return res.json(user);
 
-        try {
-          const user = await prisma.user.update({ 
-            where: { id },
-            data: { 
-              nome, 
-              telefone, 
-              senha: password 
-            },
-            select: {
-              nome: true,
-              email: true,
-              telefone: true
-            },
-          });
-          return res.json(user);
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    };
+  };
 
-        } catch (err) {
-          res.status(400).json({ err: err.message});
-        }
-      }
+  static async delete(req, res) {
+    try {
+      await prisma.user.delete({
+        where: { id: req.body.id },
+      });
+      return res.json({
+        message: 'Usuário deletado com sucesso.'
+      });
 
-      static async delete(req, res){
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    };
+  };
 
-        try {
-          await prisma.user.delete({
-            where: { id: req.body.id }
-          })
-          return res.json({ message: 'Usuário deletado com sucesso.' });
+  static async login(req, res) {
+    const { email, senha } = req.body;
+    try {
+      const user = await prisma.user.findUnique({
+        where: {
+          email
+        },
+      });
+      if (!user)
+        return res.json({
+          message: 'Usuário não existe.'
+        });
 
-        } catch (err) {
-          res.status(400).json({ err: err.message});
-        }
-      }
+      // Check password
+      const passwordChecked = bcrypt.compareSync(senha, user.senha);
 
-      static async login(req, res){
-        const { email, senha } = req.body;
+      if (!passwordChecked)
+        return res.status(401).json({ message: 'Falha na Autenticação.' });
 
-        try {
-          const user = await prisma.user.findUnique({
-            where: { email }
-          });
+      const token = jwt.sign({
+        message: 'Você está autenticado.',
+        userId: user.id,
+      }, process.env.SECRET, {
+        expiresIn: "7 days"
+      });
 
-          if (!user)
-             return res.json({ message: 'Usuário não existe.' });
+      return res.status(200).json({ auth: true, token });
 
-          // Check password
-          const passwordChecked = bcrypt.compareSync(senha, user.senha);
-        
-          if (!passwordChecked)
-             return res.status(401).json({ message: 'Senha Incorreta.'});
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    };
+  };
 
-          const token = jwt.sign({
-            userId: user.id, 
-          }, process.env.SECRET, {
-            expiresIn: 100000
-          });
+  static async logout(req, res) {
 
-          return res.status(200).json({ auth: true, token});
+    try {
+      const token = jwt.sign({
+        message: 'Você saiu do sistema.',
+        userId: user.id,
+      }, process.env.SECRET_LOGOUT, {
+        expiresIn: 4000
+      });
 
-        } catch (err) {
-          res.status(400).json({ err: err.message});
-        }  
-      }
+      return res.status(200).json({ auth: true, token });
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    };
+  };
+
 
 }
 

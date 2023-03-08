@@ -29,7 +29,6 @@ class BarberShopController {
     } catch (err) {
       res.status(400).json({ err: err.message });
     }
-    
   }
 
   static async servicesShow(req, res) {
@@ -51,7 +50,6 @@ class BarberShopController {
   }
 
   static async usersShow(req, res) {
-
     try {
       const users = await prisma.user.findMany({
         select: {
@@ -116,7 +114,6 @@ class BarberShopController {
       res.status(400).json({ err: err.message });
     }
   }
-
 }
 
 module.exports = BarberShopController;

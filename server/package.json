@@ -21,14 +21,12 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "install": "^0.13.0",
+    "is-email": "^1.0.2",
     "jsonwebtoken": "^9.0.0",
-    "mysql2": "^3.1.2",
-    "npm": "^9.5.1"
+    "superstruct": "^1.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",
-    "prisma": "^4.11.0",
-    "sequelize-cli": "^6.6.0"
+    "prisma": "^4.11.0"
   }
 }

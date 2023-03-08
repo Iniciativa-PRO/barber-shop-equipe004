@@ -1,10 +1,11 @@
 const prisma = require('../database/prisma')
 const bcrypt = require('bcryptjs');
+const { object, string, size, assert, define, number } = require('superstruct');
+const isEmail = require('is-email');
 
 class SchedulingController {
 
   static async create(req, res) {
-
     const { nome, email, telefone, id_servico, data, hora, senha } = req.body;
 
     if (!email)
@@ -16,56 +17,60 @@ class SchedulingController {
     if (!senha)
       return res.json({ message: 'Senha é obrigatória'});
 
-    // create a password
+      const User = object({
+        nome: size(string(), 2, 20),
+        email: define(email, isEmail),
+        telefone: number(size(8, 15)),
+        senha: size(string(), 6, 8)
+      });
+
+      const dataUser = { nome, email, telefone, senha };
+
+      assert(dataUser, User);
+
+    // Create password
     const salt = bcrypt.genSaltSync(10);
-    let password = bcrypt.hashSync(senha, salt);
+    dataUser.senha = bcrypt.hashSync(senha, salt);
+
+    // Convert Phone Number to String
+    dataUser.telefone = dataUser.telefone.toString()
 
     try {
-
       const userExist = await prisma.user.findUnique({
         where: { email },
       });
-
       if (userExist){
         return res.status(200).json({
-          message: 'Usuário já existe, faça login em sua conta.' 
+          message: 'Usuário já existe, faça login para continuar.' 
         });
-      }
-
+      };
       const scheduling = await prisma.scheduling.create({
          data: {
           data,
           hora,
           servico: {
             connect: {
-              id: 1
+              id: id_servico
             },
           },
           usuario: {
-            create: {
-              nome,
-              email: email.toString().toLowerCase(),
-              telefone,
-              senha: password
-            },
+            create: dataUser
           },
          },
          include: {
           servico: true,
           usuario: true
-         }
-      })
+         },
+      });
       return res.status(200).json(scheduling);
   
     } catch (err) {
       console.log(err);
       res.status(400).json({ err: err.message });
-    }
-
-  }
+    };
+  };
 
   static async show(req, res) {
-
     try {
       const schedulings = await prisma.scheduling.findUnique({
         where: { usuarioId: req.body.id },
@@ -79,10 +84,10 @@ class SchedulingController {
               loja: true,
               preco: true,
               descricao: true
-            }
-          }
+            },
+          },
         },
-      })
+      });
       if (!schedulings) 
          return res.status(400).json({ message: 'Sem agendamento'});
 
@@ -91,13 +96,11 @@ class SchedulingController {
     } catch (err) {
       console.log(err);
       res.status(400).json({err: err.message});
-    }
-  }
+    };
+  };
 
   static async update(req, res) {
-
     const { id, id_servico, data, hora } = req.body;
-
     try {
      const user = await prisma.scheduling.upsert({
       where: { usuarioId: id },
@@ -121,8 +124,8 @@ class SchedulingController {
         usuario: {
           connect: {
             id
-          }
-        }
+          },
+        },
       },
      });
      return res.status(200).json(user);
@@ -130,11 +133,10 @@ class SchedulingController {
     } catch (err) {
       console.log(err);
       res.status(400).json({err: err.message});
-    } 
-  }
+    }; 
+  };
  
   static async delete(req, res) {
-
     try {
       await prisma.scheduling.delete({
         where: { id: req.body.id }
@@ -146,9 +148,8 @@ class SchedulingController {
     } catch (err) {
       console.log(err);
       res.status(400).json({err: err.message});
-    } 
-  }
-
-}
+    };
+  };
+};
 
 module.exports = SchedulingController;

@@ -5,8 +5,9 @@ const PORT = 3333
 
 
 server.use(express.json())
-server.use('/dashboard', tokenAdmin, require('./routes/barberRoutes'))
-server.use('/', require('./routes/userRoutes'))
+
+server.use('/usuario', require('./routes/userRoutes'))
+server.use('/dashboard', require('./routes/barberRoutes'))
 
 server.listen(PORT, () => {
     console.log("Server started on port 3333!");
