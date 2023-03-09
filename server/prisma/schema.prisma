@@ -25,11 +25,11 @@ model Service {
 }
 
 model Scheduling {
-  id         Int         @id @default(autoincrement())
+  id         String      @id @default(cuid())
   data       String
   hora       String
   usuario    User        @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
-  usuarioId  Int         @unique
+  usuarioId  String      @unique
   servico    Service[]   
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
@@ -38,7 +38,7 @@ model Scheduling {
 }
 
 model User {
-  id          Int         @id @default(autoincrement())
+  id          String      @id @default(cuid())
   nome        String
   email       String      @unique
   telefone    String

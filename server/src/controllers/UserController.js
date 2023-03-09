@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv/config'); 
 const { object, string, size, assert, define, number } = require('superstruct');
 const isEmail = require('is-email');
+const ShortUniqueId = require('short-unique-id');
 
 class UserController {
 
@@ -24,7 +25,15 @@ class UserController {
       dataUser.senha = bcrypt.hashSync(senha, salt);
 
       // Convert Phone Number to String
-      dataUser.telefone = data.telefone.toString();
+      dataUser.telefone = dataUser.telefone.toString();
+
+      // Gerar ID
+      const generate = new ShortUniqueId({ length: 6 });
+      const code = String(generate()).toUpperCase();
+
+      // Atibuir ID ao usuário
+
+      dataUser.id = code;
 
       const userExist = await prisma.user.findUnique({
         where: { email },
@@ -32,8 +41,9 @@ class UserController {
 
       if (!userExist) {
         const user = await prisma.user.create({
-          data,
+          data: dataUser,
           select: {
+            id: true,
             nome: true,
             email: true,
             telefone: true
@@ -169,8 +179,7 @@ class UserController {
 
     try {
       const token = jwt.sign({
-        message: 'Você saiu do sistema.',
-        userId: user.id,
+        //message: 'Você saiu do sistema.',
       }, process.env.SECRET_LOGOUT, {
         expiresIn: 4000
       });
