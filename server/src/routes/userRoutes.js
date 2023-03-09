@@ -11,7 +11,7 @@ userRoutes.post('/entrar', UserController.login);
 userRoutes.post('/sair', UserController.logout);
 
 // Token para todas as rotas de GRUD.
-userRoutes.use(tokenUser);
+//userRoutes.use(tokenUser);
 
 userRoutes.get('/agendamento/buscar', SchedulingController.show);
 userRoutes.put('/agendamento/atualizar', SchedulingController.update);

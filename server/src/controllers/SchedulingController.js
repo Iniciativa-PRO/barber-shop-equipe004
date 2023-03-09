@@ -1,7 +1,8 @@
 const prisma = require('../database/prisma')
 const bcrypt = require('bcryptjs');
-const { object, string, size, assert, define, number } = require('superstruct');
+const { object, string, size, assert, define, number, array } = require('superstruct');
 const isEmail = require('is-email');
+const ShortUniqueId = require('short-unique-id');
 
 class SchedulingController {
 
@@ -35,31 +36,60 @@ class SchedulingController {
     // Convert Phone Number to String
     dataUser.telefone = dataUser.telefone.toString()
 
+    // Gerar ID
+    const generate = new ShortUniqueId({ length: 6 });
+    const code = String(generate()).toUpperCase();
+
+    dataUser.id = code;
+
+    // Tratar array de serviços, a variável connect substitui o connect do prisma.
+    let connect = [];
+    (function(){
+      for (let i = 0; i < id_servico.length; i++) {
+         connect.push({id: id_servico[i]});
+      }  
+    })();
+
     try {
       const userExist = await prisma.user.findUnique({
         where: { email },
       });
+
       if (userExist){
         return res.status(200).json({
           message: 'Usuário já existe, faça login para continuar.' 
         });
       };
+
       const scheduling = await prisma.scheduling.create({
          data: {
+          id: code,
           data,
           hora,
           servico: {
-            connect: {
-              id: id_servico
-            },
+            connect, 
           },
           usuario: {
             create: dataUser
           },
          },
          include: {
-          servico: true,
-          usuario: true
+          servico: {
+            select: {
+              nome: true,
+              loja: true,
+              preco: true,
+              descricao: true
+            },
+          },
+          usuario: {
+            select: {
+              id: true,
+              nome: true,
+              telefone: true,
+              email: true,
+            },
+          },
          },
       });
       return res.status(200).json(scheduling);
@@ -114,6 +144,7 @@ class SchedulingController {
         },
       },
       create: {
+        id,
         data,
         hora,
         servico: {
