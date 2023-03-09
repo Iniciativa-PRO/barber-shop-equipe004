@@ -1,56 +1,19 @@
 const prisma = require('../database/prisma')
-const bcrypt = require('bcryptjs');
-const { object, string, size, assert, define, number, array } = require('superstruct');
-const isEmail = require('is-email');
-const ShortUniqueId = require('short-unique-id');
+const processDataUser = require('../helpers/processDataUser');
+const verifyIdService = require('../helpers/verifyIdService');
 
 class SchedulingController {
 
   static async create(req, res) {
+
     const { nome, email, telefone, id_servico, data, hora, senha } = req.body;
 
-    if (!email)
-      return res.json({ message: 'Email é obrigatório'});
-    
-    if (!telefone)
-      return res.json({ message: 'Telefone é obrigatório'});
-
-    if (!senha)
-      return res.json({ message: 'Senha é obrigatória'});
-
-      const User = object({
-        nome: size(string(), 2, 20),
-        email: define(email, isEmail),
-        telefone: number(size(8, 15)),
-        senha: size(string(), 6, 8)
-      });
-
-      const dataUser = { nome, email, telefone, senha };
-
-      assert(dataUser, User);
-
-    // Create password
-    const salt = bcrypt.genSaltSync(10);
-    dataUser.senha = bcrypt.hashSync(senha, salt);
-
-    // Convert Phone Number to String
-    dataUser.telefone = dataUser.telefone.toString()
-
-    // Gerar ID
-    const generate = new ShortUniqueId({ length: 6 });
-    const code = String(generate()).toUpperCase();
-
-    dataUser.id = code;
-
-    // Tratar array de serviços, a variável connect substitui o connect do prisma.
-    let connect = [];
-    (function(){
-      for (let i = 0; i < id_servico.length; i++) {
-         connect.push({id: id_servico[i]});
-      }  
-    })();
+    const connect = verifyIdService(id_servico);
 
     try {
+
+      const dataUser = processDataUser(nome, email, telefone, senha);
+
       const userExist = await prisma.user.findUnique({
         where: { email },
       });
@@ -63,7 +26,7 @@ class SchedulingController {
 
       const scheduling = await prisma.scheduling.create({
          data: {
-          id: code,
+          id: dataUser.id,
           data,
           hora,
           servico: {
@@ -130,7 +93,11 @@ class SchedulingController {
   };
 
   static async update(req, res) {
+    
     const { id, id_servico, data, hora } = req.body;
+
+    const connect = verifyIdService(id_servico)
+
     try {
      const user = await prisma.scheduling.upsert({
       where: { usuarioId: id },
@@ -138,9 +105,7 @@ class SchedulingController {
         data,
         hora,
         servico: {
-          connect: {
-            id: id_servico
-          },
+          connect,
         },
       },
       create: {
@@ -148,9 +113,7 @@ class SchedulingController {
         data,
         hora,
         servico: {
-          connect: {
-            id: id_servico
-          },
+          connect,
         },
         usuario: {
           connect: {

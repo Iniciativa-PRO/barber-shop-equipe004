@@ -2,10 +2,8 @@ const barberShopController = require('../controllers/BarberShop');
 const tokenAdmin = require('../middlewares/tokenAdmin');
 const barberRoutes = require('express').Router();
 
-barberRoutes.get('/servicos', barberShopController.servicesShow);
-
 // Token de administrativo para todas as rotas dashboard.
-//barberRoutes.use(tokenAdmin);
+barberRoutes.use(tokenAdmin);
 
 barberRoutes.get('/agendamentos', barberShopController.schedulingsShow);
 barberRoutes.get('/usuarios', barberShopController.usersShow);

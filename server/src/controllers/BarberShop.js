@@ -3,6 +3,7 @@ const prisma = require('../database/prisma');
 class BarberShopController {
 
   static async schedulingsShow(req, res) {
+    
     try {
       const scheduling = await prisma.scheduling.findMany({
         select: {
@@ -25,24 +26,6 @@ class BarberShopController {
         },
     });
     return res.status(200).json(scheduling);
-
-    } catch (err) {
-      res.status(400).json({ err: err.message });
-    }
-  }
-
-  static async servicesShow(req, res) {
-    try {
-      const services = await prisma.service.findMany({
-        select: {
-          id: true,
-          nome: true,
-          loja: true,
-          preco: true,
-          descricao: true
-        }
-      });
-      return res.status(200).json(services);
 
     } catch (err) {
       res.status(400).json({ err: err.message });
@@ -77,6 +60,24 @@ class BarberShopController {
         }
        });
       return res.status(200).json(service);
+
+    } catch (err) {
+      res.status(400).json({ err: err.message });
+    }
+  }
+
+  static async servicesShow(req, res) {
+    try {
+      const services = await prisma.service.findMany({
+        select: {
+          id: true,
+          nome: true,
+          loja: true,
+          preco: true,
+          descricao: true
+        }
+      });
+      return res.status(200).json(services);
 
     } catch (err) {
       res.status(400).json({ err: err.message });
