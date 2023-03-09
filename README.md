@@ -86,7 +86,7 @@ O Backend com nodeJs foi finalizado, já é possivel testar a API desenvolvida e
 8.  nodemon: - dependencia de desenvolvimento - atualiza o servidor a cada alteração;
 9.  prisma: - utilizado em conjunto com o @prisma/client; o prisma tem um visualizador de banco de dados próprio, o que é bem interessante.
 
-Depois de instalar as dependências com *npm install*, e o schema.prisma configurado, os seguintes comandos devem ser executados: *npx prisma init*, *npx prisma migrate dev --name create* e *npx prisma studio*, respectivamente. E depois, abrindo um segundo terminal no vscode *npm run dev* para rodar o servidor. provavelmente você terá que excluir a pasta **migrations** dentro da pasta **prisma**, se der algum erro.
+Depois de instalar as dependências com *npm install*, e o schema.prisma configurado, os seguintes comandos devem ser executados: *npx prisma migrate dev --name create* e *npx prisma studio*, respectivamente. E depois, abrindo um segundo terminal no vscode *npm run dev* para rodar o servidor. provavelmente você terá que excluir a pasta **migrations** dentro da pasta **prisma**, se der algum erro.
 
 *server/src/prisma/**schema.prisma***
 ```
@@ -101,38 +101,38 @@ As rotas podem ser divididas em dois grupos; as publicas e as privadas. Começan
 
 **Publicas:**
 
-+ ***BaseURL***/**servicos**
-+ ***BaseURL***/**agendamento**/**criar**
-+ ***BaseURL***/**usuario**/**criar**
-+ ***BaseURL***/**usuario**/**login**
++ ***BaseURL***/**api/v1**/**servicos**
++ ***BaseURL***/**api/v1**/**agendamento**/**criar**
++ ***BaseURL***/**api/v1**/**criar-conta**
++ ***BaseURL***/**api/v1**/**entrar**
 
 **Privadas:**
-+ ***BaseURL***/**dashboard**/**agendamento**/**buscar**
-+ ***BaseURL***/**dashboard**/**servico**/**buscar**
-+ ***BaseURL***/**dashboard**/**servico**/**criar**
-+ ***BaseURL***/**dashboard**/**servico**/**atualizar**
-+ ***BaseURL***/**dashboard**/**servico**/**deletar**
++ ***BaseURL***/**api/v1**/**dashboard**/**agendamento**/**buscar**
++ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**buscar**
++ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**criar**
++ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**atualizar**
++ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**deletar**
 
 As cinco rotas acima, **/dashboard/** são exclusivas do dono do negócio. Entre as rotas privadas abaixo estão todas as rotas do usuário, com exceção de duas, criar usuário e login que estão entre as rotas publicas.
 
 **Usuário:**
-+ ***BaseURL***/**usuário**/**buscar**
-+ ***BaseURL***/**usuário**/**atualizar**
-+ ***BaseURL***/**usuário**/**deletar**
-+ ***BaseURL***/**usuário**/**logout**
++ ***BaseURL***/**api/v1**/**usuário**/**buscar**
++ ***BaseURL***/**api/v1**/**usuário**/**atualizar**
++ ***BaseURL***/**api/v1**/**usuário**/**deletar**
++ ***BaseURL***/**api/v1**/**usuário**/**logout**
 
 A rota buscar trará as informações do usuário para sua página de perfil. O usuário pode atualizar nome, número de telefone e senha. E por fim, poderá deletar o próprio perfil.
 
-+ ***BaseURL***/**usuario**/**agendamento**/**buscar**
-+ ***BaseURL***/**usuario**/**agendamento**/**atualizar**
-+ ***BaseURL***/**usuario**/**agendamento**/**deletar**
++ ***BaseURL***/**api/v1**/**usuario**/**agendamento**/**buscar**
++ ***BaseURL***/**api/v1**/**usuario**/**agendamento**/**atualizar**
++ ***BaseURL***/**api/v1**/**usuario**/**agendamento**/**deletar**
 
 Atualizar agendamento também cria um novo agendamento, se este não existir, isso é muito fácil usando o método upsert do prisma. Atualizar agendamento pode adicionar um ou mais serviços.
 
-+ ***BaseURL***/**usuário**/**buscar**
-+ ***BaseURL***/**usuário**/**atualizar**
-+ ***BaseURL***/**usuário**/**deletar**
-+ ***BaseURL***/**usuário**/**logout**
++ ***BaseURL***/**api/v1**/**usuário**/**buscar**
++ ***BaseURL***/**api/v1**/**usuário**/**atualizar**
++ ***BaseURL***/**api/v1**/**usuário**/**deletar**
++ ***BaseURL***/**api/v1**/**usuário**/**logout**
 
 ## Veja como ficou a organização pelo insomnia. 
 
