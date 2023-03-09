@@ -101,38 +101,38 @@ As rotas podem ser divididas em dois grupos; as publicas e as privadas. Começan
 
 **Publicas:**
 
-+ ***BaseURL***/**api/v1**/**servicos**
-+ ***BaseURL***/**api/v1**/**agendamento**/**criar**
-+ ***BaseURL***/**api/v1**/**criar-conta**
-+ ***BaseURL***/**api/v1**/**entrar**
++ ***BaseURL***/**api**/**v1**/**servicos**
++ ***BaseURL***/**api**/**v1**/**agendamento**/**criar**
++ ***BaseURL***/**api**/**v1**/**criar-conta**
++ ***BaseURL***/**api**/**v1**/**entrar**
 
 **Privadas:**
-+ ***BaseURL***/**api/v1**/**dashboard**/**agendamento**/**buscar**
-+ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**buscar**
-+ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**criar**
-+ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**atualizar**
-+ ***BaseURL***/**api/v1**/**dashboard**/**servico**/**deletar**
++ ***BaseURL***/**api**/**v1**/**dashboard**/**agendamento**/**buscar**
++ ***BaseURL***/**api**/**v1**/**dashboard**/**servico**/**buscar**
++ ***BaseURL***/**api**/**v1**/**dashboard**/**servico**/**criar**
++ ***BaseURL***/**api**/**v1**/**dashboard**/**servico**/**atualizar**
++ ***BaseURL***/**api**/**v1**/**dashboard**/**servico**/**deletar**
 
 As cinco rotas acima, **/dashboard/** são exclusivas do dono do negócio. Entre as rotas privadas abaixo estão todas as rotas do usuário, com exceção de duas, criar usuário e login que estão entre as rotas publicas.
 
 **Usuário:**
-+ ***BaseURL***/**api/v1**/**usuário**/**buscar**
-+ ***BaseURL***/**api/v1**/**usuário**/**atualizar**
-+ ***BaseURL***/**api/v1**/**usuário**/**deletar**
-+ ***BaseURL***/**api/v1**/**usuário**/**logout**
++ ***BaseURL***/**api**/**v1**/**usuário**/**buscar**
++ ***BaseURL***/**api**/**v1**/**usuário**/**atualizar**
++ ***BaseURL***/**api**/**v1**/**usuário**/**deletar**
++ ***BaseURL***/**api**/**v1**/**usuário**/**logout**
 
 A rota buscar trará as informações do usuário para sua página de perfil. O usuário pode atualizar nome, número de telefone e senha. E por fim, poderá deletar o próprio perfil.
 
-+ ***BaseURL***/**api/v1**/**usuario**/**agendamento**/**buscar**
-+ ***BaseURL***/**api/v1**/**usuario**/**agendamento**/**atualizar**
-+ ***BaseURL***/**api/v1**/**usuario**/**agendamento**/**deletar**
++ ***BaseURL***/**api**/**v1**/**usuario**/**agendamento**/**buscar**
++ ***BaseURL***/**api**/**v1**/**usuario**/**agendamento**/**atualizar**
++ ***BaseURL***/**api**/**v1**/**usuario**/**agendamento**/**deletar**
 
 Atualizar agendamento também cria um novo agendamento, se este não existir, isso é muito fácil usando o método upsert do prisma. Atualizar agendamento pode adicionar um ou mais serviços.
 
-+ ***BaseURL***/**api/v1**/**usuário**/**buscar**
-+ ***BaseURL***/**api/v1**/**usuário**/**atualizar**
-+ ***BaseURL***/**api/v1**/**usuário**/**deletar**
-+ ***BaseURL***/**api/v1**/**usuário**/**logout**
++ ***BaseURL***/**api**/**v1**/**usuário**/**buscar**
++ ***BaseURL***/**api**/**v1**/**usuário**/**atualizar**
++ ***BaseURL***/**api**/**v1**/**usuário**/**deletar**
++ ***BaseURL***/**api**/**v1**/**usuário**/**logout**
 
 ## Veja como ficou a organização pelo insomnia. 
 
