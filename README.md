@@ -140,4 +140,4 @@ Atualizar agendamento também cria um novo agendamento, se este não existir, is
 
 <hr>
 
-**Por enquanto é isso, vamos terminar o desenvolvimeto do frontend  e descrever aqui como foi feito.**
+**Por enquanto é isso, vamos terminar o desenvolvimento do frontend  e descrever aqui como foi feito.**
