@@ -151,7 +151,7 @@ class UserController {
         message: 'Você está autenticado.',
         userId: user.id,
       }, secret, {
-        expiresIn: "7 days"
+        expiresIn: "5 days"
       });
 
       return res.status(200).json({ auth: true, token });
