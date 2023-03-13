@@ -142,40 +142,17 @@ class UserController {
 
       let secret = process.env.SECRET;
 
-      // Autenticação para Admin
-      if (user.email == process.env.SECRET_EMAIL){
-          secret = process.env.SECRET_SUDO
-      }
-
       const token = jwt.sign({
-        message: 'Você está autenticado.',
         userId: user.id,
       }, secret, {
         expiresIn: "5 days"
       });
-
       return res.status(200).json({ auth: true, token });
 
     } catch (err) {
       res.status(400).json({ err: err.message });
     };
   };
-
-  static async logout(req, res) {
-
-    try {
-      const token = jwt.sign({
-        //message: 'Você saiu do sistema.',
-      }, process.env.SECRET_LOGOUT, {
-        expiresIn: 4000
-      });
-
-      return res.status(200).json({ auth: true, token });
-    } catch (err) {
-      res.status(400).json({ err: err.message });
-    };
-  };
-
 
 }
 
