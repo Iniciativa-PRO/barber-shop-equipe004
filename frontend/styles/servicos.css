@@ -34,7 +34,7 @@
 }
 @media screen and (min-width: 1024px){
     .servicos{
-        width: 100vh;
+        width: 100vw;
         padding-top: 5rem;
     }
     .titulo-servicos{

@@ -58,7 +58,7 @@
 }
 @media screen and (min-width: 1024px){
     .agendamento{
-        width: 100vh;
+        width: 100%;
         padding-bottom: 9rem;
         padding-top: 6rem;
     }
@@ -99,6 +99,6 @@
 }
 @media screen and (min-width: 1728px){
     .botao-2{
-        margin-left: 25rem;
+        margin-left: 46rem;
     }
 }

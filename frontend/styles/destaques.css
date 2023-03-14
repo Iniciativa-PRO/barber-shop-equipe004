@@ -26,23 +26,14 @@ background-size: cover;
 border: 4px solid var(--preto);
 margin: 0 auto;
 }
-.cliente-1{
-background-image: url(/assets/imagens_svg/person-1\ 1.svg);
-}
 .cliente-1-{
-    background-image: url(/assets/imagens_svg/person-1\ 1.svg);
-}
-.cliente-2 {
-background-image: url(/assets/imagens_svg/person-1\ 1\ \(1\).svg);
+    background-image: url("../assets/imagens_svg/person-1\ 1.svg");
 }
 .cliente-2-{
-    background-image: url(/assets/imagens_svg/person-1\ 1\ \(1\).svg);
+background-image: url("../assets/imagens_svg/person-1\ 1\ \(1\).svg");
     }
-.cliente-3{
-background-image: url(/assets/imagens_svg/person-1\ 1\ \(2\).svg);
-}
 .cliente-3-{
-    background-image: url(/assets/imagens_svg/person-1\ 1\ \(2\).svg);
+    background-image: url("../assets/imagens_svg/person-1\ 1\ \(2\).svg");
     }
 .cliente-foto:hover .borda-foto{
     display: block;
@@ -87,20 +78,20 @@ height: 300px;
         display: none;
     }
     .destaques{
-        width: 100vh;
-        margin: 15rem auto;
+        width: 100%;
+        margin: 20rem auto;
         padding: 3rem;
     }
     .caroussel{
         margin: 3em 0 3em 3em;
-        width: 90%;
+        width: 100%;
         display: block;
     }
     .swiper-wrapper{
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-evenly;
-        width: 200%;
+        width: 100%;
     }
     .item-caroussel{
         display: flex;
@@ -117,7 +108,7 @@ height: 300px;
         margin-top: 2rem;
         text-transform: uppercase;
     }
-     .swiper-pagination{
+    .swiper-pagination{
         margin:2em 0 3em 0;
     }
     .swiper{
@@ -126,13 +117,13 @@ height: 300px;
        
     }
     .swiper-button-prev{
-        background-image: url(/assets/Icones/prevv.png);
+        background-image: url("../assets/Icones/prevv.png");
         background-repeat: no-repeat;
         background-size: 100% auto;
         margin-top: -15rem;
     }
     .swiper-button-next{
-        background-image: url(/assets/Icones/nextt.png);
+        background-image: url("../assets/Icones/nextt.png");
         background-repeat: no-repeat;
         background-size: 100% auto;
         margin-top: -15rem;
@@ -149,16 +140,16 @@ height: 300px;
         display: none;
     }
    .destaques{
-    width: 100vw;
+    width: 100%;
    }
    .caroussel{
-    margin: 3em 3em 3em 8em;
+    margin: 10em 3em 3em 8em;
     width: 60%;
    }
    .swiper-wrapper{
     justify-content: space-evenly;
    }
    .swiper{
-    margin: 0 20vh 3em 20vh;
+    margin: 0 20% 3% 20%;
    }
 }

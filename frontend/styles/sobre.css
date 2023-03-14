@@ -43,7 +43,7 @@
 @media screen and (min-width: 1024px){
     .sobre{
         margin-top: 3rem;
-        width: 100vh;
+        width: 100vw;
         padding: 0;
     }
     .border{
@@ -57,7 +57,7 @@
         justify-content: space-evenly;
     }
     .imagem-sobre{
-        background-image: url(/assets/imagens_svg/Elegant\ Barbershop.png);
+        background-image: url("../assets/imagens_svg/Elegant\ Barbershop.png");
         background-repeat: no-repeat;
         background-size: 250px;
         width: 250px;
@@ -82,9 +82,9 @@
         margin-top: .8rem;
     }
      .opiniao{
-        background-image: url(/assets/imagens_svg/Banner2.png);
+        background-image: url("../assets/imagens_svg/Banner2.png");
         background-repeat: no-repeat;
-        width: 100vh;
+        width: 100vw;
         background-size: cover;
         height: 30rem;
         display: block;
@@ -129,7 +129,7 @@
         height: 350px;
     }
     .opiniao{
-        width: 100vw;
+        width: 100%;
     }
     .aspas{
         width: 5rem;

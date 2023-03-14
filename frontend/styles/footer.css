@@ -2,7 +2,7 @@ footer{
     background-color: var(--verde);
     margin-top: 6rem;
     width: 100%;
-    height: 65vh;
+    height: 65%;
 }
 .itens-footer{
     padding-top: 20rem;
@@ -32,8 +32,8 @@ footer{
 }
 @media screen and (min-width: 1024px){
     footer{
-        height: 70vh;
-        width: 110vh;
+        height: 70%;
+        width: 110%;
         margin-top: 40rem;
     }
     .itens-footer{
