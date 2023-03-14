@@ -5,15 +5,6 @@ const bcrypt = require('bcryptjs');
 
 const processDataUser = (nome, email, telefone, senha) => {
 
-    if (!email)
-      return res.json({ message: 'Email é obrigatório'});
-    
-    if (!telefone)
-      return res.json({ message: 'Telefone é obrigatório'});
-
-    if (!senha)
-      return res.json({ message: 'Senha é obrigatória'});
-
     const User = object({
     nome: size(string(), 2, 20),
     email: define(email, isEmail),

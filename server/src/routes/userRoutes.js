@@ -3,8 +3,6 @@ const SchedulingController = require('../controllers/SchedulingController');
 const UserController = require('../controllers/UserController');
 const tokenUser = require('../middlewares/tokenUser');
 
-userRoutes.post('/sair', UserController.logout);
-
 // Token para todas as rotas de GRUD.
 userRoutes.use(tokenUser);
 
