@@ -58,6 +58,7 @@
     width: 55%;
     margin: auto;
     border-color: transparent;
+    padding: 1.5rem;
 }
 @media screen and (min-width: 720px){
     .quadro-agendamento{
@@ -75,8 +76,7 @@
 @media screen and (min-width: 1024px){
     .agendamento{
         width: 100%;
-        padding-bottom: 9rem;
-        padding-top: 6rem;
+        padding: 3rem 2rem;
     }
     .border-2{
         width: 3%;
@@ -102,7 +102,6 @@
     .botao-2{
         width: 20%;
         padding: 1.1rem;
-        margin-left: 33rem;
     }
     .agendamento-paragrafo{
         font-size: 1.8rem;

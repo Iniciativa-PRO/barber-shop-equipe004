@@ -1,4 +1,5 @@
 .destaques{
+    max-width: 1200px;
     padding-top: 31rem;
     background-color: var(--branco);
     text-align: center;
