@@ -79,7 +79,7 @@ height: 300px;
     }
     .destaques{
         width: 100%;
-        margin: 20rem auto;
+        margin: 20rem auto 1rem auto;
         padding: 3rem;
     }
     .caroussel{
@@ -135,7 +135,7 @@ height: 300px;
         display: none;
       }
 }
-@media screen and (min-width: 1728px) {
+/* @media screen and (min-width: 1728px) {
     .fotos-destaques{
         display: none;
     }
@@ -152,4 +152,4 @@ height: 300px;
    .swiper{
     margin: 0 20% 3% 20%;
    }
-}
+} */

@@ -25,7 +25,9 @@
 }
 .quadro-agendamento{
     padding: 1rem;
+    width: 100%; 
 }
+
 .agendamento-area{
     margin-bottom: 1rem;
 }
@@ -52,9 +54,23 @@
     margin-top: .5rem;
 }
 .botao-2{
-    margin-left: 4rem;
+    display: block;
     width: 55%;
+    margin: auto;
     border-color: transparent;
+}
+@media screen and (min-width: 720px){
+    .quadro-agendamento{
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        
+    }
+    .box-agendamento{
+        flex: 1 2 250px;
+    }
 }
 @media screen and (min-width: 1024px){
     .agendamento{
@@ -67,6 +83,7 @@
         margin-bottom: .5rem;
     }
     .quadro-agendamento{
+        display: block;
         width: 100%;
     }
     .box-agendamento{
@@ -97,8 +114,8 @@
         font-weight: 700;
     }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
     .botao-2{
         margin-left: 46rem;
     }
-}
+} */

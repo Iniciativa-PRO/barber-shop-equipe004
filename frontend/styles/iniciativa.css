@@ -27,6 +27,7 @@
     font-weight: 700;
     padding: .7rem 1rem;
     width: 9rem;
+    border: none;
     border-radius: .6rem;
     text-transform: uppercase;
     font-size: 10px;
@@ -51,7 +52,7 @@
         border-radius: .7rem;
     }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
     .iniciativa{
         margin-top: -38rem;
         margin-left: 5rem;
@@ -69,4 +70,4 @@
         width: 18rem;
         margin-right: 16rem;
     }
-}
+} */
