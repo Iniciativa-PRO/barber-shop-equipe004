@@ -28,13 +28,13 @@ border: 4px solid var(--preto);
 margin: 0 auto;
 }
 .cliente-1-{
-    background-image: url("../assets/imagens_svg/person-1\ 1.svg");
+    background-image: url("../assets/img/imagens_svg/person-1\ 1.svg");
 }
 .cliente-2-{
-background-image: url("../assets/imagens_svg/person-1\ 1\ \(1\).svg");
+background-image: url("../assets/img/imagens_svg/person-1\ 1\ \(1\).svg");
     }
 .cliente-3-{
-    background-image: url("../assets/imagens_svg/person-1\ 1\ \(2\).svg");
+    background-image: url("../assets/img/imagens_svg/person-1\ 1\ \(2\).svg");
     }
 .cliente-foto:hover .borda-foto{
     display: block;
@@ -118,13 +118,13 @@ height: 300px;
        
     }
     .swiper-button-prev{
-        background-image: url("../assets/Icones/prevv.png");
+        background-image: url("../assets/img/Icones/prevv.png");
         background-repeat: no-repeat;
         background-size: 100% auto;
         margin-top: -15rem;
     }
     .swiper-button-next{
-        background-image: url("../assets/Icones/nextt.png");
+        background-image: url("../assets/img/Icones/nextt.png");
         background-repeat: no-repeat;
         background-size: 100% auto;
         margin-top: -15rem;

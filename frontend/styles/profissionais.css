@@ -40,15 +40,15 @@
 }
 
 .barbeiro-1 {
-    background-image: url("../assets/imagens_svg/Rectangle\ 3.svg");
+    background-image: url("../assets/img/imagens_svg/Rectangle\ 3.svg");
 }
 
 .barbeiro-2 {
-    background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(1\).svg");
+    background-image: url("../assets/img/imagens_svg/Rectangle\ 3\ \(1\).svg");
 }
 
 .barbeiro-3 {
-background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(2\).svg");
+background-image: url("../assets/img/imagens_svg/Rectangle\ 3\ \(2\).svg");
 }
 
 .agendar {
@@ -62,7 +62,7 @@ background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(2\).svg");
 }
 .agendar {
     display: block;
-    background-image: url("../assets/imagens_svg/banner-corte.png");
+    background-image: url("../assets/img/imagens_svg/banner-corte.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

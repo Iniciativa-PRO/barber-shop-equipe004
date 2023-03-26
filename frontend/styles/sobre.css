@@ -55,7 +55,7 @@
         justify-content: space-evenly;
     }
     .imagem-sobre{
-        background-image: url("../assets/imagens_svg/Elegant\ Barbershop.png");
+        background-image: url("../assets/img/imagens_svg/Elegant\ Barbershop.png");
         background-repeat: no-repeat;
         background-size: 250px;
         width: 250px;
@@ -80,7 +80,7 @@
         margin-top: .8rem;
     }
      .opiniao{
-        background-image: url("../assets/imagens_svg/Banner2.png");
+        background-image: url("../assets/img/imagens_svg/Banner2.png");
         background-repeat: no-repeat;
         width: 100vw;
         background-size: cover;
