@@ -54,6 +54,84 @@
     .logo-cabecalho{
         margin: 2rem 3rem;
     }
+    .cabecalho-menu-hamburguer{
+        z-index: 5;
+    }
+    .cabecalho-menu-hamburguer span{
+        display: block;
+        width: 2rem;
+        border: 2px solid #D4A16D;
+        background-color: #D4A16D;
+        margin: 5px 0;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: 500ms all;
+    }
+    .menu-hambuger-lines span:nth-child(1){
+        transform: rotate(50deg)translate(11px);
+    }
+    .menu-hambuger-lines span:nth-child(2){
+        opacity: 0;
+    }
+    .menu-hambuger-lines span:nth-child(3){
+        transform: rotate(-50deg)translate(11px);
+    }
+    .menu-estendido{
+        position: absolute;
+        top: -100%;
+        visibility: hidden;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: 500ms all;
+        background-color: #363C42;
+    }
+    .menu-estendido ul{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .menu-estendido > ul li{
+        position: relative;
+        padding: .5rem 0;
+    }
+    .menu-estendido > ul > li > a{
+        font-family: var(--Lato);
+        color: #BD9367;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+    }
+    .menu-estendido-li-animation::before{
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: #BD9367;
+        position: absolute;
+        left: 50%;
+        bottom: -10%;
+        transform: translateX(-50%);
+        border-radius: 3px;
+        animation: zoom 500ms forwards;
+        transition: 300ms all;
+    }
+    @keyframes zoom {
+       0%{
+        width: 0;
+       }
+       100%{
+        width: 100%;
+       }
+    }
+    .menu-estendido-visible{
+        top: 0;
+        visibility: visible;
+        z-index: 3;
+    }
+
 }
 /* @media screen and (min-width: 1728px){
     .nav-texto{

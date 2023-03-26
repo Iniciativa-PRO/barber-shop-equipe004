@@ -1,5 +1,5 @@
 .agendamento{
-    padding: 2rem;
+    padding: 2rem 0;
     margin: 0 auto;
 }
 .border-2{
@@ -45,9 +45,6 @@
     margin-left: .5rem;
     margin-top: -.02rem;
 }
-.nome{
-    margin-top: .7rem;
-}
 .input-txt{
     padding: .8rem;
     width: 80%;
@@ -67,16 +64,17 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        
     }
     .box-agendamento{
         flex: 1 2 250px;
+        gap: 2rem;
     }
 }
 @media screen and (min-width: 1024px){
     .agendamento{
         width: 100%;
-        padding: 3rem 2rem;
+        margin: 3rem 0 5rem 0;
+        padding: 3rem 0;
     }
     .border-2{
         width: 3%;
@@ -84,13 +82,21 @@
     }
     .quadro-agendamento{
         display: block;
+        margin: 3rem 0;
         width: 100%;
+        padding: 0;
     }
     .box-agendamento{
-        width: 100%;
+        max-width: 1000px;
+        margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    .box-agendamento input{
+        width: 90%;
     }
     .agendamento-area{
         width: 100%;
