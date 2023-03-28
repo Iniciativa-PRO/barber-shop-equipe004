@@ -1,13 +1,23 @@
 .localizacao{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+.box-mapa{
+    margin-top: 3rem;
+    display: block;
     background-color: var(--marrom-escuro);
-    padding: 1.5rem;
-    margin-bottom: 4rem;
+    padding: 2rem;
 }
 .box-localizacao{
     border: 2px solid var(--laranja);
-    padding: 3rem;
-    width: 70%;
-    height: 20%;
+    padding: 2rem;
+    height: 230px;
     margin: 0 auto;
    
 }
@@ -23,94 +33,58 @@
     margin-left: .7rem;
 }
 .lista-links{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    align-content: center;
-    margin-top: 1.8rem;
+   margin-top: 1.5rem;
+   width: 100%;
+   display: inline-block;
+   text-align: center;
 }
-.fb{
-    margin-top: -.7rem;
-}
-.mapa-mobile{
-    position: absolute;
-    margin-right: 8rem;
-    margin-top: 5rem;
-}
-.box-mapa{
-    width: 80%;
-    height: 30%;
-    padding: 2rem;
-    margin: 0 auto;
+.lista-links a{
+   margin: .5rem;
 }
 .mapa-conteudo{
-    display: none;
+    margin-top: 5rem;
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: 361px;
+    margin-bottom: -12rem;
+}
+.mapa-conteudo iframe{
+    width: 100%;
+    height: 100%;
 }
 
-@media screen and (min-width: 1024px){
-    .mapa-mobile{
-        display:none;
-    }
-    .box-mapa{
-        display: block;
-        display: flex;
-        background-color: var(--marrom-escuro);
-        width: 50%;
-        height: 28%;
-        padding: 2rem;
-        margin: 0 auto;
-        position: absolute;
-    }
+@media screen and (min-width: 720px){
     .localizacao{
-        background-color: var(--branco);
-        width: 30%;
-        height: 60%;
-        margin-left: 9rem;
-        margin-top: -5rem;
-    }
-    .box-localizacao{
-        width: 65%;
-        height: 55%;
-        padding: 5rem;
-       
-    }
-    .mapa-conteudo{
-        position: absolute;
-        margin-left: 24rem;
-        margin-top: -12rem;
-        width: 80%;
-        height: 200%;
-        padding: 10rem;
-        display: block;
-    }
-
-}
-@media screen and (min-width: 1728px){
-    .box-mapa{
-        text-align: center;
-        width: 20%;
-        height: 43%;
-        margin-left: 15rem;
+        margin-top: 3rem;
+        position: relative;
         display: flex;
+        flex-direction: row;
         justify-content: center;
+        align-items: center;
+        max-width: 1000px;
+        margin-bottom: -12rem;
     }
-    .mapa-conteudo{
-        height: 50%;
-        width: 100%;
-        margin-left: 55rem;   
-    }
-    .localizacao{
-        width: 60%;
-        height: 60%;
+    .box-mapa{
+        margin-top: 0;
     }
     .box-localizacao{
-        width: 60%;
-        height: 60%;
-        padding: 5rem;
-        margin-inline-start: auto;  
+        border: 2px solid var(--laranja);
+        padding: 2rem;
+        height: 230px;
+        margin: 0 auto; 
     }
-    .texto-localizacao{
-        margin-left: .7rem;
+    .mapa-conteudo{
+        margin-top: 0;
+        display: block;
+        width: 100%;
+        max-width: 500px;
+        height: 361px;
+        margin-bottom: 0;
+    }
+    .mapa-conteudo iframe{
+        width: 100%;
+        height: 100%;
     }
     
 }

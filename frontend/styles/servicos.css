@@ -35,7 +35,7 @@
 @media screen and (min-width: 1024px){
     .servicos{
         width: 100vw;
-        padding-top: 5rem;
+        padding: 5rem 0 20rem 0;
     }
     .titulo-servicos{
         font-size: 2rem;
@@ -50,7 +50,7 @@
         flex-direction: row-reverse;
     }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
     .servicos{
         width: 100vw;
     }
@@ -63,4 +63,4 @@
     .borda{
         display: none;
     }
-}
+} */

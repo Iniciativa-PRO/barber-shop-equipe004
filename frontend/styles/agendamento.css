@@ -1,5 +1,5 @@
 .agendamento{
-    padding: 2rem;
+    padding: 2rem 0;
     margin: 0 auto;
 }
 .border-2{
@@ -25,7 +25,9 @@
 }
 .quadro-agendamento{
     padding: 1rem;
+    width: 100%; 
 }
+
 .agendamento-area{
     margin-bottom: 1rem;
 }
@@ -43,37 +45,58 @@
     margin-left: .5rem;
     margin-top: -.02rem;
 }
-.nome{
-    margin-top: .7rem;
-}
 .input-txt{
     padding: .8rem;
     width: 80%;
     margin-top: .5rem;
 }
 .botao-2{
-    margin-left: 4rem;
+    display: block;
     width: 55%;
+    margin: auto;
     border-color: transparent;
+    padding: 1.5rem;
+}
+@media screen and (min-width: 720px){
+    .quadro-agendamento{
+        padding: 1rem;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .box-agendamento{
+        flex: 1 2 250px;
+        gap: 2rem;
+    }
 }
 @media screen and (min-width: 1024px){
     .agendamento{
         width: 100%;
-        padding-bottom: 9rem;
-        padding-top: 6rem;
+        margin: 3rem 0 5rem 0;
+        padding: 3rem 0;
     }
     .border-2{
         width: 3%;
         margin-bottom: .5rem;
     }
     .quadro-agendamento{
+        display: block;
+        margin: 3rem 0;
         width: 100%;
+        padding: 0;
     }
     .box-agendamento{
-        width: 100%;
+        max-width: 1000px;
+        margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    .box-agendamento input{
+        width: 90%;
     }
     .agendamento-area{
         width: 100%;
@@ -85,7 +108,6 @@
     .botao-2{
         width: 20%;
         padding: 1.1rem;
-        margin-left: 33rem;
     }
     .agendamento-paragrafo{
         font-size: 1.8rem;
@@ -97,8 +119,8 @@
         font-weight: 700;
     }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
     .botao-2{
         margin-left: 46rem;
     }
-}
+} */

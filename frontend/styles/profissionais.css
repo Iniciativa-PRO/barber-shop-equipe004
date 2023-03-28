@@ -40,15 +40,15 @@
 }
 
 .barbeiro-1 {
-    background-image: url("../assets/imagens_svg/Rectangle\ 3.svg");
+    background-image: url("../assets/img/imagens_svg/Rectangle\ 3.svg");
 }
 
 .barbeiro-2 {
-    background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(1\).svg");
+    background-image: url("../assets/img/imagens_svg/Rectangle\ 3\ \(1\).svg");
 }
 
 .barbeiro-3 {
-background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(2\).svg");
+background-image: url("../assets/img/imagens_svg/Rectangle\ 3\ \(2\).svg");
 }
 
 .agendar {
@@ -62,37 +62,32 @@ background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(2\).svg");
 }
 .agendar {
     display: block;
-    background-image: url("../assets/imagens_svg/banner-corte.png");
+    background-image: url("../assets/img/imagens_svg/banner-corte.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 23%;
-    position: absolute;
-    margin-top: -19em;
-    margin-left: .1rem;
     }
 .itens-agendar{
     display: flex;
-    align-items: center;
     justify-content:center;
-    }
+    align-items: center;
+    max-width: 900px;
+    min-height: 200px;
+    margin: auto;
+}
 .titulo-agendar{
     color: var(--marrom-claro);
     font-weight: 700;
     font-size: 2rem;
     line-height: 28px;
     font-family: var(--Roboto);
-    margin-top: 8rem;
-    margin-left: 19rem;
     }
 .botao-agendar{
-    height: 3rem;
     width: 20rem;
-    margin-top: 8rem;
-    margin-right: 17rem;
     text-decoration: none;
-    }
+    padding: 1.3rem;
+}
 .barbeiros{
     padding: 4rem;
     }
@@ -103,7 +98,7 @@ background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(2\).svg");
     padding-bottom: 5rem;
     }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
 .profissionais{
     width: 100%;
     }
@@ -122,4 +117,4 @@ background-image: url("../assets/imagens_svg/Rectangle\ 3\ \(2\).svg");
         margin-top: 10rem;
         margin-right: 36rem;
         }
-}
+} */

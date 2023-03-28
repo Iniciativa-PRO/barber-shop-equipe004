@@ -21,30 +21,45 @@
     <header>
         <nav class="nav">
             <div class="cabecalho-nav">
-                <img src="assets/Icones/Iniciativa-pro-logo 2.svg" alt="Logo BarberShop" class="logo-cabecalho">
+                <img src="assets/img/Icones/Iniciativa-pro-logo 2.svg" alt="Logo BarberShop" class="logo-cabecalho">
                 <div class="menu-nav">
                     <ul class="menu-lista">
-                        <li><img src="assets/Icones/carbon_location-filled.png" alt="Ícone localização"></li>
+                        <li><img src="assets/img/Icones/carbon_location-filled.png" alt="Ícone localização"></li>
                         <li>
                             <p class="nav-texto">Avenida Ayrton Senna 232</p>
                         </li>
                     </ul>
                     <ul class="menu-lista">
-                        <li><img src="assets/Icones/Vector (2).png"></li>
+                        <li><img src="assets/img/Icones/Vector (2).png"></li>
                         <li>
                             <p class="nav-texto">96 98337-2561</p>
                         </li>
                     </ul>
-                    <img src="assets/Icones/menu-hamburguer2.png" alt="Ícone menu-hamburguer"
-                        class="cabecalho-menu-hamburguer">
+                    <!-- <img src="assets/Icones/menu-hamburguer2.png" alt="Ícone menu-hamburguer" class="cabecalho-menu-hamburguer" id="jsmenu-hamburger"> -->
+                    <div class="cabecalho-menu-hamburguer" id="jsmenu-hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
             <div class="cabecalho">
                 <div class="icones-nav">
-                    <img src="assets/imagens_svg/Iniciativa-pro-logo 3.svg" alt="Logo BarberShop" class="logo-cabecalho">
-                    <img src="assets/Icones/menu-hamburguer.svg" alt="Ícone menu-hamburguer" class="cabecalho-menu-hamburguer">
+                    <img src="assets/img/imagens_svg/Iniciativa-pro-logo 3.svg" alt="Logo BarberShop" class="logo-cabecalho">
+                    <img src="assets/img/Icones/menu-hamburguer.svg" alt="Ícone menu-hamburguer" class="cabecalho-menu-hamburguer">
                 </div>
             </div>
+            <div class="menu-estendido" id="jsmenu-estendido">
+                <ul>
+                    <li class="jsanimation"><a href="#">Home</a></li>
+                    <li class="jsanimation"><a href="#">Sobre</a></li>
+                    <li class="jsanimation"><a href="#">Serviços</a></li>
+                    <li class="jsanimation"><a href="#">agendamento</a></li>
+                    <li class="jsanimation"><a href="#">Barbeiros da Casa</a></li>
+                    <li class="jsanimation"><a href="#">Contado</a></li>
+                </ul>
+            </div>
+            <script defer src="./assets/js/menuEstendido.js"></script>
         </nav>
     </header>
 <main>
@@ -74,18 +89,15 @@ Hidradatação e esfoliação e etc.</pre>
             </div>
             <div class="imagem-sobre">
                 <div class="borda-sobre"></div>
-                <img src="assets/imagens_svg/Elegant Barbershop.png" alt="Imagem barbershop" class="sobre-imagem">
+                <img src="assets/img/imagens_svg/Elegant Barbershop.png" alt="Imagem barbershop" class="sobre-imagem">
             </div>
         </div>
         <div class="opiniao">
-            <img src="assets/imagens_svg/aspas.png" alt="aspas duplas" class="aspas">
+            <img src="assets/img/imagens_svg/aspas.png" alt="aspas duplas" class="aspas">
             <h1 class="titulo-opiniao">A melhor Barbearia da Cidade</h1>
             <p class="nome-usuario">Fulano de tal</p>
         </div>
     </section>
-
-
-
 
 
     <section class="servicos">
@@ -94,7 +106,7 @@ Hidradatação e esfoliação e etc.</pre>
         <pre class="chamada-servicos">Conheça as especialidades da Casa</pre>
         <div class="bloco-servicos">
             <ul class="lista-servicos">
-                <img src="assets/imagens_svg/maquinaDeCortar.svg" alt="Ícone máquina de cortar">
+                <img src="assets/img/imagens_svg/maquinaDeCortar.svg" alt="Ícone máquina de cortar">
                 <li class="titulo-lista">Máquina</li>
                 <li class="conteudo-lista">
                     <pre>Corte de cabelo com apenas 
@@ -107,7 +119,7 @@ linha Iniciativa PRO Barbearia.</pre>
                 </li>
             </ul>
             <ul class="lista-servicos">
-                <img src="assets/imagens_svg/rostoIcone.svg" alt="Ícone rosto com barba">
+                <img src="assets/img/imagens_svg/rostoIcone.svg" alt="Ícone rosto com barba">
                 <li class="titulo-lista">Cabelo</li>
                 <div class="border"></div>
                 <li class="conteudo-lista">
@@ -120,7 +132,7 @@ PRO Barbearia.</pre>
                 </li>
             </ul>
             <ul class="lista-servicos">
-                <img src="assets/imagens_svg/navalha.svg" alt="Ícone navalha">
+                <img src="assets/img/imagens_svg/navalha.svg" alt="Ícone navalha">
                 <li class="titulo-lista">Barba</li>
                 <div class="border"></div>
                 <li class="conteudo-lista">
@@ -138,7 +150,7 @@ Lotion e Beard Styling Balm.</pre>
                 </li>
             </ul>
             <ul class="lista-servicos">
-                <img src="assets/imagens_svg/tesoura.svg" alt="Ícone tesoura">
+                <img src="assets/img/imagens_svg/tesoura.svg" alt="Ícone tesoura">
                 <li class="titulo-lista">Corte</li>
                 <div class="border"></div>
                 <li class="conteudo-lista">
@@ -488,7 +500,7 @@ Barba agora mesmo !
             <div class="box-agendamento">
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
-                        <li><img src="assets/Icones/Group.png" alt="Ícone do avatar perfil"></li>
+                        <li><img src="assets/img/Icones/Group.png" alt="Ícone do avatar perfil"></li>
                         <li>
                             <p class="texto-quadro nome">Nome</p>
                         </li>
@@ -497,7 +509,7 @@ Barba agora mesmo !
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
-                        <li><img src="assets/Icones/eva_email-outline.png" alt="Ícone email"></li>
+                        <li><img src="assets/img/Icones/eva_email-outline.png" alt="Ícone email"></li>
                         <li>
                             <p class="texto-quadro">Email</p>
                         </li>
@@ -506,7 +518,7 @@ Barba agora mesmo !
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
-                        <li><img src="assets/Icones/Frame 2.png" alt="Ícone Telefone"></li>
+                        <li><img src="assets/img/Icones/Frame 2.png" alt="Ícone Telefone"></li>
                         <li>
                             <p class="texto-quadro">Telefone</p>
                         </li>
@@ -517,7 +529,7 @@ Barba agora mesmo !
             <div class="box-agendamento">
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
-                        <li><img src="assets/Icones/mdi_chair-rolling.png" alt="Ícone cadeira de barbeiro"></li>
+                        <li><img src="assets/img/Icones/mdi_chair-rolling.png" alt="Ícone cadeira de barbeiro"></li>
                         <li>
                             <p class="texto-quadro">Serviço</p>
                         </li>
@@ -526,7 +538,7 @@ Barba agora mesmo !
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
-                        <li><img src="assets/Icones/akar-icons_calendar.png" alt="Ícone do calendário"></li>
+                        <li><img src="assets/img/Icones/akar-icons_calendar.png" alt="Ícone do calendário"></li>
                         <li>
                             <p class="texto-quadro">Data</p>
                         </li>
@@ -535,7 +547,7 @@ Barba agora mesmo !
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
-                        <li><img src="assets/Icones/akar-icons_clock.png" alt="Ícone relógio"></li>
+                        <li><img src="assets/img/Icones/akar-icons_clock.png" alt="Ícone relógio"></li>
                         <li>
                             <p class="texto-quadro">Hora</p>
                         </li>
@@ -553,25 +565,25 @@ Barba agora mesmo !
         <div class="box-mapa">
         <div class="box-localizacao">
             <ul class="lista-localizacao">
-                <li><img src="assets/Icones/carbon_location-filled.png" alt="Ícone de localização"></li>
+                <li><img src="assets/img/Icones/carbon_location-filled.png" alt="Ícone de localização"></li>
                 <li>
                     <pre class="texto-localizacao">Avenida Ayrton Senna 332</pre>
                 </li>
             </ul>
             <ul class="lista-localizacao">
-                <li><img src="assets/Icones/Vector (2).png" alt="Ícone WhatsApp"></li>
+                <li><img src="assets/img/Icones/Vector (2).png" alt="Ícone WhatsApp"></li>
                 <li>
                     <p class="texto-localizacao">96 98337-2561</p>
                 </li>
             </ul>
             <ul class="lista-localizacao">
-                <li><img src="assets/Icones/eva_email-outline.png" alt="Ícone e-mail"></li>
+                <li><img src="assets/img/Icones/eva_email-outline.png" alt="Ícone e-mail"></li>
                 <li>
                     <p class="texto-localizacao">contato@barbearia.com.br</p>
                 </li>
             </ul>
             <ul class="lista-localizacao">
-                <link><img src="assets/Icones/akar-icons_clock.png" alt="Ícone relógio"></link>
+                <link><img src="assets/img/Icones/akar-icons_clock.png" alt="Ícone relógio"></link>
                 <li>
                     <p class="texto-localizacao">10:00 às 21:00</p>
                 </li>
@@ -579,43 +591,51 @@ Barba agora mesmo !
 
             <div class="links">
                 <ul class="lista-links">
-                    <a src="#" id="facebook" name="facebook"><img src="assets/Icones/facebook.png" alt="Ícone Facebook"
-                            class="fb"></a>
-                    <a src="#" id="instagram" name="instagram"><img src="assets/Icones/Vector (1).png"
-                            alt="Ícone Instagram"></a>
-                    <a src="#" id="youtube" name="youtube"><img src="assets/Icones/Vector.png" alt="Ícone Youtube"></a>
+
+                    <a src="#" id="facebook" name="facebook">
+                        <img src="assets/img/Icones/facebook.png" alt="Ícone Facebook">
+                    </a>
+
+                    <a src="#" id="instagram" name="instagram">
+                        <img src="assets/img/Icones/Vector (1).png" alt="Ícone Instagram">
+                    </a>
+
+                    <a src="#" id="youtube" name="youtube">
+                        <img src="assets/img/Icones/Vector.png" alt="Ícone Youtube">
+                    </a>
                 </ul>
             </div>
+        </div>
         </div>
 
         <div class="mapa-conteudo">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58513.8308630123!2d-46.62718284572863!3d-23.564333403849584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a2b2ed7f3a1%3A0xab35da2f5ca62674!2sCaelum%20-%20Escola%20de%20Tecnologia!5e0!3m2!1spt-BR!2sbr!4v1651091342297!5m2!1spt-BR!2sbr"
-                width="130%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
-         <div class="mapa-mobile">
+         <!-- <div class="mapa-mobile">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58513.8308630123!2d-46.62718284572863!3d-23.564333403849584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5a2b2ed7f3a1%3A0xab35da2f5ca62674!2sCaelum%20-%20Escola%20de%20Tecnologia!5e0!3m2!1spt-BR!2sbr!4v1651091342297!5m2!1spt-BR!2sbr"
                 width="130%" height="240" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
-        </div>
+        </div> -->
         
-    </div>
+    
   
     </section>
 </main>
     <footer>
         <div class="itens-footer">
-            <a href="#"><img src="assets/Icones/Iniciativa-pro-logo.png" alt="Ícone Pro Barber"></a>
+            <a href="#"><img src="assets/img/Icones/Iniciativa-pro-logo.png" alt="Ícone Pro Barber"></a>
             <p class="paragrafo-footer">Siga-nos</p>
         </div>
         <div class="links-footer">
-            <a href="#"><img src="assets/Icones/Vector-fb.png" alt="Ícone Facebook"></a>
-            <a href="#"><img src="assets/Icones/Vector-inst.png" alt="Ícone Instagram"></a>
-            <a href="#"><img src="assets/Icones/Vector-yout.png" alt="Ícone Youtube"></a>
+            <a href="#"><img src="assets/img/Icones/Vector-fb.png" alt="Ícone Facebook"></a>
+            <a href="#"><img src="assets/img/Icones/Vector-inst.png" alt="Ícone Instagram"></a>
+            <a href="#"><img src="assets/img/Icones/Vector-yout.png" alt="Ícone Youtube"></a>
         </div>
         <div class="direitos-reservados">2022 &copy Copyright Iniciativa Pro</div>
     </footer>

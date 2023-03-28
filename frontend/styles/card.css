@@ -1,22 +1,25 @@
 .card-cortes{
+    position: relative;
     background-color: var(--cor-de-fundo);
 }
 .card{
     border: solid 1px var(--marrom-escuro);
     background-color: var(--marrom-escuro);
-    width: 330px;
-    margin-top: -12rem;
-    margin-left: 1rem;
+    max-width: 450px;
     position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -30%);
     padding: 1rem;
 }
 .card-box{
     border: solid 1px var(--laranja);
-    padding: 1.5rem;
-    width: 280px;
-    height: 540px;
-    padding-bottom: 3rem;
+    width: 300px;
+    height: auto;
 }
+/* .box-cortes-geral{
+    padding: 1.5rem;
+  } */
 .paragrafo-lista{
     color: var(--branco);
     text-align: start;
@@ -25,7 +28,7 @@
     font-size: .8rem;
 }
 .cortes-paragrafo{
-    margin-top: 2rem;
+    margin-top: .5rem;
 }
 .titulo-lista-cortes{
     font-family: var(--Roboto);
@@ -59,34 +62,33 @@
 }
 @media screen and (min-width: 1024px){
     .card{
-        width: 65vw;
-        margin-left: 18rem;
-        height: 26%;
+        position: absolute;
+        max-width: 800px;
+        transform: translate(-50%, -50%);
+        left: none;
     }
     .card-box{
-        width: 60vw;
+        width: 100%;
         height: 20.5%;
-        margin: 0 auto;
     }
     .box-cortes-geral{
       display: flex;
-      flex-direction: row-reverse;
+      padding: 1rem;
+      /* flex-direction: row-reverse; */
     }
     .borda{
         width: 1px;
         height: 14rem;
         margin-top: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
     .borda-cortes{
         display: none;
     }
-    .box-cortes-1{
-        width: 27vw;
-        margin-left: 1rem;
-    }
-    .box-cortes-2{
-        width: 27vw;
-        margin-top: -2rem;
+    .box-cortes-1, .box-cortes-2{
+        max-width: 350px;
+        /* padding: 1rem; */
     }
     .paragrafo-lista{
         font-size: 1.2rem;
@@ -101,11 +103,11 @@
     }
     .item-preco{
         font-size:1.2rem;
-        width: 8%;
+        width: 35%;
         margin-left: 3rem;
     }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
     .card{
         width: 93%;
         margin-left: 3rem;
@@ -134,4 +136,4 @@
     .paragrafo-lista .cortes-paragrafo{
         margin-top: 1.4rem;
     }
-}
+} */

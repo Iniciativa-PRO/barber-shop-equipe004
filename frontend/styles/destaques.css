@@ -1,4 +1,5 @@
 .destaques{
+    max-width: 1200px;
     padding-top: 31rem;
     background-color: var(--branco);
     text-align: center;
@@ -27,13 +28,13 @@ border: 4px solid var(--preto);
 margin: 0 auto;
 }
 .cliente-1-{
-    background-image: url("../assets/imagens_svg/person-1\ 1.svg");
+    background-image: url("../assets/img/imagens_svg/person-1\ 1.svg");
 }
 .cliente-2-{
-background-image: url("../assets/imagens_svg/person-1\ 1\ \(1\).svg");
+background-image: url("../assets/img/imagens_svg/person-1\ 1\ \(1\).svg");
     }
 .cliente-3-{
-    background-image: url("../assets/imagens_svg/person-1\ 1\ \(2\).svg");
+    background-image: url("../assets/img/imagens_svg/person-1\ 1\ \(2\).svg");
     }
 .cliente-foto:hover .borda-foto{
     display: block;
@@ -79,7 +80,7 @@ height: 300px;
     }
     .destaques{
         width: 100%;
-        margin: 20rem auto;
+        margin: 20rem auto 1rem auto;
         padding: 3rem;
     }
     .caroussel{
@@ -117,13 +118,13 @@ height: 300px;
        
     }
     .swiper-button-prev{
-        background-image: url("../assets/Icones/prevv.png");
+        background-image: url("../assets/img/Icones/prevv.png");
         background-repeat: no-repeat;
         background-size: 100% auto;
         margin-top: -15rem;
     }
     .swiper-button-next{
-        background-image: url("../assets/Icones/nextt.png");
+        background-image: url("../assets/img/Icones/nextt.png");
         background-repeat: no-repeat;
         background-size: 100% auto;
         margin-top: -15rem;
@@ -135,7 +136,7 @@ height: 300px;
         display: none;
       }
 }
-@media screen and (min-width: 1728px) {
+/* @media screen and (min-width: 1728px) {
     .fotos-destaques{
         display: none;
     }
@@ -152,4 +153,4 @@ height: 300px;
    .swiper{
     margin: 0 20% 3% 20%;
    }
-}
+} */

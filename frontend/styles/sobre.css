@@ -23,9 +23,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--laranja);
-    text-align: start;
-    margin: 0 auto;
-    margin-bottom: .5rem;
+    margin: 2rem 0;
 }
 .sobre-conteudo{
     font-family: var(--Lato);
@@ -57,7 +55,7 @@
         justify-content: space-evenly;
     }
     .imagem-sobre{
-        background-image: url("../assets/imagens_svg/Elegant\ Barbershop.png");
+        background-image: url("../assets/img/imagens_svg/Elegant\ Barbershop.png");
         background-repeat: no-repeat;
         background-size: 250px;
         width: 250px;
@@ -82,7 +80,7 @@
         margin-top: .8rem;
     }
      .opiniao{
-        background-image: url("../assets/imagens_svg/Banner2.png");
+        background-image: url("../assets/img/imagens_svg/Banner2.png");
         background-repeat: no-repeat;
         width: 100vw;
         background-size: cover;
@@ -109,7 +107,7 @@
         font-size: 1.5rem;
      }
 }
-@media screen and (min-width: 1728px){
+/* @media screen and (min-width: 1728px){
     .box-sobre{
        width: 100vw;
     }
@@ -135,4 +133,4 @@
         width: 5rem;
         margin-top: 6rem;
     }
-}
+} */
