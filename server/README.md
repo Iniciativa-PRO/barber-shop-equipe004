@@ -1,6 +1,6 @@
 ## Servidor da aplicação Barber Shop | em TypeScript
 
-Esse projeto surgiu como uma oportunidade de aprender TypeScript migrando o código JavaScript [deste projeto](https://github.com/Iniciativa-PRO/barber-shop-equipe004) para TypeScript. Em breve este se tornará o código padrão.
+A migração deste código que origianalmente foi escrito em JavaScript, está sendo uma oportunidade de aprender TypeScript.
 
 ## Executar
 
