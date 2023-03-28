@@ -34,7 +34,7 @@ Aqui estão os modelos de requisição:
 + ***BaseURL***/**api**/**v1**/**servicos**
 + ***BaseURL***/**api**/**v1**/**agendamento**/**criar**
 + ***BaseURL***/**api**/**v1**/**criar-conta**
-+ ***BaseURL***/**api**/**v1**/**entrar**
++ ***BaseURL***/**api**/**v1**/**sessao**
 
 ### Privadas:
 
@@ -49,7 +49,6 @@ Aqui estão os modelos de requisição:
 + ***BaseURL***/**api**/**v1**/**usuário**/**buscar**
 + ***BaseURL***/**api**/**v1**/**usuário**/**atualizar**
 + ***BaseURL***/**api**/**v1**/**usuário**/**deletar**
-+ ***BaseURL***/**api**/**v1**/**usuário**/**logout**
 
 + ***BaseURL***/**api**/**v1**/**usuario**/**agendamento**/**buscar**
 + ***BaseURL***/**api**/**v1**/**usuario**/**agendamento**/**atualizar**
@@ -58,4 +57,3 @@ Aqui estão os modelos de requisição:
 + ***BaseURL***/**api**/**v1**/**usuário**/**buscar**
 + ***BaseURL***/**api**/**v1**/**usuário**/**atualizar**
 + ***BaseURL***/**api**/**v1**/**usuário**/**deletar**
-+ ***BaseURL***/**api**/**v1**/**usuário**/**logout**
