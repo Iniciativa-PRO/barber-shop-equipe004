@@ -52,11 +52,11 @@
             <div class="menu-estendido" id="jsmenu-estendido">
                 <ul>
                     <li class="jsanimation"><a href="#">Home</a></li>
-                    <li class="jsanimation"><a href="#">Sobre</a></li>
-                    <li class="jsanimation"><a href="#">Serviços</a></li>
-                    <li class="jsanimation"><a href="#">agendamento</a></li>
-                    <li class="jsanimation"><a href="#">Barbeiros da Casa</a></li>
-                    <li class="jsanimation"><a href="#">Contado</a></li>
+                    <li class="jsanimation"><a href="#sobre">Sobre</a></li>
+                    <li class="jsanimation"><a href="#servicos">Serviços</a></li>
+                    <li class="jsanimation"><a href="#agendamento">agendamento</a></li>
+                    <li class="jsanimation"><a href="#barbeirosDaCasa">Barbeiros da Casa</a></li>
+                    <li class="jsanimation"><a href="#contato">Contato</a></li>
                 </ul>
             </div>
             <script defer src="./assets/js/menuEstendido.js"></script>
@@ -74,7 +74,7 @@ Hidradatação e esfoliação e etc.</pre>
         <button class="botao-agendamento" id="botao-agendamento" name="botao-agendamento">Agende o seu corte</button>
     </section>
 
-    <section class="sobre">
+    <section class="sobre" id="sobre">
         <div class="box-sobre">
             <div class="textos-sobre">
                 <div class="border border-sobre"></div>
@@ -100,7 +100,7 @@ Hidradatação e esfoliação e etc.</pre>
     </section>
 
 
-    <section class="servicos">
+    <section class="servicos" id="servicos">
         <div class="border"></div>
         <h1 class="titulo-servicos">Nossos serviços</h1>
         <pre class="chamada-servicos">Conheça as especialidades da Casa</pre>
@@ -454,7 +454,7 @@ CABELO CURTO
         </div>
     </section>
 
-    <section class="profissionais">
+    <section class="profissionais" id="barbeirosDaCasa">
         <div class="agendar">
             <div class="itens-agendar">
                 <pre class="titulo-agendar"> Agende o seu corte ou
@@ -490,7 +490,7 @@ Barba agora mesmo !
         </ul>
     </section>
 
-    <section class="agendamento">
+    <section class="agendamento" id="agendamento">
         <div class="border border-2"></div>
         <div class="agendamento-textos">
             <p class="agendamento-paragrafo">Venha nos visitar</p>
@@ -514,7 +514,7 @@ Barba agora mesmo !
                             <p class="texto-quadro">Email</p>
                         </li>
                     </ul>
-                    <input type="email" id="input-name" name="input-email" class="input-txt">
+                    <input type="email" id="input-email" name="input-email" class="input-txt">
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
@@ -534,7 +534,22 @@ Barba agora mesmo !
                             <p class="texto-quadro">Serviço</p>
                         </li>
                     </ul>
-                    <input type="text" id="input-servico" name="input-servico" class="input-txt">
+                    <section>
+                   
+                        <label>
+                            Corte Barba
+                            <input type="checkbox" name="" id="">
+                        </label>
+                        <label>
+                            Corte Cabelo
+                            <input type="checkbox" name="" id="">
+                        </label>
+                        <label>
+                            Pintar
+                            <input type="checkbox" name="" id="">
+                        </label>
+                    
+                    <!-- <input type="" id="input-servicos" name="input-servico" class="input-txt"> -->
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
@@ -557,12 +572,13 @@ Barba agora mesmo !
             </div>
         </div>
         <button class="botao-agendamento botao-2" id="botao-agendamento" name="botao-agendamento">Agende o seu
-            corte</button>
+            corte
+       </button>
     </section>
 
     <section class="localizacao">
         
-        <div class="box-mapa">
+        <div class="box-mapa" id="contato">
         <div class="box-localizacao">
             <ul class="lista-localizacao">
                 <li><img src="assets/img/Icones/carbon_location-filled.png" alt="Ícone de localização"></li>
@@ -639,7 +655,8 @@ Barba agora mesmo !
         </div>
         <div class="direitos-reservados">2022 &copy Copyright Iniciativa Pro</div>
     </footer>
-    <script src="./assets/js/servicos.js"></script>
+    <script src="./assets/js/api/mostrarServicos.js"></script>
+    <script type="module" src="./assets/js/criarAgendamento.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper',
