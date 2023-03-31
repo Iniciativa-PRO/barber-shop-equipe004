@@ -14,7 +14,7 @@ export const serviceSchema = z.object({
   }).min(2).max(20),
   preco: z.string({
     required_error: 'Preço é obrigatório.'
-  }).min(4).max(6),
+  }).min(2).max(2),
   descricao: z.string({
     required_error: 'Descrição é obrigatória.'
   }).min(10, { 

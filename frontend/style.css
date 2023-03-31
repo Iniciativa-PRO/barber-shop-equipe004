@@ -21,6 +21,9 @@
     --Lato: "Lato" ;
 
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: var(--branco);
     font-family: var(--Roboto);
