@@ -50,6 +50,53 @@
     width: 80%;
     margin-top: .5rem;
 }
+.multiselect {
+  width: 100%;
+}
+
+.selectBox {
+  position: relative;
+  padding-top: 10px;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  padding: .8rem;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  max-height: 200px;
+}
+
+#checkboxes {
+  opacity: 0;
+  padding: .5rem 0;
+  border: 1px #dadada solid;
+  border-radius: 0 0 5px 5px;
+  transition: 200ms all;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+#checkboxes label {
+  display: flex;
+  align-items: baseline;
+}
+
+#checkboxes label > input{
+    width: 30px;
+  }
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
 .botao-2{
     display: block;
     width: 55%;

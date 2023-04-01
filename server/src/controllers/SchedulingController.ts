@@ -49,6 +49,7 @@ class SchedulingController {
          include: {
           servico: {
             select: {
+              tipo: true,
               nome: true,
               loja: true,
               preco: true,
@@ -91,6 +92,7 @@ class SchedulingController {
           servico: {
             select: {
               id: true,
+              tipo: true,
               nome: true,
               loja: true,
               preco: true,

@@ -135,6 +135,7 @@ class BarberShopController {
       const services = await prisma.service.findMany({
         select: {
           id: true,
+          tipo: true,
           nome: true,
           loja: true,
           preco: true,

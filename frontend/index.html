@@ -59,7 +59,6 @@
                     <li class="jsanimation"><a href="#contato">Contato</a></li>
                 </ul>
             </div>
-            <script defer src="./assets/js/menuEstendido.js"></script>
         </nav>
     </header>
 <main>
@@ -534,22 +533,16 @@ Barba agora mesmo !
                             <p class="texto-quadro">Serviço</p>
                         </li>
                     </ul>
-                    <section>
-                   
-                        <label>
-                            Corte Barba
-                            <input type="checkbox" name="" id="">
-                        </label>
-                        <label>
-                            Corte Cabelo
-                            <input type="checkbox" name="" id="">
-                        </label>
-                        <label>
-                            Pintar
-                            <input type="checkbox" name="" id="">
-                        </label>
-                    
-                    <!-- <input type="" id="input-servicos" name="input-servico" class="input-txt"> -->
+                    <div class="multiselect">
+                        <div class="selectBox" id="selectBox">
+                          <select>
+                            <option>Selecionar Serviço</option>
+                          </select>
+                          <div class="overSelect"></div>
+                        </div>
+                        <div id="checkboxes">
+                        </div>
+                      </div>
                 </div>
                 <div class="agendamento-area">
                     <ul class="agendamento-lista">
@@ -655,8 +648,7 @@ Barba agora mesmo !
         </div>
         <div class="direitos-reservados">2022 &copy Copyright Iniciativa Pro</div>
     </footer>
-    <script src="./assets/js/api/mostrarServicos.js"></script>
-    <script type="module" src="./assets/js/criarAgendamento.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper('.swiper',

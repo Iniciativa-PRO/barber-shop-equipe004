@@ -1,6 +1,6 @@
 const url = 'http://localhost:3333/api/v1/agendamento/criar';
 
-export default class CriarAgendamento {
+class Agendamento {
 
     constructor(nome, email, telefone, senha, id_servico, data, hora) {
 
@@ -39,4 +39,6 @@ export default class CriarAgendamento {
     }
 
 }
+
+export default Agendamento;
 
