@@ -5,6 +5,7 @@ import { Request, Response } from 'express';
 import { schedulingSchema } from '../helpers/scheduling/valideScheduling';
 import { z } from 'zod';
 import { schedulingUpdateSchema } from '../helpers/scheduling/valideUpdateScheduling';
+import { sendEmail } from '../helpers/sendEmail';
 
 class SchedulingController {
 
@@ -66,6 +67,10 @@ class SchedulingController {
           },
          },
       });
+      
+      sendEmail(email, senha, data, hora, createScheduling.servico)
+      .catch(console.error);
+
       return res.status(200).json(createScheduling);
   
     } catch (err: any) {

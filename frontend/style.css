@@ -25,6 +25,7 @@ html{
     scroll-behavior: smooth;
 }
 body{
+    position: relative;
     background-color: var(--branco);
     font-family: var(--Roboto);
     font-weight: 400;
