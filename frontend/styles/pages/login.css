@@ -1,4 +1,4 @@
-.box{
+.login-box{
 position: absolute;
 top: 50%;
 left: 50%;
@@ -8,26 +8,34 @@ padding: 20px;
 background: rgba(0, 0, 0,.8);
 }
 
-.loginLogo{
+.logo-login{
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.box p{
+.login-box h2{
   margin: 0 0 30px;
   padding: 0;
   color: var(--branco);
   font-family: var(--Roboto);
   text-align:center;  
 }
-.palavra{
+.login-box p{
+    margin: 0 0 30px;
+    padding: 0;
+    font-size: 12px;
+    color: var(--branco);
+    font-family: var(--Roboto);
+    text-align:center;  
+  }
+.cor-laranja{
     color: var(--laranja);
   }
-.box .inputBox{
+.login-box .input-login-box{
     position: relative;
 }
-.box .inputBox input{
+.login-box .input-login-box input{
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
@@ -39,7 +47,7 @@ background: rgba(0, 0, 0,.8);
     outline: none;
     background: transparent;
 }
-.box .inputBox label{
+.login-box .input-login-box label{
 position: absolute;
 top: 0;
 left: 0;
@@ -51,8 +59,8 @@ pointer-events: none;
 transition: .5s;
 }
 
-.box .inputBox input:focus ~ label,
-.box .inputBox input:valid ~ label
+.login-box .input-login-box input:focus ~ label,
+.login-box .input-login-box input:valid ~ label
 {
 top: -18px;
 left: 0;
@@ -61,7 +69,7 @@ font-family: var(--Roboto);
 font-size: 12px;
 }
 
-.btn
+.botao-login
 {
     width: 100%;
     background-color: transparent;
@@ -72,13 +80,13 @@ font-size: 12px;
     cursor: pointer;
     margin: 12px 0;
 }
-.btn:hover {
+.botao-login:hover {
     background-color: var(--laranja);
     color: #000;
     transition: .5s;
 }
 
-.btn:active {
+.botao-login:active {
     background-color: #000;
     color: var(--laranja);
 }

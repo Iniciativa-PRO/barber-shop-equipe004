@@ -8,7 +8,8 @@
 @import url("styles/agendamento.css");
 @import url("styles/localizacao.css");
 @import url("styles/footer.css");
-@import url("styles/login.css");
+@import url("styles/pages/login.css");
+@import url("styles/pages/cadastro.css");
 :root{
     --cor-de-fundo: #E5E5E5;
     --branco: #FFFFFF;
