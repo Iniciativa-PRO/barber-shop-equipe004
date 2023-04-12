@@ -2,15 +2,16 @@ FROM node:alpine
 
 WORKDIR /usr/app
 
-COPY package*.json /usr/app/
-COPY tsconfig.json /usr/app/
+COPY package*.json .
+COPY tsconfig.json .
 
 RUN npm install
 
-COPY . /usr/app/
+COPY . .
 
-RUN npm run build
+RUN npm run build; \
+npx migrate dev 
 
 EXPOSE 3333
 
-CMD ["npm", "run", "migrate:start"]
+CMD ["npm", "run", "start"]
