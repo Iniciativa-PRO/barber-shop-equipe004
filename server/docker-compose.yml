@@ -9,9 +9,8 @@ services:
       - 3333:3333
     depends_on:
       - db
-
   db:
-    image: postgres
+    image: mysql
     environment:
       POSTGRES_USER: barbershop
       POSTGRES_PASSWORD: barbershop

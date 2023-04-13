@@ -24,7 +24,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "migrate:start": "npx prisma migrate dev && npm run start",
-    "start:dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "build": "tsup src"
   }
 }

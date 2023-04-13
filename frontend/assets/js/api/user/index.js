@@ -1,7 +1,5 @@
 import  Agendamento   from "./models/Agendamento.js";
 
-let expanded = false;
-
 export const agendamento = () => {
 
 const botaoAgendar = document.querySelector('.botao-2');
@@ -114,8 +112,9 @@ botaoAgendar.addEventListener('click', async() => {
 });
 
 // Input servicos
-
 const selectBox = document.getElementById('selectBox');
+
+var expanded = false;
 
 selectBox.addEventListener('click', () => {
     var checkboxes = document.getElementById("checkboxes");
@@ -127,5 +126,26 @@ selectBox.addEventListener('click', () => {
       expanded = false;
     }
 });
+
+// Recolhe input servicos
+// const boxScheduling = document.querySelector('.quadro-agendamento');
+// boxScheduling.addEventListener('click', (e) => {
+
+//   console.log(e.target.type)
+
+//   if(true){
+//     if(e.target.type == 'checkbox'){
+//        checkboxes.style.opacity = "10";
+//       !expanded;
+//     }
+//   }
+//   if(e.target.classList != 'selectBox'){
+//     if(e.target.type !== 'checkbox'){
+//       checkboxes.style.opacity = "10";
+//      !expanded;
+//    }
+//   }
+
+// });
 
 }

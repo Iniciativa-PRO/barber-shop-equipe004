@@ -17,4 +17,4 @@ function tokenUser(req: Request, res: Response, next: NextFunction){
     })
 }
 
-export = tokenUser;
+export default tokenUser;

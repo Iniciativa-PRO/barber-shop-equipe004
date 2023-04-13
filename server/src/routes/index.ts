@@ -8,8 +8,8 @@ const routes: Router = Router();
 
 //Routes
 routes.use("/session", sessionRoutes);
-routes.use("/services", serviceRoutes);
 routes.use("/scheduling", schedulingRoutes);
 routes.use("/user", userRoutes);
+routes.use("/services", serviceRoutes);
 
 export default routes;

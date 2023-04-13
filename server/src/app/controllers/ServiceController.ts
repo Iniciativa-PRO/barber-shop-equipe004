@@ -1,6 +1,6 @@
 import prisma  from './../../lib/prisma';
 import { Request, Response } from 'express';
-import { serviceSchema } from './../..//helpers/service/valideService';
+import { serviceSchema } from './../../helpers/service/valideService';
 import { z } from 'zod';
 
 class ServiceController {
@@ -91,7 +91,7 @@ class ServiceController {
 
   public async servicesShow(req: Request, res: Response) {
     try {
-        const services = prisma.service.findMany({
+        const services = await prisma.service.findMany({
           select: {
             id: true,
             tipo: true,

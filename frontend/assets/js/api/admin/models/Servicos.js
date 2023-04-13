@@ -1,4 +1,4 @@
-const url = 'http://localhost:3333/api/v1/servicos';
+const url = 'http://localhost:3000/api/v1/services';
 
 class Servicos {
 

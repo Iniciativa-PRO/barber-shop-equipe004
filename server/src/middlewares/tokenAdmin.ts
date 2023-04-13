@@ -22,4 +22,4 @@ function tokenAdmin(req: Request | any, res: Response, next: any){
     });
 }
 
-export = tokenAdmin;
+export default tokenAdmin;

@@ -1,17 +1,15 @@
 import express from 'express';
 import UserController from '../app/controllers/UserController';
 import tokenUser from '../middlewares/tokenUser';
+import tokenAdmin from '../middlewares/tokenAdmin';
 
 const userRoutes = express.Router();
 
-userRoutes.get('/users', UserController.usersShow);
-userRoutes.post('/create-acount',UserController.create);
+userRoutes.post('/create',UserController.create);
+userRoutes.get('/show', tokenUser, UserController.show);
+userRoutes.put('/update', tokenUser, UserController.update);
+userRoutes.delete('/delete', tokenUser, UserController.delete);
 
-userRoutes.use(tokenUser);
-
-userRoutes.get('/show', UserController.show);
-userRoutes.put('/update', UserController.update);
-userRoutes.delete('/delete', UserController.delete);
-
+userRoutes.get('/search', tokenAdmin, UserController.usersShow);
 
 export = userRoutes;

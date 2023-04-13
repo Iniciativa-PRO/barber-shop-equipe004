@@ -1,4 +1,4 @@
-const BaseUrl = 'http://localhost:3333/api/v1/agendamento';
+const BaseUrl = 'http://localhost:3000/api/v1/scheduling';
 
 
 
@@ -22,7 +22,6 @@ class Agendamento {
     }
 
 }
-
 
 export default Agendamento;
 
