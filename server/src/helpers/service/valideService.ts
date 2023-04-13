@@ -1,6 +1,14 @@
 import { z } from 'zod';
 
 export const serviceSchema = z.object({
+  tipo: z.string({
+    required_error: 'Tipo do serviço é obrigatório.',
+    invalid_type_error: 'Tipo deve ser uma string.'
+  }).min(4, {
+    message: 'Tipo do serviço deve conter no mínimo 4 caracteres.'
+}).max(10, {
+    message: 'Tipo do serviço deve conter no máximo 10 caracteres.'
+}).transform(tipo => tipo.toLowerCase()),
   nome: z.string({
     required_error: 'Nome do serviço é obrigatório.',
     invalid_type_error: 'Nome deve ser uma string.'

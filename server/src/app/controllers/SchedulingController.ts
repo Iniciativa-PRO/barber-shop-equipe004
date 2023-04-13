@@ -1,14 +1,15 @@
-import prisma from '../database/prisma';
-import { generateId, generateSenha } from '../helpers/user/processDataUser';
-import verifyIdService from '../helpers/service/verifyIdService';
+import prisma from './../../lib/prisma';
+import { generateId, generateSenha } from './../../helpers/user/processDataUser';
+import verifyIdService from './../../helpers/service/verifyIdService';
 import { Request, Response } from 'express';
-import { schedulingSchema } from '../helpers/scheduling/valideScheduling';
+import { schedulingSchema } from './../../helpers/scheduling/valideScheduling';
 import { z } from 'zod';
-import { schedulingUpdateSchema } from '../helpers/scheduling/valideUpdateScheduling';
+import { schedulingUpdateSchema } from './../../helpers/scheduling/valideUpdateScheduling';
+import { sendEmail } from './../../helpers/sendEmail';
 
 class SchedulingController {
 
-  static async create(req: Request, res: Response) {
+  public async create(req: Request, res: Response) {
 
     try {
 
@@ -49,6 +50,7 @@ class SchedulingController {
          include: {
           servico: {
             select: {
+              tipo: true,
               nome: true,
               loja: true,
               preco: true,
@@ -65,6 +67,10 @@ class SchedulingController {
           },
          },
       });
+      
+      sendEmail(email, senha, data, hora, createScheduling.servico)
+      .catch(console.error);
+
       return res.status(200).json(createScheduling);
   
     } catch (err: any) {
@@ -81,7 +87,7 @@ class SchedulingController {
     };
   };
 
-  static async show(req: Request, res: Response) {
+  public async show(req: Request, res: Response) {
     try {
       const schedulings = await prisma.scheduling.findUnique({
         where: { usuarioId: req.body.id },
@@ -91,6 +97,7 @@ class SchedulingController {
           servico: {
             select: {
               id: true,
+              tipo: true,
               nome: true,
               loja: true,
               preco: true,
@@ -109,7 +116,7 @@ class SchedulingController {
     };
   };
 
-  static async update(req: Request, res: Response) {
+  public async update(req: Request, res: Response) {
 
     try {
 
@@ -157,7 +164,7 @@ class SchedulingController {
     }; 
   };
  
-  static async delete(req: Request, res: Response) {
+  public async delete(req: Request, res: Response) {
     try {
       await prisma.scheduling.delete({
         where: { id: req.body.id }
@@ -170,6 +177,89 @@ class SchedulingController {
       res.status(400).json({err: err.message});
     };
   };
+
+  // Rotas administrativas
+  public async schedulingsShow(req: Request, res: Response) {
+    
+    try {
+      const scheduling = await prisma.scheduling.findMany({
+        select: {
+          data: true,
+          hora: true,
+          servico: {
+            select: {
+              nome: true,
+              loja: true,
+              preco: true,
+              descricao: true
+            },
+          },
+          usuario: {
+            select: {
+              nome: true,
+              telefone: true
+            },
+          },
+        },
+    });
+    return res.status(200).json(scheduling);
+
+    } catch (err: any) {
+      res.status(400).json({ err: err.message });
+    };
+  };
+
+  public async schedulingsSearch(req: Request, res: Response) {
+
+    try {
+
+      const schema = z.string({ 
+        invalid_type_error: 'Deve ser uma string.' 
+      }).min(8, { message: 'A data deve ter os 8 caracteres.'});
+
+      const data = schema.parse(req.body);
+    
+      const schedulingSearch = await prisma.scheduling.findMany({
+        where: {
+          data: {
+            equals: data,
+          },
+        },
+        include: {
+          servico: {
+            select: {
+              nome: true,
+              preco: true,
+            },
+          },
+          usuario: {
+            select: {
+              nome: true,
+              telefone: true,
+            },
+          },
+        },
+      });
+      if (schedulingSearch.length == 0)
+         return res.status(400).json({ message: 'Nenhum agendamento encontrado.' });
+
+      return res.status(200).json(schedulingSearch);
+
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        return res.status(400).json({
+          errors: err.errors.map(({ message, path }) => ({
+            message,
+            field: path.join("."),
+          })),
+        });
+      }
+      return res.status(500).json({
+        message: "Internal server error",
+      });
+    };
+  };
+
 };
 
-export = SchedulingController;
+export default new SchedulingController();

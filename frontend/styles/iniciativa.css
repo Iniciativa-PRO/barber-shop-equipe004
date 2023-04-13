@@ -33,6 +33,10 @@
     font-size: 10px;
     margin: 0 auto;
 }
+.botao-agendamento > a{
+    color: var(--marrom-claro);
+    text-decoration: none;
+}
 @media screen and (min-width: 1024px){
     .iniciativa{
         background-color: transparent;

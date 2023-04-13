@@ -80,13 +80,14 @@ height: 300px;
     }
     .destaques{
         width: 100%;
-        margin: 20rem auto 1rem auto;
+        margin: 20rem auto 5rem auto;
         padding: 3rem;
     }
     .caroussel{
-        margin: 3em 0 3em 3em;
+        margin: auto;
         width: 100%;
         display: block;
+        cursor: pointer;
     }
     .swiper-wrapper{
         display: flex;
@@ -108,9 +109,6 @@ height: 300px;
         color: var(--laranja);
         margin-top: 2rem;
         text-transform: uppercase;
-    }
-    .swiper-pagination{
-        margin:2em 0 3em 0;
     }
     .swiper{
         width: 100%;

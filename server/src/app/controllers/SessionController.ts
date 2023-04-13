@@ -1,14 +1,14 @@
 import { Request, Response } from 'express';
-import prisma from '../database/prisma';
-import { userSessionSchema } from '../helpers/valideSession';
+import prisma from './../../lib/prisma';
+import { userSessionSchema } from './../../helpers/valideSession';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv'; 
 dotenv.config();
 
-export = {
+class SessionControler {
 
-    async login(req: Request, res: Response) {
+    public async createSession(req: Request, res: Response) {
 
         try {
     
@@ -30,7 +30,7 @@ export = {
             return res.status(401).json({ message: 'Falha na Autenticação.' });
     
           // Permissão
-          const SECRET: string | undefined = process.env.SECRET;
+          const SECRET: any = process.env.SECRET;
     
           const token = jwt.sign({
             id: user.id, role: user.role
@@ -43,5 +43,7 @@ export = {
         } catch (err: any) {
           res.status(400).json({ err: err.message });
         };
-      },
+      }
 }
+
+export default new SessionControler();

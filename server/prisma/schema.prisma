@@ -13,6 +13,7 @@ datasource db {
 
 model Service {
   id         Int         @id @default(autoincrement())
+  tipo       String
   nome       String
   loja       String
   preco      String
