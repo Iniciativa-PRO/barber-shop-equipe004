@@ -4,7 +4,7 @@ import tokenAdmin from '../middlewares/tokenAdmin';
 
 const serviceRoutes = express.Router();
 
-serviceRoutes.get('/', tokenAdmin, ServiceController.servicesShow);
+serviceRoutes.get('/', ServiceController.servicesShow);
 serviceRoutes.post('/create', tokenAdmin, ServiceController.create);
 serviceRoutes.get('/show', tokenAdmin, ServiceController.show);
 serviceRoutes.put('/update', tokenAdmin, ServiceController.update);

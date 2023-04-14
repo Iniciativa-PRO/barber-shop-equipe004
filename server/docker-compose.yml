@@ -1,19 +1,22 @@
 version: "3" 
 
 services:
+  db:
+    image: mysql:5.7
+    container_name: db-barber
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: barbershop
+      MYSQL_PASSWORD: pass
+    ports:
+      - '3306:3306'
   app: 
+    container_name: app-barber
     env_file:
       - .env
     build: .
     ports:
-      - 3333:3333
+      - 3000:3000
     depends_on:
       - db
-  db:
-    image: mysql
-    environment:
-      POSTGRES_USER: barbershop
-      POSTGRES_PASSWORD: barbershop
-      POSTGRES_DB: barbershop
-    ports:
-      - 5432:5432

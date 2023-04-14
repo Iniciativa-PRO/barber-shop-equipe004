@@ -3,8 +3,7 @@ import prisma from './../../lib/prisma';
 import { userSessionSchema } from './../../helpers/valideSession';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv'; 
-dotenv.config();
+import authConfig from '../../config/authConfig';
 
 class SessionControler {
 
@@ -30,12 +29,11 @@ class SessionControler {
             return res.status(401).json({ message: 'Falha na Autenticação.' });
     
           // Permissão
-          const SECRET: any = process.env.SECRET;
-    
+
           const token = jwt.sign({
             id: user.id, role: user.role
-          }, SECRET, {
-            expiresIn: "3 days"
+          }, authConfig.secret!, {
+            expiresIn: authConfig.expiresIn
           });
     
           return res.status(200).json({ auth: true, token });

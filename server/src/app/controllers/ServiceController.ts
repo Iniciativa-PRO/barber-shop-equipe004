@@ -14,7 +14,7 @@ class ServiceController {
       const createService = await prisma.service.create({ 
         data: service,
       });
-      return res.status(200).json(createService);
+      return res.status(201).json(createService);
 
     } catch (err) {
       if (err instanceof z.ZodError) {

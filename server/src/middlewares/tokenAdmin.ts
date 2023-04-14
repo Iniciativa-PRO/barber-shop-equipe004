@@ -1,25 +1,31 @@
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-dotenv.config();
+import authConfig from '../config/authConfig';
 
-const SECRET: any = process.env.SECRET;
+function tokenAdmin(req: Request, res: Response, next: NextFunction){
 
-function tokenAdmin(req: Request | any, res: Response, next: any){
+    try {
 
-    const token: any = req.headers['x-acess-token'];
-    jwt.verify(token, SECRET, (err: any, decoded: any) => {
- 
-        if(err)
-           return res.status(401).json({ err: 'Você não tem permissão, autentique-se novamente.' });
+        const { authorization = " " } = req.headers;
+
+        const token = authorization;
+
+        const decoded = jwt.verify(token, authConfig.secret!) as { 
+            sub: string, role: string 
+        };
 
         req.user = { id: decoded.sub, role: decoded.role };
 
         if (req.user.role != "ADMIN")
-        return res.status(401).json({ message: "Não autorizado."});
+            throw Error;
 
         next();
-    });
+
+    } catch (err) {
+        return res.status(401).json({ 
+            err: 'Não autorizado.' 
+        });
+    }
 }
 
 export default tokenAdmin;
