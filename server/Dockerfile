@@ -7,11 +7,11 @@ COPY tsconfig.json .
 
 RUN npm install
 
-COPY . .
+COPY . /usr/app
 
 RUN npm run build; \
-npx migrate dev 
+npm run prisma
 
-EXPOSE 3333
+EXPOSE 3000
 
 CMD ["npm", "run", "start"]

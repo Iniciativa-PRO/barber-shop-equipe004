@@ -23,8 +23,8 @@
   },
   "scripts": {
     "start": "node dist/server.js",
-    "migrate:start": "npx prisma migrate dev && npm run start",
-    "start:dev": "tsx watch src/server.ts",
+    "prisma": "npx prisma migrate dev",
+    "dev": "tsx watch src/server.ts",
     "build": "tsup src"
   }
 }

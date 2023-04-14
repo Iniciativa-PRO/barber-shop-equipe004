@@ -5,7 +5,7 @@ import { Request, Response } from 'express';
 import { schedulingSchema } from './../../helpers/scheduling/valideScheduling';
 import { z } from 'zod';
 import { schedulingUpdateSchema } from './../../helpers/scheduling/valideUpdateScheduling';
-import { sendEmail } from './../../helpers/sendEmail';
+import { sendEmail } from '../../services/sendEmail';
 
 class SchedulingController {
 
@@ -67,11 +67,19 @@ class SchedulingController {
           },
          },
       });
+
+      const dataEmail = {
+        email, 
+        senha, 
+        data, 
+        hora, 
+        servico: createScheduling.servico
+      }
       
-      sendEmail(email, senha, data, hora, createScheduling.servico)
+      sendEmail(dataEmail)
       .catch(console.error);
 
-      return res.status(200).json(createScheduling);
+      return res.status(201).json(createScheduling);
   
     } catch (err: any) {
       if (err instanceof z.ZodError) {

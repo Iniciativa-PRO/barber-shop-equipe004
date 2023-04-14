@@ -1,16 +1,15 @@
 import express from 'express';
-import authAdmin from '../middlewares/authAdmin';
 import SchedulingController from '../app/controllers/SchedulingController';
+import tokenUser from '../middlewares/tokenUser';
+import tokenAdmin from '../middlewares/tokenAdmin';
 
-const schedulingRoutes = express.Router()
+const schedulingRoutes = express.Router();
 
-//adminRoutes.use(authAdmin);
+schedulingRoutes.post('/create', SchedulingController.create);
+schedulingRoutes.get('/show', tokenUser, SchedulingController.show);
+schedulingRoutes.put('/update', tokenUser, SchedulingController.update);
+schedulingRoutes.delete('/delete', tokenUser, SchedulingController.delete);
 
-schedulingRoutes.get('search', SchedulingController.schedulingsSearch);
-
-schedulingRoutes.get('/create', SchedulingController.create);
-schedulingRoutes.get('/show', SchedulingController.show);
-schedulingRoutes.put('/update', SchedulingController.update);
-schedulingRoutes.delete('/delete', SchedulingController.delete);
+schedulingRoutes.get('search', tokenAdmin, SchedulingController.schedulingsSearch);
 
 export default schedulingRoutes;
