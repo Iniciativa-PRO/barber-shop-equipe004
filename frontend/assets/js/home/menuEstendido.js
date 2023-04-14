@@ -1,5 +1,6 @@
-let menuHamburger = document.getElementById('jsmenu-hamburger');
-let menuEstendido = document.querySelectorAll('.jsanimation');
+
+export let menuHamburger = document.getElementById('jsmenu-hamburger');
+export let menuEstendido = document.querySelectorAll('.jsanimation');
 
 function menuActive() {
     document.getElementById('jsmenu-estendido').classList.toggle('menu-estendido-visible');
@@ -21,5 +22,3 @@ function animationLink(link) {
 function animationLinkRemove(link) {
     return link.classList.remove('menu-estendido-li-animation');
 }
-
-

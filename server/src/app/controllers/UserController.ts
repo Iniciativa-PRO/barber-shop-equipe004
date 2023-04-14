@@ -1,13 +1,13 @@
-import prisma from '../database/prisma';
+import prisma from './../../lib/prisma';
 import { Request, Response } from 'express';
 import { z } from 'zod';
-import { userUpdateSchema } from '../helpers/user/valideUserUpdate';
-import { userSchema } from '../helpers/user/valideUser';
-import { generateId, generateSenha } from '../helpers/user/processDataUser';
+import { userUpdateSchema } from './../../helpers/user/valideUserUpdate';
+import { userSchema } from './../../helpers/user/valideUser';
+import { generateId, generateSenha } from './../..//helpers/user/processDataUser';
 
 class UserController {
 
-  static async create(req: Request, res: Response) {
+  public async create(req: Request, res: Response) {
 
     try {
 
@@ -38,7 +38,7 @@ class UserController {
           telefone: true
         },
       });
-      return res.json(user);
+      return res.status(201).json(user);
 
     } catch (err: any) {
       if (err instanceof z.ZodError) {
@@ -53,7 +53,7 @@ class UserController {
     };
   };
 
-  static async show(req: Request, res: Response) {
+  public async show(req: Request, res: Response) {
     try {
       const user = await prisma.user.findUnique({
         where: { id: req.body.id },
@@ -85,7 +85,7 @@ class UserController {
     };
   };
 
-  static async update(req: Request, res: Response) {
+  public async update(req: Request, res: Response) {
 
     try {
       
@@ -113,7 +113,7 @@ class UserController {
     };
   };
 
-  static async delete(req: Request, res: Response) {
+  public async delete(req: Request, res: Response) {
     try {
       await prisma.user.delete({
         where: { id: req.body.id },
@@ -126,6 +126,24 @@ class UserController {
       res.status(400).json({ err });
     };
   };
+  
+  // Rota administrativa
+  public async usersShow(req: Request, res: Response) {
+    try {
+      const users = await prisma.user.findMany({
+        select: {
+          nome: true,
+          email: true,
+          telefone: true
+        },
+      });
+      return res.status(200).json(users);
+
+    } catch (err: any) {
+      res.status(400).json({ err: err.message });
+    };
+  };
+
 }
 
-export = UserController;
+export default new UserController();

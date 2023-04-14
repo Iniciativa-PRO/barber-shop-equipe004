@@ -1,6 +1,7 @@
 -- CreateTable
 CREATE TABLE `servico` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `tipo` VARCHAR(191) NOT NULL,
     `nome` VARCHAR(191) NOT NULL,
     `loja` VARCHAR(191) NOT NULL,
     `preco` VARCHAR(191) NOT NULL,

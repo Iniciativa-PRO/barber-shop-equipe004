@@ -2,16 +2,16 @@ import { z } from 'zod';
 
 export const schedulingSchema = z.object({
   nome: z.string({
+    invalid_type_error: 'Não é um nome válido.',
     required_error: 'Nome é obrigatório.',
-    invalid_type_error: 'Não é um nome válido.'
   }).min(2, {
-    message: 'Nome de ter entre 2 e 26 caracteres.'
+    message: 'Nome deve ter entre 2 e 26 caracteres.'
   }).max(26, {
     message: 'Nome deve ter entre 2 e 26 caracteres.'
   }),
   email: z.string({
-    required_error: 'Email é obrigatório.',
-    invalid_type_error: 'Não é uma string.'
+    invalid_type_error: 'Não é uma string.',
+    required_error: 'Email é obrigatório.'
   }).email({
     message: 'Não é um email válido.'
   }),
