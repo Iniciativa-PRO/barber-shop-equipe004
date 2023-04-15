@@ -1,7 +1,7 @@
 import prisma  from './../../lib/prisma';
 import { Request, Response } from 'express';
 import { serviceSchema } from './../../helpers/service/valideService';
-import { z } from 'zod';
+import APIError from '../../errors/APIError';
 
 class ServiceController {
 
@@ -16,19 +16,8 @@ class ServiceController {
       });
       return res.status(201).json(createService);
 
-    } catch (err) {
-      if (err instanceof z.ZodError) {
-        return res.status(400).json({
-          errors: err.errors.map(({ message, path }) => ({
-            message,
-            field: path.join("."),
-          })),
-        });
-      }
-
-      return res.status(500).json({
-        message: "Internal server error",
-      });
+    } catch (err: any) {
+      APIError.msg(err, res);
     };
     
   };
@@ -48,7 +37,7 @@ class ServiceController {
       return res.status(200).json(services);
 
     } catch (err: any) {
-      res.status(400).json({ err: err.message });
+      APIError.msg(err, res);
     };
   };
 
@@ -64,17 +53,9 @@ class ServiceController {
       });
       return res.status(200).json(updateService);
 
-    } catch (err) {
-      if (err instanceof z.ZodError) {
-        return res.status(400).json({
-          errors: err.errors.map(({ message, path }) => ({
-            message,
-            field: path.join("."),
-          })),
-        });
-      }
-      return res.status(400).json({ err });
-    };
+    } catch (err: any) {
+      APIError.msg(err, res);
+     };
   };
 
   public async delete(req: Request, res: Response) {
@@ -85,7 +66,7 @@ class ServiceController {
       return res.status(200).json({ message: 'Serviço deletado com sucesso.'});
 
     } catch (err: any) {
-      res.status(400).json({ err: err.message });
+      APIError.msg(err, res);
     };
   };
 
@@ -103,8 +84,8 @@ class ServiceController {
         });
         return res.status(200).json(services);
         
-    } catch (err) {
-        return res.status(400).json({ err });
+    } catch (err: any) {
+      APIError.msg(err, res);
     }
 
   }

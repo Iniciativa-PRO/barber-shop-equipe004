@@ -1,6 +1,25 @@
 import nodemailer from 'nodemailer';
-import { SendEmail, SendEmailAuth } from '../interfaces/email';
 import emailConfig from '../config/emailConfig';
+
+interface SendEmail{
+  email: string, 
+  senha: string, 
+  data: string, 
+  hora: string, 
+  servico: {
+    nome: string
+  }[]
+}
+
+interface SendEmailAuth {
+  host: string,
+    port: number,
+    secure: boolean, 
+    auth: {
+      user: string, 
+      pass: string,
+    },
+}
 
 
 export async function sendEmail(data: SendEmail): Promise<void> {

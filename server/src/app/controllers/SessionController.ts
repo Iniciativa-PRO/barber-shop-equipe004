@@ -1,9 +1,10 @@
-import { Request, Response } from 'express';
+import { Request, Response, response } from 'express';
 import prisma from './../../lib/prisma';
 import { userSessionSchema } from './../../helpers/valideSession';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import authConfig from '../../config/authConfig';
+import APIError from '../../errors/APIError';
 
 class SessionControler {
 
@@ -29,7 +30,6 @@ class SessionControler {
             return res.status(401).json({ message: 'Falha na Autenticação.' });
     
           // Permissão
-
           const token = jwt.sign({
             id: user.id, role: user.role
           }, authConfig.secret!, {
@@ -39,7 +39,7 @@ class SessionControler {
           return res.status(200).json({ auth: true, token });
     
         } catch (err: any) {
-          res.status(400).json({ err: err.message });
+          APIError.msg(err, res);
         };
       }
 }

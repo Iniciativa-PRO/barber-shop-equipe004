@@ -15,9 +15,9 @@ export const schedulingSchema = z.object({
   }).email({
     message: 'Não é um email válido.'
   }),
-  telefone: z.number({
+  telefone: z.string({
     required_error: 'Telefone é obrigatório.',
-    invalid_type_error: 'Não é do tipo numérico.'
+    invalid_type_error: 'Não é do tipo string.'
   }),
   senha: z.string({
     required_error: 'Senha é obrigatória.',
@@ -45,4 +45,4 @@ export const schedulingSchema = z.object({
   })
 })
 
-type Scheduling = z.infer<typeof schedulingSchema>;
+//type Scheduling = z.infer<typeof schedulingSchema>;
