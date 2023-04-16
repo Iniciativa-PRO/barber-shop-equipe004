@@ -1,0 +1,55 @@
+body{
+    background-color: #364041;
+    color: #ECB074;
+    font-family: 'Lato';
+    text-align: center;
+}
+.titulo{
+    background-color: #ECB074;
+    color: #333131;
+    font-size: 28px;
+    padding: .5em;
+    border: 2px solid #ECB074;
+    margin-bottom: 2em;
+    font-weight: 700;
+}
+table{
+    border: #ECB074 2px solid;
+    margin: 5em auto;
+}
+table tr td{
+    border-bottom: 1px solid #ECB074;
+    border-right: 1px solid #ECB074;
+    padding: 10px;
+}
+tr td{
+    padding: 20px;
+}
+table thead tr td{
+    font-size: 24px;
+    font-weight: bold;
+}
+table thead tr:first-child td{
+    font-weight: bold;
+}
+table thead tr td button{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ECB074;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+table thead tr td button:hover{
+    background-color: orange;
+    color: #364041;
+}
+table tbody tr td.fds{
+    background-color: #ECB074;
+    color:#000000;
+}
+table tbody tr td .rest{
+    opacity: 1;
+}
