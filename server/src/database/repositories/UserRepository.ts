@@ -10,7 +10,7 @@ class UserRepository {
                 id,
                 nome,
                 email,
-                telefone: telefone.toString(),
+                telefone,
                 senha
             },
             select: {
@@ -60,8 +60,8 @@ class UserRepository {
             where: { id },
             data: {
                 nome,
-                telefone: telefone.toString(),
-                senha: senha
+                telefone,
+                senha,
             },
             select: {
                 nome: true,
@@ -75,8 +75,10 @@ class UserRepository {
 
     async delete(id: string) {
         await prisma.user.delete({
-            where: { id },
+           where: { id },
         });
+
+        return;
     }
 
     async showUsers() {

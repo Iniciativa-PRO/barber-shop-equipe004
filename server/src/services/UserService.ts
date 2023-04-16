@@ -8,14 +8,14 @@ export interface User{
     id?: string;
     nome: string;
     email: string;
-    telefone: number;
+    telefone: string;
     senha: string
 }
 
 export interface UpdateUser{
     id: string;
     nome: string;
-    telefone: number;
+    telefone: string;
     senha?: string
 };
 
@@ -55,7 +55,10 @@ class UserService {
     }
 
     async delete(id: string){
+
         await UserRepository.delete(id);
+        return { message: 'Usuário deletado com sucesso.'};
+
     }
 
     async showUsers(){

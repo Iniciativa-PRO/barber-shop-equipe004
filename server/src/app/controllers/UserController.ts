@@ -1,4 +1,3 @@
-import prisma from './../../lib/prisma';
 import { Request, Response } from 'express';
 import APIError from '../../errors/APIError';
 import UserService from '../../services/UserService';
@@ -7,7 +6,6 @@ class UserController {
 
   public async create(req: Request, res: Response) {
     try {
-
       const user = await UserService.create(req.body);
       return res.status(201).json(user);
 
@@ -17,8 +15,7 @@ class UserController {
   };
 
   public async show(req: Request, res: Response) {
-    try {
-      
+    try { 
       const user = await UserService.show(req.body.id);
       return res.status(200).json(user)
 
@@ -29,7 +26,6 @@ class UserController {
 
   public async update(req: Request, res: Response) {
     try {
-      
       const user = await UserService.update(req.body);
       return res.json(user);
 
@@ -40,10 +36,8 @@ class UserController {
 
   public async delete(req: Request, res: Response) {
     try {
-      await prisma.user.delete(req.body.id);
-      return res.json({
-        message: 'Usuário deletado com sucesso.'
-      });
+     const user = await UserService.delete(req.body.id);
+     return res.status(200).json(user);
 
     } catch (err: any) {
       APIError.msg(err, res);
