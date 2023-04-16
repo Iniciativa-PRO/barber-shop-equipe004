@@ -89,6 +89,9 @@ function imprimeDiasMesCorrente(tbody){
     var x = 1;
     var maximoCelulas = 42; 
     var tdsRestantes = 1;
+    var indexDate = new Date(2023, dataHora.getMonth(), 0);
+    var indexDiaMesAnterior = indexDate.getDate() - (comecaNoDia - 1);
+
     while(true){
         var dataHoraCopia = new Date(dataHora);
         dataHoraCopia.setDate(nDia);
@@ -96,9 +99,9 @@ function imprimeDiasMesCorrente(tbody){
 
         if(nDia <= getLastDay(dataHora)){
             if(x <= comecaNoDia){
-                tdsRestantes = defineDates() + tdsRestantes;
-                td.innerText = tdsRestantes;
-                console.log(defineDates());
+
+                td.innerText = indexDiaMesAnterior++;
+
             }else{
                 td.innerText = nDia;
                 terminaNoDia = dataHoraCopia.getDay();
@@ -115,8 +118,6 @@ function imprimeDiasMesCorrente(tbody){
         }else if(x <= maximoCelulas){
             td.innerText = tdsRestantes;
             tdsRestantes++;
-            console.log(x, maximoCelulas);
-            console.log(tdsRestantes);
             if(x % 7 === 0 || x % 7 === 1){
                 td.setAttribute(`class`, `fds`);
             }
