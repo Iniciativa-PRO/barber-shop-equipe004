@@ -1,5 +1,5 @@
 import prisma from "../../lib/prisma";
-import { UpdateUser, User } from "../../services/UserService";
+import { User, UserUpdate } from "../../services/UserService";
 
 class UserRepository {
 
@@ -54,7 +54,7 @@ class UserRepository {
         return user;
     }
 
-    async update({ id, nome, telefone, senha }: UpdateUser) {
+    async update({ id, nome, telefone, senha }: UserUpdate) {
 
         const userUpdate = await prisma.user.update({
             where: { id },
@@ -64,6 +64,7 @@ class UserRepository {
                 senha,
             },
             select: {
+                id: true,
                 nome: true,
                 email: true,
                 telefone: true
@@ -85,6 +86,7 @@ class UserRepository {
 
         const users = await prisma.user.findMany({
             select: {
+                id: true,
                 nome: true,
                 email: true,
                 telefone: true

@@ -6,7 +6,7 @@ class Agendamento {
 
     static async criar(data) {
 
-        const agendamento = await fetch(`${BaseUrl}/criar`, {
+        const agendamento = await fetch(`${BaseUrl}/create`, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {

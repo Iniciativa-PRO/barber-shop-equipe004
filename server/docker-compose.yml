@@ -15,6 +15,7 @@ services:
     container_name: app-barber
     env_file:
       - .env
+    
     build: .
     ports:
       - 3000:3000

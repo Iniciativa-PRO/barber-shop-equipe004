@@ -1,10 +1,12 @@
-// const dataEmail = {
-      //   email, 
-      //   senha, 
-      //   data, 
-      //   hora, 
-      //   servico: createScheduling.servico
-      // }
+import { sendEmail, SendEmail } from "../../services/sendEmail.js";
+
+class Subscriber{
       
-      // sendEmail(dataEmail)
-      // .catch(console.error);
+      async email(dataEmail: SendEmail){
+           return await sendEmail(dataEmail).catch(console.error);
+      }
+}
+
+export default new Subscriber();
+
+      

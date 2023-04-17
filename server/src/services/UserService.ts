@@ -1,3 +1,4 @@
+import { msg } from "../constants";
 import UserRepository from "../database/repositories/UserRepository";
 import { generateId, generateSenha } from "../helpers/user/processDataUser";
 import { userSchema } from "../helpers/user/valideUser";
@@ -12,7 +13,7 @@ export interface User{
     senha: string
 }
 
-export interface UpdateUser{
+export interface UserUpdate{
     id: string;
     nome: string;
     telefone: string;
@@ -30,7 +31,7 @@ class UserService {
         });
 
         if (userExist)
-            return { message: 'Usuário já existe.' };
+            return { message: msg.userExist };
 
         user.id = generateId();
         user.senha = generateSenha(user.senha);
@@ -43,7 +44,7 @@ class UserService {
         return UserRepository.show(id)
     }
 
-    async update(dataUser: User){
+    async update(dataUser: UserUpdate){
 
         const user = userUpdateSchema.parse(dataUser);
 
@@ -57,7 +58,7 @@ class UserService {
     async delete(id: string){
 
         await UserRepository.delete(id);
-        return { message: 'Usuário deletado com sucesso.'};
+        return { message: msg.sucessDeleteUser };
 
     }
 

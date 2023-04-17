@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import emailConfig from '../config/emailConfig';
 
-interface SendEmail{
+export interface SendEmail{
   email: string, 
   senha: string, 
   data: string, 

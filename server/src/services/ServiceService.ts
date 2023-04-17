@@ -1,3 +1,4 @@
+import { msg } from "../constants";
 import ServiceRepository from "../database/repositories/ServiceRepository";
 import { serviceSchema } from "../helpers/service/valideService";
 
@@ -18,9 +19,14 @@ class ServiceService{
         return ServiceRepository.create(service);
     }
 
-    async show(){
+    async show(id: number){
 
-        return ServiceRepository.show();
+        const service = await ServiceRepository.show(id);
+
+        if(!service)
+           return { message: msg.notService };
+
+        return service;
 
     }
 
@@ -34,7 +40,7 @@ class ServiceService{
     async delete(id: number){
 
         ServiceRepository.delete(id);
-        return { message: "Serviço deletado com sucesso."};
+        return { message: msg.sucessDeleteService };
     }
 
     async searchAll(){

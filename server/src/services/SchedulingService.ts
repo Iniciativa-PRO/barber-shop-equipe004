@@ -5,6 +5,9 @@ import prisma from "../lib/prisma";
 import SchedulingRepository from "../database/repositories/SchedulingRepository";
 import { schedulingUpdateSchema } from "../helpers/scheduling/valideUpdateScheduling";
 import { searchSchema } from "../helpers/scheduling/searchSchema";
+import subscribers from "../database/subscribers";
+import { msg } from "../constants";
+
 
 export interface Scheduling {
   id?: string;
@@ -24,6 +27,8 @@ export interface SchedulingUpdate{
   id_servico: number[];
 }
 
+//export type SendEmail = Omit<Scheduling, "id" | "telefone">;
+
 class SchedulingService{
     
     async create(dataScheduling: Scheduling){
@@ -35,13 +40,25 @@ class SchedulingService{
       });
 
       if (userExist)
-        return { message: 'Usuário já existe.' };
+        return { message: msg.userExist };
 
       scheduling.senha = generateSenha(scheduling.senha);
       scheduling.id = generateId();
       const idService = verifyIdService(scheduling.id_servico);
-      
-      return SchedulingRepository.create(scheduling, idService);
+
+      const createScheduling =  await SchedulingRepository.create(scheduling, idService);
+
+      const dataEmail = {
+        email: dataScheduling.email,
+        senha: dataScheduling.senha,
+        data: dataScheduling.data,
+        hora: dataScheduling.hora,
+        servico: createScheduling.servico
+      }
+
+      subscribers.email(dataEmail);
+
+      return createScheduling;
 
     }
 
@@ -49,7 +66,7 @@ class SchedulingService{
       
       const scheduling =  SchedulingRepository.show(id);
       if (!scheduling) 
-         return { message: 'Sem agendamento'};
+         return { message: msg.notScheduling };
 
       return scheduling;
 
@@ -67,7 +84,7 @@ class SchedulingService{
     async delete(id: string){
 
       SchedulingRepository.delete(id);
-      return { message: 'Agendamento deletado com sucesso.' };
+      return { message: msg.sucessDeleteScheduling };
 
     }
 
@@ -84,10 +101,14 @@ class SchedulingService{
       const search = SchedulingRepository.search(data);
     
       if ((await search).length == 0)
-         return { message: 'Nenhum agendamento encontrado.' };
+         return { message: msg.notScheduling };
 
       return search;
 
+    }
+
+    async sendEmail(){
+      
     }
 }
 

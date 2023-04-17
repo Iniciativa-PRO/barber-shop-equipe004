@@ -25,9 +25,10 @@ class ServiceRepository{
         return response;
     }
 
-    async show(){
+    async show(id: number){
 
         const response = await prisma.service.findMany({
+            where: { id },
             select: {
               id: true,
               tipo: true,
