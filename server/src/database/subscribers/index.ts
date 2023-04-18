@@ -1,4 +1,4 @@
-import { sendEmail, SendEmail } from "../../services/sendEmail.js";
+import { sendEmail, SendEmail } from "../../services/sendEmail";
 
 class Subscriber{
       

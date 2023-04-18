@@ -1,23 +1,43 @@
-version: "3" 
+version: "3.8" 
 
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8.0.1
+    command: --max_allowed_packet=32505856
     container_name: db-barber
+    cap_add:
+      - SYS_NICE
+    restart: always
     environment:
-      MYSQL_USER: root
-      MYSQL_ROOT_PASSWORD: pass
       MYSQL_DATABASE: barbershop
-      MYSQL_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: pass
     ports:
-      - '3306:3306'
-  app: 
-    container_name: app-barber
-    env_file:
-      - .env
-    
+      - 3306:3306
+    expose:
+      - 3306
+    networks:
+      - barber
+  app:
     build: .
-    ports:
-      - 3000:3000
+    command: sh -c "sleep 20 && npm run prisma:migrate && npm run dev"
+    container_name: app-barber
     depends_on:
       - db
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    env_file:
+      - .env
+    links:
+      - db
+    volumes:
+      - .:/usr/app
+    networks:
+      - barber
+volumes:
+  app:
+    driver: local
+networks:
+  barber:
+    driver: bridge

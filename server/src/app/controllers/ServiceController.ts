@@ -19,7 +19,7 @@ class ServiceController {
 
   public async show(req: Request, res: Response) {
     try {
-      const services = await ServiceService.show();
+      const services = await ServiceService.show(req.body.id);
       return res.status(200).json(services);
 
     } catch (err: any) {
