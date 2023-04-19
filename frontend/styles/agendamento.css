@@ -1,41 +1,187 @@
-.agendamento{
+.agendamento {
     padding: 2rem 0;
     margin: 0 auto;
 }
-.border-2{
+
+.border-2 {
     border-color: var(--preto);
     width: 8%;
 }
-.agendamento-textos{
+
+.agendamento-textos {
     text-align: center;
     padding: 1rem;
 }
-.agendamento-paragrafo{
+
+.agendamento-paragrafo {
     color: var(--preto);
     font-family: var(--Roboto);
     font-weight: 700;
     font-size: 1.3rem;
 }
-.titulo-agendamento{
+
+.titulo-agendamento {
     color: var(--preto);
     font-family: var(--Roboto);
     font-weight: 700;
     font-size: 1.8rem;
     margin-top: 1rem;
 }
-.quadro-agendamento{
+
+.form-agendamento {
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 1rem 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: var(--Roboto);
+}
+
+.form-agendamento>label {
+    width: 300px;
+    margin: 1rem 2rem;
+}
+
+.form-agendamento>label>div {
+    display: flex;
+    align-items: center;
+    padding-bottom: .5rem;
+}
+
+.form-agendamento label>div>p {
+    font-size: 1.5rem;
+}
+
+.form-agendamento label>div>img {
+    height: 34px;
+}
+
+.form-agendamento label input,
+.input-servicos {
+    width: 100%;
+    padding: .8rem;
+    border: solid 1px #000;
+    border-radius: 5px;
+}
+
+.form-agendamento label input:focus{
+    outline-color: #EDB074;
+}
+
+.input-servicos {
+    border: 1px solid #585858;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .7rem;
+    cursor: pointer;
+    color: #333333;
+}
+
+.input-servicos:hover{
+    border-color: #333333;
+}
+
+.input-servicos>p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.alvo{
+    transform: rotate(-180deg);
+    transition: 300ms all;
+}
+
+.alvo-reverse{
+    transform: none;
+}
+
+#checkboxes {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    width: 320px;
+    background-color: #fffefe;
+    border-radius: 5px;
+    transition: 200ms all;
+    max-height: 200px;
+    padding-right: .4rem;
+    overflow-x: hidden;
+    box-shadow: 1px 0px 5px #00000041;
+}
+
+#checkboxes strong {
+    font: revert;
+    line-height: 1.5rem;
+    padding-left: .5rem;
+}
+
+#checkboxes label {
+    display: flex;
+    align-items: baseline;
+    margin: .4rem 0;
+}
+
+#checkboxes label>input {
+    width: 30px;
+}
+
+#checkboxes label:hover {
+    background-color: #1e90ff;
+}
+
+.input-mensagem-erros {
+    display: block;
+    color: var(--cor-erro);
+    line-height: 1.5rem;
+    font-family: var(--Roboto);
+    font-size: 1rem;
+}
+.box-msg{
+    text-align: center; 
+    font-size: 1.1rem;
+    padding: 1rem 0;
+    max-width: 500px;
+    margin: auto;
+}
+.msg-erro, .msg-sucesso {
+    margin: 1rem auto;
+}
+.msg-erro{
+    color: var(--cor-erro);
+}
+
+.msg-sucesso {
+    color: green;
+}
+
+.verifyError {
+    border: 1px solid var(--cor-erro);
+}
+
+.botao-2 {
+    display: block;
+    width: 300px;
+    margin: auto;
+    border-color: transparent;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* .quadro-agendamento{
     padding: 1rem;
     width: 100%; 
 }
-
 .agendamento-area{
     margin-bottom: 1rem;
 }
 .agendamento-lista{
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
+    margin: 1rem 0 0 0;
 }
+
 .texto-quadro{
     color: var(--preto);
     font-family: var(--Roboto);
@@ -50,33 +196,29 @@
     width: 80%;
     margin-top: .5rem;
 }
+.box-agendamento{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 0 1rem;
+}
+.box-agendamento input{
+    width: 90%;
+}
 .multiselect {
   position: relative;
-  width: 100%;
   font-family: var(--Roboto);
 }
 
 .selectBox {
   position: relative;
-  padding-top: 10px;
+  padding: 13px 0;
+  width: inherit;
 }
-
-.selectBox select {
-  width: 100%;
-  font-weight: bold;
-  display: flex;
-  padding: .8rem;
+.selectBox p{
+    margin-left: .3rem;
 }
-
-.overSelect {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  max-height: 200px;
-}
-
 #checkboxes {
   position: absolute;
   opacity: 0;
@@ -91,9 +233,9 @@
 }
 
 #checkboxes strong{
-    font: revert;
-    padding-left: .3rem;
-    line-height: 1.5rem;
+  font: revert;
+  padding-left: .3rem;
+  line-height: 1.5rem;
 }
 
 #checkboxes label {
@@ -115,19 +257,26 @@
     border-color: transparent;
     padding: 1.5rem;
 }
-.input-mensagem-erro{
-    color: red;
+.input-mensagem-erros{
+    display: block;
+    color: var(--cor-erro);
     line-height: 1.5rem;
     font-family: var(--Roboto);
     font-size: 1rem;
+}
+.msg-erro{
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 1.1rem;
+    color: var(--cor-erro);
 }
 .verifySucess{
     border: 1px solid green;
 }
 .verifyError{
-    border: 1px solid red;
+    border: 1px solid var(--cor-erro);
 }
-.window-dialogo-agendamento{
+/* .window-dialogo-agendamento{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -167,8 +316,8 @@
     font-size: 1.2rem;
     line-height: 1.7rem;
     text-transform: uppercase;
-}
-@media screen and (min-width: 720px){
+} */
+/* @media screen and (min-width: 720px){
     .quadro-agendamento{
         padding: 1rem;
         width: 100%;
@@ -213,10 +362,10 @@
         width: 100%;
         margin: 2rem auto;
     }
-    .input-txt{
+    /* .input-txt, .selectBox select{
         width: 60%;
-    }
-    .botao-2{
+    } */
+    /* .botao-2{
         width: 20%;
         padding: 1.1rem;
     }
@@ -228,8 +377,8 @@
     .titulo-agendamento{
         font-size: 2rem;
         font-weight: 700;
-    }
-}
+    } 
+} */ 
 /* @media screen and (min-width: 1728px){
     .botao-2{
         margin-left: 46rem;

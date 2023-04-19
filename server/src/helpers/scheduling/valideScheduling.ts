@@ -6,18 +6,18 @@ export const schedulingSchema = z.object({
     required_error: 'Nome é obrigatório.',
   }).min(2, {
     message: 'Nome deve ter entre 2 e 26 caracteres.'
-  }).max(26, {
-    message: 'Nome deve ter entre 2 e 26 caracteres.'
-  }),
+  }).max(26),
   email: z.string({
     invalid_type_error: 'Não é uma string.',
     required_error: 'Email é obrigatório.'
   }).email({
     message: 'Não é um email válido.'
   }),
-  telefone: z.number({
-    required_error: 'Telefone é obrigatório.',
-    invalid_type_error: 'Não é do tipo numérico.'
+  telefone: z.string({
+    invalid_type_error: 'Não é do tipo string.',
+    required_error: 'Telefone é obrigatório.'
+  }).min(8, {
+    message: 'Não é um número válido.'
   }),
   senha: z.string({
     required_error: 'Senha é obrigatória.',
@@ -45,4 +45,4 @@ export const schedulingSchema = z.object({
   })
 })
 
-type Scheduling = z.infer<typeof schedulingSchema>;
+//type Scheduling = z.infer<typeof schedulingSchema>;

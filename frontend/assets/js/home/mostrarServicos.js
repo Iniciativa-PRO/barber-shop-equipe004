@@ -1,4 +1,4 @@
-import Servicos from "../api/admin/models/Servicos.js";
+import Servicos from "../api/models/Servicos.js";
 
 const cabelo = document.getElementById('cortesClassicos');
 const barba = document.getElementById('ajusteDeBarba');
@@ -11,7 +11,7 @@ grupoCabelo.innerHTML = `<strong>Cortes Classicos</strong>`;
 
 const servicos = new Servicos();
 
-export async function rederServicos1() {
+export async function rederServicos() {
 
     const dataServicos = await servicos.get();
 
@@ -32,7 +32,6 @@ export async function rederServicos1() {
        label.appendChild(span);
 
        //checkboxes.appendChild(label);
-
        if(servico.tipo == 'cabelo'){
 
        servicos.innerHTML = `

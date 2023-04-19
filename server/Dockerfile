@@ -2,16 +2,16 @@ FROM node:alpine
 
 WORKDIR /usr/app
 
-COPY package*.json .
-COPY tsconfig.json .
+COPY package*.json /usr/app
+COPY tsconfig.json /usr/app
 
+#NODE_ENV=development 
 RUN npm install
 
 COPY . /usr/app
 
-RUN npm run build; \
-npm run prisma
+# RUN npm run prisma:migrate
 
-EXPOSE 3000
+# EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+# CMD ["npm", "run", "dev"]

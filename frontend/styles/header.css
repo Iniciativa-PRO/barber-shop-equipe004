@@ -43,7 +43,7 @@
 }
 .menu-estendido{
     position: absolute;
-    top: -100%;
+    top: -20%;
     visibility: hidden;
     width: 100%;
     height: 100vh;
