@@ -35,6 +35,7 @@ function tokenAdmin(req: RequestToken, res: Response, next: NextFunction){
             err: 'Não autorizado.' 
         });
     }
+    
 }
 
 export default tokenAdmin;

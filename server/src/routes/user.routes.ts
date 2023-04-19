@@ -10,6 +10,6 @@ userRoutes.get('/show', tokenUser, UserController.show);
 userRoutes.put('/update', tokenUser, UserController.update);
 userRoutes.delete('/delete', tokenUser, UserController.delete);
 
-userRoutes.get('/search', tokenAdmin, UserController.usersShow);
+userRoutes.get('/users', tokenAdmin, UserController.usersShow);
 
 export = userRoutes;
