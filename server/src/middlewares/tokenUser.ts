@@ -2,7 +2,15 @@ import jwt from 'jsonwebtoken';
 import { NextFunction, Request, Response } from 'express';
 import authConfig from '../config/authConfig';
 
-function tokenUser(req: Request, res: Response, next: NextFunction){
+interface RequestToken extends Request{
+    userId?: string;
+    user?: {
+      id: string;
+      role: string;
+    };
+}
+
+function tokenUser(req: RequestToken, res: Response, next: NextFunction){
 
     try {
 

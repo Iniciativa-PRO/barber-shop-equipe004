@@ -20,7 +20,8 @@
     --preto: #000000;
     --cor-borda: #968787;
     --Roboto: "Roboto";
-    --Lato: "Lato" ;
+    --Lato: "Lato";
+    --cor-erro: #ff2525;
 
 }
 html{

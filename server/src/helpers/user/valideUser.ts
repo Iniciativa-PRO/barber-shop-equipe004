@@ -15,7 +15,7 @@ export const userSchema = z.object({
   }).email({
     message: 'Não é um email válido.'
   }),
-  telefone: z.number({
+  telefone: z.string({
     required_error: 'Telefone é obrigatório.',
     invalid_type_error: 'Não é do tipo numérico.'
   }),

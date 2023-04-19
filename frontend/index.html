@@ -39,7 +39,6 @@
                                 <p class="nav-texto">96 98337-2561</p>
                             </li>
                         </ul>
-                        <!-- <img src="assets/Icones/menu-hamburguer2.png" alt="Ícone menu-hamburguer" class="cabecalho-menu-hamburguer" id="jsmenu-hamburger"> -->
                         <div class="cabecalho-menu-hamburguer" id="jsmenu-hamburger">
                             <span></span>
                             <span></span>
@@ -48,12 +47,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="cabecalho">
-                <div class="icones-nav">
-                    <img src="assets/img/imagens_svg/Iniciativa-pro-logo 3.svg" alt="Logo BarberShop" class="logo-cabecalho">
-                    <img src="assets/img/Icones/menu-hamburguer.svg" alt="Ícone menu-hamburguer" class="cabecalho-menu-hamburguer">
-                </div>
-            </div> -->
             <div class="menu-estendido" id="jsmenu-estendido">
                 <ul>
                     <li class="jsanimation"><a href="#"><s>Home</s></a></li>
@@ -432,76 +425,55 @@ Barba agora mesmo !
                 <p class="agendamento-paragrafo">Venha nos visitar</p>
                 <h1 class="titulo-agendamento">Marque um horário</h1>
             </div>
-            <div class="quadro-agendamento">
-                <div class="box-agendamento">
-                    <div class="agendamento-area">
-                        <ul class="agendamento-lista">
-                            <li><img src="assets/img/Icones/Group.png" alt="Ícone do avatar perfil"></li>
-                            <li>
-                                <p class="texto-quadro nome">Nome</p>
-                            </li>
-                        </ul>
-                        <input type="text" id="input-name" name="input-name" class="input-txt" required>
+            <form method="post" class="form-agendamento">
+                <label for="nome">
+                    <div>
+                        <img src="assets/img/Icones/Group.png" alt="">
+                        <p>Nome</p>
                     </div>
-                    <div class="agendamento-area">
-                        <ul class="agendamento-lista">
-                            <li><img src="assets/img/Icones/eva_email-outline.png" alt="Ícone email"></li>
-                            <li>
-                                <p class="texto-quadro">Email</p>
-                            </li>
-                        </ul>
-                        <input type="email" id="input-email" name="input-email" class="input-txt" required>
+                    <input type="text" id="nome">
+                </label>
+                <label for="email">
+                    <div>
+                        <img src="assets/img/Icones/eva_email-outline.png" alt="">
+                        <p>Email</p>
                     </div>
-                    <div class="agendamento-area">
-                        <ul class="agendamento-lista">
-                            <li><img src="assets/img/Icones/Frame 2.png" alt="Ícone Telefone"></li>
-                            <li>
-                                <p class="texto-quadro">Telefone</p>
-                            </li>
-                        </ul>
-                        <input type="number" id="input-tel" name="input-tel" class="input-txt" required>
+                    <input type="email" id="email">
+                </label>
+                <label for="telefone">
+                    <div>
+                        <img src="assets/img/Icones/Frame 2.png" alt="">
+                        <p>Telefone</p>
                     </div>
-                </div>
-                <div class="box-agendamento">
-                    <div class="agendamento-area">
-                        <ul class="agendamento-lista">
-                            <li><img src="assets/img/Icones/mdi_chair-rolling.png" alt="Ícone cadeira de barbeiro"></li>
-                            <li>
-                                <p class="texto-quadro">Serviços</p>
-                            </li>
-                        </ul>
-                        <div class="multiselect">
-                            <div class="selectBox" id="selectBox">
-                                <select>
-                                    <option>Selecionar Serviço</option>
-                                </select>
-                                <div class="overSelect">
-                                </div>
-                            </div>
-                            <div id="checkboxes">
-                            </div>
-
-                        </div>
+                    <input type="tel" id="telefone">
+                </label>
+                <label for="servicos">
+                    <div>
+                        <img src="assets/img/Icones/mdi_chair-rolling.png" alt="">
+                        <p>Serviços</p>
                     </div>
-                    <div class="agendamento-area">
-                        <ul class="agendamento-lista">
-                            <li><img src="assets/img/Icones/akar-icons_calendar.png" alt="Ícone do calendário"></li>
-                            <li>
-                                <p class="texto-quadro">Data</p>
-                            </li>
-                        </ul>
-                        <input type="date" id="input-data" name="input-data" class="input-txt" required>
+                    <span type="text" id="servicos" class="input-servicos">
+                       <p class="target">Escolher Serviço(s)</p><img src="assets/img/Icones/icons8-duplo-para-cima-24.png" class="alvo" alt="">
+                    </span>
+                    <div id="checkboxes">
                     </div>
-                    <div class="agendamento-area">
-                        <ul class="agendamento-lista">
-                            <li><img src="assets/img/Icones/akar-icons_clock.png" alt="Ícone relógio"></li>
-                            <li>
-                                <p class="texto-quadro">Hora</p>
-                            </li>
-                        </ul>
-                        <input type="time" id="input-hora" name="input-hora" class="input-txt" required>
+                </label>
+                <label for="data">
+                    <div>
+                        <img src="assets/img/Icones/akar-icons_calendar.png" alt="">
+                        <p>Data</p>
                     </div>
-                </div>
+                    <input type="date" id="data">
+                </label>
+                <label for="hora">
+                    <div>
+                        <img src="assets/img/Icones/akar-icons_clock.png" alt="">
+                        <p>Hora</p>
+                    </div>
+                    <input type="time" id="hora">
+                </label>
+            </form>
+            <div class="box-msg">
             </div>
             <button class="botao-agendamento botao-2" id="botao-agendamento" name="botao-agendamento">Agende o seu
                 corte

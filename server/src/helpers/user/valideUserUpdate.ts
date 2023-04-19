@@ -9,11 +9,11 @@ export const userUpdateSchema = z.object({
     required_error: 'Nome é obrigatório.',
     invalid_type_error: 'Não é um nome válido.'
   }).min(2).max(26),
-  telefone: z.number({
+  telefone: z.string({
     required_error: 'Telefone é obrigatório.',
-    invalid_type_error: 'Não é do tipo numérico.'
+    invalid_type_error: 'Não é do tipo string.'
   }),
   senha: z.any(optional(string())),
 })
 
-type UserUpdate = z.input<typeof userUpdateSchema>;
+//type UserUpdate = z.input<typeof userUpdateSchema>;

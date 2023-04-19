@@ -10,6 +10,6 @@ schedulingRoutes.get('/show', tokenUser, SchedulingController.show);
 schedulingRoutes.put('/update', tokenUser, SchedulingController.update);
 schedulingRoutes.delete('/delete', tokenUser, SchedulingController.delete);
 
-schedulingRoutes.get('search', tokenAdmin, SchedulingController.schedulingsSearch);
+schedulingRoutes.get('/search', tokenAdmin, SchedulingController.schedulingsSearch);
 
 export default schedulingRoutes;

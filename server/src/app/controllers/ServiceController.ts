@@ -1,7 +1,6 @@
-import prisma  from './../../lib/prisma';
 import { Request, Response } from 'express';
-import { serviceSchema } from './../../helpers/service/valideService';
-import { z } from 'zod';
+import APIError from '../../errors/APIError';
+import ServiceService from '../../services/ServiceService';
 
 class ServiceController {
 
@@ -9,46 +8,22 @@ class ServiceController {
 
     try {
 
-      const service = serviceSchema.parse(req.body);
-      
-      const createService = await prisma.service.create({ 
-        data: service,
-      });
-      return res.status(201).json(createService);
+      const service = await ServiceService.create(req.body);
+      return res.status(201).json(service);
 
-    } catch (err) {
-      if (err instanceof z.ZodError) {
-        return res.status(400).json({
-          errors: err.errors.map(({ message, path }) => ({
-            message,
-            field: path.join("."),
-          })),
-        });
-      }
-
-      return res.status(500).json({
-        message: "Internal server error",
-      });
+    } catch (err: any) {
+      APIError.msg(err, res);
     };
     
   };
 
   public async show(req: Request, res: Response) {
     try {
-      const services = await prisma.service.findMany({
-        select: {
-          id: true,
-          tipo: true,
-          nome: true,
-          loja: true,
-          preco: true,
-          descricao: true
-        },
-      });
+      const services = await ServiceService.show(req.body.id);
       return res.status(200).json(services);
 
     } catch (err: any) {
-      res.status(400).json({ err: err.message });
+      APIError.msg(err, res);
     };
   };
 
@@ -56,55 +31,31 @@ class ServiceController {
 
     try {
 
-      const service =  serviceSchema.parse(req.body);
+      const service =  await ServiceService.update(req.body);
+      return res.status(200).json(service);
 
-      const updateService = await prisma.service.update({
-         where: { id: req.body.id },
-         data: service,
-      });
-      return res.status(200).json(updateService);
-
-    } catch (err) {
-      if (err instanceof z.ZodError) {
-        return res.status(400).json({
-          errors: err.errors.map(({ message, path }) => ({
-            message,
-            field: path.join("."),
-          })),
-        });
-      }
-      return res.status(400).json({ err });
-    };
+    } catch (err: any) {
+      APIError.msg(err, res);
+     };
   };
 
   public async delete(req: Request, res: Response) {
     try {
-      await prisma.service.delete({
-        where: { id: req.body.id }
-      })
-      return res.status(200).json({ message: 'Serviço deletado com sucesso.'});
+      const service = await ServiceService.delete(req.body.id);
+      return res.status(200).json(service);
 
     } catch (err: any) {
-      res.status(400).json({ err: err.message });
+      APIError.msg(err, res);
     };
   };
 
   public async servicesShow(req: Request, res: Response) {
     try {
-        const services = await prisma.service.findMany({
-          select: {
-            id: true,
-            tipo: true,
-            nome: true,
-            loja: true,
-            preco: true,
-            descricao: true
-          },
-        });
+        const services = await ServiceService.searchAll();
         return res.status(200).json(services);
         
-    } catch (err) {
-        return res.status(400).json({ err });
+    } catch (err: any) {
+      APIError.msg(err, res);
     }
 
   }

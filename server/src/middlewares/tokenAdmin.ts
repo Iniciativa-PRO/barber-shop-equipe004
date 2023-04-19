@@ -2,7 +2,18 @@ import { NextFunction, Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import authConfig from '../config/authConfig';
 
-function tokenAdmin(req: Request, res: Response, next: NextFunction){
+interface TokenPayload{ 
+    sub: string, role: string 
+}
+interface RequestToken extends Request{
+    userId?: string;
+    user?: {
+      id: string;
+      role: string;
+    };
+}
+
+function tokenAdmin(req: RequestToken, res: Response, next: NextFunction){
 
     try {
 
@@ -10,9 +21,7 @@ function tokenAdmin(req: Request, res: Response, next: NextFunction){
 
         const token = authorization;
 
-        const decoded = jwt.verify(token, authConfig.secret!) as { 
-            sub: string, role: string 
-        };
+        const decoded = jwt.verify(token, authConfig.secret!) as TokenPayload;
 
         req.user = { id: decoded.sub, role: decoded.role };
 
