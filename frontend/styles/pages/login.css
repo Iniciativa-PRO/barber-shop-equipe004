@@ -1,0 +1,92 @@
+.login-box{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+width: 400px;
+padding: 20px;      
+background: rgba(0, 0, 0,.8);
+}
+
+.logo-login{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login-box h2{
+  margin: 0 0 30px;
+  padding: 0;
+  color: var(--branco);
+  font-family: var(--Roboto);
+  text-align:center;  
+}
+.login-box p{
+    margin: 0 0 30px;
+    padding: 0;
+    font-size: 12px;
+    color: var(--branco);
+    font-family: var(--Roboto);
+    text-align:center;  
+  }
+.cor-laranja{
+    color: var(--laranja);
+  }
+.login-box .input-login-box{
+    position: relative;
+}
+.login-box .input-login-box input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--branco);
+    font-family: var(--Roboto);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid var(--laranja);
+    outline: none;
+    background: transparent;
+}
+.login-box .input-login-box label{
+position: absolute;
+top: 0;
+left: 0;
+padding: 10px 0;
+font-size: 16px;
+color: var(--branco);
+font-family: var(--Roboto);
+pointer-events: none;
+transition: .5s;
+}
+
+.login-box .input-login-box input:focus ~ label,
+.login-box .input-login-box input:valid ~ label
+{
+top: -18px;
+left: 0;
+color: var(--laranja);
+font-family: var(--Roboto);
+font-size: 12px;
+}
+
+.botao-login
+{
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid #fcaf50;
+    color: #fff;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 12px 0;
+}
+.botao-login:hover {
+    background-color: var(--laranja);
+    color: #000;
+    transition: .5s;
+}
+
+.botao-login:active {
+    background-color: #000;
+    color: var(--laranja);
+}
