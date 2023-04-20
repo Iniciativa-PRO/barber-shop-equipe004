@@ -1,5 +1,6 @@
 import request from "supertest";
-import appTest from "./../../test/server.spec"
+import { App } from "../../app";
+const appTest = new App().server.listen(3001);
 
 var serviceId: number;
 var schedulingId: string;

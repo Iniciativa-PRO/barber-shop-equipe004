@@ -1,12 +1,9 @@
-const PORT = process.env.PORT;
+const PORT = 3001;
 import { App } from "../app"
 
 let appTest: any;
 
-// True por enquanto até eu encontrar o erro;
-
-if (true) {
-
+if (require.main === module) {
    appTest = new App().server.listen(PORT, () => { 
        console.log('Server Running in port: ' + PORT); 
    });

@@ -75,11 +75,9 @@ class UserRepository {
     }
 
     async delete(id: string) {
-        await prisma.user.delete({
+        return await prisma.user.delete({
            where: { id },
         });
-
-        return;
     }
 
     async showUsers() {

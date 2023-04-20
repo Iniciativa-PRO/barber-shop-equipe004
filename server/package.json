@@ -34,5 +34,8 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsup src",
     "test": "jest"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
   }
 }

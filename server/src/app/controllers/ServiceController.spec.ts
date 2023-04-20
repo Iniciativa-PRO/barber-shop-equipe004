@@ -1,21 +1,20 @@
 import request from "supertest";
-import appTest from "./../../test/server.spec"
+import { seedAdmin } from "./../../test/seed";
+import { App } from "../../app";
+const appTest = new App().server.listen(3003);
 
 var serviceId: number;
+var userId: string;
 var userToken: string;
 
 
 describe("Deve criar, buscar, atualizar e deletar serviço", () => {
 
-    it("POST / Cria usuário ADMIN", async() => {
-
-        const res = await request(appTest).post('/api/v1/user/create').send({
-            nome: 'Heleno Salgado',
-            telefone: '12345678',
-            email: 'leno@gmail.com',
-            senha: 'Dales12'
-        })
-        expect(res.status).toBe(201);
+    // Cria usuário admin
+    it("Function seedAdmin", async() => {
+        const user = await seedAdmin();
+        expect(user);
+        userId = user.id
     })
 
     it("POST / Loga usuário ADMIN", async() => {
@@ -39,7 +38,7 @@ describe("Deve criar, buscar, atualizar e deletar serviço", () => {
             preco: '30',
             descricao: 'Corte tradicional.'
         })
-        expect(res.status).toBe(401);
+        expect(res.status).toBe(201);
         serviceId = res.body.id;
     })
 
@@ -51,7 +50,7 @@ describe("Deve criar, buscar, atualizar e deletar serviço", () => {
     })
 
     it("PUT / Atualiza serviço", async() => {
-        const res = await request(appTest).get('/api/v1/services/update')
+        const res = await request(appTest).put('/api/v1/services/update')
         .set('Authorization', userToken)
         .send({
             id: serviceId,
@@ -66,15 +65,23 @@ describe("Deve criar, buscar, atualizar e deletar serviço", () => {
 
     it("GET / Retorna todos os serviços", async() => {
         const res = await request(appTest).get('/api/v1/services')
-        .set('Authorization', userToken)
         expect(res.status).toBe(200);
     })
 
     it("DELETE / deleta serviço", async() => {
-        const res = await request(appTest).get('/api/v1/services/delete')
+        const res = await request(appTest).delete('/api/v1/services/delete')
         .set('Authorization', userToken)
         .send({
             id: serviceId
+        })
+        expect(res.status).toBe(200);
+    })
+
+    it("DELETE / deleta usuário ADMIN", async() => {
+        const res = await request(appTest).delete('/api/v1/user/delete')
+        .set('Authorization', userToken)
+        .send({
+            id: userId
         })
         expect(res.status).toBe(200);
     })

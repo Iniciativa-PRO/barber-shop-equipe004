@@ -14,6 +14,7 @@ class ServiceRepository{
                 descricao
             },
             select:{
+                id: true,
                 tipo: true,
                 nome: true,
                 loja: true,
@@ -67,11 +68,9 @@ class ServiceRepository{
     }
 
     async delete(id: number){
-       await prisma.service.delete({
+       return await prisma.service.delete({
           where: { id }
-       })
-
-       return;
+       });
     }
 
     async searchAll(){
