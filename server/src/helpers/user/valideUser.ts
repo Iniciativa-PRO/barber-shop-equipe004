@@ -17,7 +17,7 @@ export const userSchema = z.object({
   }),
   telefone: z.string({
     required_error: 'Telefone é obrigatório.',
-    invalid_type_error: 'Não é do tipo numérico.'
+    invalid_type_error: 'Não é do tipo string.'
   }),
   senha: z.string({
     required_error: 'Senha é obrigatória.',

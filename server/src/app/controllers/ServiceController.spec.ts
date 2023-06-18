@@ -1,21 +1,21 @@
 import request from "supertest";
-import { seedAdmin } from "./../../test/seed";
+//import { seedAdmin } from "./../../test/seed";
 import { App } from "../../app";
 const appTest = new App().server.listen(3003);
 
 var serviceId: number;
-var userId: string;
+//var userId: string;
 var userToken: string;
 
 
 describe("Deve criar, buscar, atualizar e deletar serviço", () => {
 
     // Cria usuário admin
-    it("Function seedAdmin", async() => {
-        const user = await seedAdmin();
-        expect(user);
-        userId = user.id
-    })
+    // it("Function seedAdmin", async() => {
+    //     const user = await seedAdmin();
+    //     expect(user);
+    //     userId = user.id
+    // })
 
     it("POST / Loga usuário ADMIN", async() => {
     
@@ -77,13 +77,13 @@ describe("Deve criar, buscar, atualizar e deletar serviço", () => {
         expect(res.status).toBe(200);
     })
 
-    it("DELETE / deleta usuário ADMIN", async() => {
-        const res = await request(appTest).delete('/api/v1/user/delete')
-        .set('Authorization', userToken)
-        .send({
-            id: userId
-        })
-        expect(res.status).toBe(200);
-    })
+    // it("DELETE / deleta usuário ADMIN", async() => {
+    //     const res = await request(appTest).delete('/api/v1/user/delete')
+    //     .set('Authorization', userToken)
+    //     .send({
+    //         id: userId
+    //     })
+    //     expect(res.status).toBe(200);
+    // })
     
 })

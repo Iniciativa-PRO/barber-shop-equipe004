@@ -19,7 +19,7 @@ services:
       - barber
   app:
     build: .
-    command: sh -c "sleep 20 && npm run prisma:migrate && npm run dev"
+    command: sh -c "sleep 20 && npm run prisma:migrate && npx prisma db seed && npm test && npm run build && npm run start"
     container_name: app-barber
     depends_on:
       - db

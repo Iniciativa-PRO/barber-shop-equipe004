@@ -1,5 +1,10 @@
 ## Servidor da aplicação Barber Shop | em TypeScript
 
+### Execurar com Docker Compose
+```bash
+$ docker compose up
+```
+
 ### Pré requisitos para rodar o servidor. 👁️‍🗨️
 
 - NodeJs instalado, foi desenvolvido com a v19.7.0;
@@ -22,6 +27,12 @@ $ npm install
 # Inicie o banco de dados
 $ npx prisma migrate
 
+# Pré popule o banco de dados
+$ npx prisma db seed
+
+# Execute testes
+$ npm test
+
 # Compile
 $ npm run build
 
@@ -37,21 +48,35 @@ Aqui estão os modelos de requisição:
 ### Módulos e tecnologias utilizadas: 📦
 
 ```
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.0",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/node": "^18.15.11",
+    "@types/nodemailer": "^6.4.7",
+    "@types/supertest": "^2.0.12",
+    "jest": "^29.5.0",
+    "prisma": "^4.12.0",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
   "dependencies": {
     "@prisma/client": "^4.12.0",
-    "@types/node": "^18.15.3",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "nodemailer": "^6.9.1",
-    "prisma": "^4.12.0",
     "short-unique-id": "^4.4.4",
-    "tsup": "^6.6.3",
+    "tsup": "^6.7.0",
     "tsx": "^3.12.5",
     "zod": "^3.21.4"
-  }
+  },
   ```
 
 ## Funcionalidades da API REST

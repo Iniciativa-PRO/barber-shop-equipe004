@@ -4,9 +4,8 @@ import bcrypt from 'bcryptjs';
 export const generateSenha = (senha: string) => {
 
     const salt = bcrypt.genSaltSync(10);
-    senha = bcrypt.hashSync(senha, salt);
-    return senha;
- 
+    return bcrypt.hashSync(senha, salt);
+    
 }
 
 export const generateId = () => {

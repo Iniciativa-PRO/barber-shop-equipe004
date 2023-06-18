@@ -5,8 +5,8 @@ const prisma = new PrismaClient();
 let senha: string = generateSenha('Dales12');
 let id: string = generateId();
 
-export async function seedAdmin() {
-  const user = await prisma.user.create({
+export async function seed() {
+  await prisma.user.create({
     data: {
         id,
         nome: 'Heleno Salgado',
@@ -15,13 +15,29 @@ export async function seedAdmin() {
         senha,
         role: Role.ADMIN
     },
-    select: {
-      id: true,
+  });
+  await prisma.service.create({
+    data: {
+      id: 1,
+      tipo: "barba",
+      nome: "Corte com Máquina",
+      loja: "Barber Shop",
+      preco: "10",
+      descricao: "Corte tradicional."
     }
   });
-  return user;
+  await prisma.service.create({
+    data: {
+      id: 2,
+      tipo: "Cabelo",
+      nome: "Corte com Tesoura",
+      loja: "Barber Shop",
+      preco: "20",
+      descricao: "Corte tradicional."
+    }
+  });
 };
-seedAdmin()
+seed()
     .then(async () => {
       await prisma.$disconnect();
     })

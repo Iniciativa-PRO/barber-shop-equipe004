@@ -36,6 +36,6 @@
     "test": "jest"
   },
   "prisma": {
-    "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node src/test/seed.ts"
   }
 }
